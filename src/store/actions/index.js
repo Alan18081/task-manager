@@ -1,12 +1,15 @@
 export {
    fetchUser,
    fetchUserSuccess,
-   saveProfile
+   updateProfile,
+   updateProfileSuccess
 } from './user';
 
 export {
     fetchTasks,
-    fetchTasksSuccess
+    fetchTasksSuccess,
+    changeTaskStatus,
+    changeTaskSuccess
 } from './tasks';
 
 export {

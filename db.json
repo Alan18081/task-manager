@@ -2,18 +2,21 @@
   "user": {
     "name": "Alan",
     "email": "alan@gmail.com",
-    "birth": "12.10.1995"
+    "birth": "12.10.1995",
+    "isAdmin": true
   },
   "tasks": [
     {
+      "id": 323232,
       "title": "Build react app",
       "description": "Create react application using react & redux",
-      "status": "In Progress"
+      "status": "Peer Review"
     },
     {
+      "id": 12334,
       "title": "Build node.js api",
       "description": "Create restful api using express & mongoose",
-      "status": "To Do"
+      "status": "Done"
     }
   ]
 }

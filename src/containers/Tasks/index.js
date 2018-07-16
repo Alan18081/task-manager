@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchTasks} from '../../store/actions';
+import {fetchTasks,changeTaskStatus} from '../../store/actions';
 
 import Loader from '../../components/Loader';
 import Task from '../../components/Task';
@@ -11,7 +11,12 @@ class Tasks extends Component {
     }
     renderTasks() {
         return this.props.tasks.map(task => (
-           <Task task={task} key={new Date().getTime() + Math.random()}/>
+           <Task
+               isAdmin={this.props.isAdmin}
+               task={task}
+               key={task.get('id')}
+               change={this.props.onChangeTaskStatus}
+           />
         ));
     }
     render() {
@@ -27,12 +32,14 @@ class Tasks extends Component {
     }
 }
 
-const mapStateToProps = ({tasks}) => ({
-   tasks: tasks.get('list')
+const mapStateToProps = ({tasks,user}) => ({
+   tasks: tasks.get('list'),
+   isAdmin: user.get('isAdmin')
 });
 
 const mapDispatchToProps = dispatch => ({
-   onFetchTasks: () => dispatch(fetchTasks())
+   onFetchTasks: () => dispatch(fetchTasks()),
+   onChangeTaskStatus: (id,status) => dispatch(changeTaskStatus(id,status))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tasks);

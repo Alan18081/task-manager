@@ -1,16 +1,27 @@
 import React, { Component, Fragment } from 'react';
-import {Route} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Route,withRouter} from 'react-router-dom';
 import {withStyles} from '@material-ui/core';
 
 import Header from '../Header/index';
 import Profile from '../Profile/index';
 import Tasks from '../Tasks/index';
+import Loader from '../../components/Loader';
 
 import styles from './styles';
+import {fetchUser} from "../../store/actions";
 
 class App extends Component {
-  render() {
-    const {classes} = this.props;
+
+    componentDidMount() {
+        this.props.onFetchUser();
+    }
+
+    render() {
+    const {classes,user} = this.props;
+    if(!user) {
+        return <Loader/>
+    }
     return (
       <Fragment>
         <Header/>
@@ -23,4 +34,12 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App);
+const mapStateToProps = ({user}) => ({
+    user: user.get('profile')
+});
+
+const mapDispatchToProps = dispatch => ({
+    onFetchUser: () => dispatch(fetchUser())
+});
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(App)));
