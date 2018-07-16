@@ -29,15 +29,18 @@ class Profile extends Component {
         if(!user) {
             return <CircularProgress className={classes.loader}/>
         }
-        return this.state.editing
-            ? <ProfileEdit toggle={this.toggleEditing} initialValues={user.toJS()} onSave={this.save}/>
-            : <ProfileView user={user} toggle={this.toggleEditing}/>;
+        return (
+            <div className={classes.container}>
+                {this.state.editing
+                    ? <ProfileEdit toggle={this.toggleEditing} initialValues={user.toJS()} onSave={this.save}/>
+                    : <ProfileView user={user} toggle={this.toggleEditing}/>}
+            </div>
+        );
     }
 }
 
 const mapStateToProps = ({user}) => ({
-   user: user.get('profile'),
-   loading: user.get('loading')
+   user: user.get('profile')
 });
 
 const mapDispatchToProps = dispatch => ({
