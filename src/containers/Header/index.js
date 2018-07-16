@@ -4,6 +4,8 @@ import {AppBar,Toolbar,IconButton,Typography,withStyles,Button} from '@material-
 import AccountIcon from '@material-ui/icons/AccountCircle';
 import ListIcon from '@material-ui/icons/List';
 
+import Logo from '../../components/Logo';
+
 import styles from './styles';
 
 class Header extends Component {

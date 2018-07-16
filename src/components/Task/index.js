@@ -13,22 +13,25 @@ const Task = ({task,classes,change,isAdmin}) => (
             <Typography variant="headline">{task.get('title')}</Typography>
             <Typography variant="body1">{task.get('description')}</Typography>
             <div className={classes.status}>
-                {isAdmin
-                    ? <FormControl>
+                {task.get('status') === stages[stages.length - 1] && !isAdmin
+                    ? <Typography variant="subheading" color="primary">{task.get('status')}</Typography>
+                    : <FormControl>
                         <InputLabel htmlFor="status">Status</InputLabel>
-                        <Select
-                            value={stages.find(stage => stage === task.get('status'))}
-                            onChange={({target: {value}}) => change(task.get('id'),value)}
-                            inputProps={{
-                                id: 'status'
-                            }}
-                        >
-                            {stages.map(stage => (
-                                <MenuItem key={stage} value={stage}>{stage}</MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
-                    : <Typography variant="subheading" color="primary">{task.get('status')}</Typography>
+                            <Select
+                                value={stages.find(stage => stage === task.get('status'))}
+                                onChange={({target: {value}}) => change(task.get('id'),value)}
+                                inputProps={{
+                                    id: 'status'
+                                }}
+                            >
+                                {stages.map(stage => {
+                                    if(stage === stages[stages.length - 1] && !isAdmin) {
+                                        return null;
+                                    }
+                                    return <MenuItem key={stage} value={stage}>{stage}</MenuItem>
+                                })}
+                            </Select>
+                        </FormControl>
                 }
             </div>
         </CardContent>
