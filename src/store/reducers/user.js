@@ -1,22 +1,19 @@
 import {fromJS} from 'immutable';
-import {FETCH_USER,FETCH_USER_SUCCESS,SAVE_PROFILE} from '../actions/types';
+import {FETCH_USER_SUCCESS,UPDATE_PROFILE_SUCCESS} from '../actions/types';
 
 const initialState = fromJS({
-   profile: null
+   profile: null,
+   isAdmin: false
 });
 
 export default (state = initialState, {type,payload}) => {
     switch (type) {
-        case FETCH_USER:
-            return state.merge({
-               error: null
-            });
         case FETCH_USER_SUCCESS:
             return state.merge({
-               profile: fromJS(payload)
+               profile: fromJS(payload),
+               isAdmin: payload.isAdmin
             });
-        case SAVE_PROFILE:
-            console.log(payload);
+        case UPDATE_PROFILE_SUCCESS:
             return state.set('profile',fromJS(payload));
         default:
             return state;
