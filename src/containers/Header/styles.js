@@ -9,7 +9,7 @@ export default theme => ({
     title: {
         color: '#fff'
     },
-    profileBtn: {
+    icon: {
        color: '#fff'
     }
 });

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchUser,saveProfile} from '../../store/actions';
-import {withStyles,CircularProgress} from '@material-ui/core';
+import {withStyles} from '@material-ui/core';
 
 import ProfileView from '../../components/ProfileView';
 import ProfileEdit from '../../components/ProfileEdit';
+import Loader from '../../components/Loader';
 
 import styles from './styles';
 
@@ -27,7 +28,7 @@ class Profile extends Component {
     render() {
         const {user,classes} = this.props;
         if(!user) {
-            return <CircularProgress className={classes.loader}/>
+            return <Loader/>
         }
         return (
             <div className={classes.container}>
