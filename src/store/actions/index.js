@@ -9,7 +9,8 @@ export {
     fetchTasks,
     fetchTasksSuccess,
     changeTaskStatus,
-    changeTaskSuccess
+    changeTaskSuccess,
+    setTaskTime
 } from './tasks';
 
 export {
