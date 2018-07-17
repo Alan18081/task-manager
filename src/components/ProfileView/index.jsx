@@ -4,22 +4,18 @@ import {
   Typography,
   withStyles,
   Card,
-  CardContent,
-  IconButton
+  CardContent
 } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import StarIcon from "@material-ui/icons/StarBorder";
 
 import styles from "./styles";
 
+import Title from '../../components/Title/index';
+
 const ProfileView = ({ user, classes, toggle }) => (
   <div className={classes.container}>
-    <div className={classes.header}>
-      <Typography variant="display1">Profile</Typography>
-      <IconButton onClick={toggle} color="primary">
-        <EditIcon />
-      </IconButton>
-    </div>
+    <Title/>
     <Card>
       <CardContent className={classes.content}>
         <div className={classes.info}>

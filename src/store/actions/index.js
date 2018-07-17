@@ -16,4 +16,11 @@ export {
   addTaskComment
 } from "./tasks";
 
+export {
+  fetchAllTasks,
+  fetchAllTasksSuccess,
+  fetchAllUsers,
+  fetchAllUsersSuccess
+} from "./board";
+
 export { serverError } from "./errors";

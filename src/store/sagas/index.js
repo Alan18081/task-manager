@@ -5,3 +5,5 @@ export { updateProfileSaga } from "./updateProfile";
 export { setTaskTimeSaga } from "./setTaskTime";
 export { fetchActiveTaskSaga } from "./fetchActiveTask";
 export { addTaskCommentSaga } from "./addTaskComment";
+export { fetchAllTasksSaga } from "./fetchAllTasks";
+export { fetchAllUsersSaga } from "./fetchAllUsers";

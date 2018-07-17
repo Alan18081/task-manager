@@ -1,10 +1,4 @@
 export default ({ spacing: { unit }, breakpoints }) => ({
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: unit * 2
-  },
   content: {
     display: "flex",
     alignItems: "flex-start",

@@ -5,6 +5,36 @@
     "birth": "12.10.1995",
     "isAdmin": true
   },
+  "users": [
+    {
+      "id": 4545,
+      "name": "Mark",
+      "email": "cat@gmail.com",
+      "birth": "12.10.1990",
+      "isAdmin": false
+    },
+    {
+      "id": 12312121,
+      "name": "Sarah",
+      "email": "sara@gmail.com",
+      "birth": "12.10.1996",
+      "isAdmin": false
+    },
+    {
+      "id": 897898,
+      "name": "Mark",
+      "email": "cat@gmail.com",
+      "birth": "12.10.1990",
+      "isAdmin": false
+    },
+    {
+      "id": 587,
+      "name": "John",
+      "email": "john@gmail.com",
+      "birth": "12.10.1999",
+      "isAdmin": false
+    }
+  ],
   "tasks": [
     {
       "id": 323232,
