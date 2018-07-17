@@ -6,14 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d09524a-b50e-4797-9ede-f2def5169b6a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Tasks/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Tasks/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/TaskPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TaskPage/index.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,46 +20,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="53" column="32" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="32" />
+            <state relative-caret-position="448">
+              <caret line="74" column="25" lean-forward="true" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/App/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Tasks/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setTaskTime.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/store/sagas/setTaskTime.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,7 +40,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/store/actions/errors.js" />
         <option value="$PROJECT_DIR$/src/containers/Profile/index.js" />
         <option value="$PROJECT_DIR$/src/components/Task/index_scsslint_tmp2431604740791111061.js" />
         <option value="$PROJECT_DIR$/src/components/Task/styles.js" />
@@ -131,6 +90,7 @@
         <option value="$PROJECT_DIR$/src/containers/App/index.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Tasks/index.jsx" />
         <option value="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" />
+        <option value="$PROJECT_DIR$/src/containers/TaskPage/index.jsx" />
       </list>
     </option>
   </component>
@@ -188,6 +148,13 @@
               <item name="task-manager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="TaskPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
@@ -264,18 +231,18 @@
       <workItem from="1531724807649" duration="1605000" />
       <workItem from="1531726421514" duration="26197000" />
       <workItem from="1531805724528" duration="920000" />
-      <workItem from="1531809656524" duration="19138000" />
+      <workItem from="1531809656524" duration="19370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50311000" />
+    <option name="totallyTimeSpent" value="50543000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18382749" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18382749" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3298647" />
@@ -284,7 +251,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3298647" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.56815815" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.56815815" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -636,13 +603,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="32" />
+        <state relative-caret-position="210">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/sagas/setTaskTime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Tasks/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -656,26 +637,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Tasks/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/sagas/setTaskTime.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="448">
+          <caret line="74" column="25" lean-forward="true" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
           <folding>
-            <element signature="e#0#53#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

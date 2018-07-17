@@ -63,7 +63,7 @@ class TaskPage extends Component {
                   <FormControl>
                     <InputLabel htmlFor="status">Status</InputLabel>
                     <Select
-                      value={stages.find(stage => stage === task.get("status"))}
+                      value={task.get('status')}
                       onChange={this.handleStatus}
                       inputProps={{
                         id: "status"
