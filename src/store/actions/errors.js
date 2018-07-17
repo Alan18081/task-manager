@@ -1,5 +1,5 @@
-import {SERVER_ERROR} from "./types";
+import { SERVER_ERROR } from "./types";
 
 export const serverError = () => ({
-   type: SERVER_ERROR
+  type: SERVER_ERROR
 });

@@ -1,10 +1,4 @@
 export default ({ spacing: { unit }, breakpoints }) => ({
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: unit * 2
-  },
   content: {
     display: "flex",
     alignItems: "flex-start",
@@ -12,8 +6,14 @@ export default ({ spacing: { unit }, breakpoints }) => ({
       display: "block"
     }
   },
+  taskDescription: {
+    marginBottom: unit * 2
+  },
   info: {
-    flexGrow: 1
+    flexGrow: 1,
+    [breakpoints.down("sm")]: {
+      marginBottom: unit
+    }
   },
   status: {
     display: "flex",
