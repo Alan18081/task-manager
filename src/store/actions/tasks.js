@@ -1,4 +1,4 @@
-import {CHANGE_TASK_STATUS, CHANGE_TASK_SUCCESS, FETCH_TASKS, FETCH_TASKS_SUCCESS} from "./types";
+import {SET_TASK_TIME,CHANGE_TASK_STATUS, CHANGE_TASK_SUCCESS, FETCH_TASKS, FETCH_TASKS_SUCCESS} from "./types";
 
 export const fetchTasks = () => ({
    type: FETCH_TASKS
@@ -19,4 +19,9 @@ export const changeTaskStatus = (id,status) => ({
 export const changeTaskSuccess = (task) => ({
    type: CHANGE_TASK_SUCCESS,
    payload: task
+});
+
+export const setTaskTime = (time) => ({
+  type: SET_TASK_TIME,
+  payload: time
 });

@@ -10,13 +10,27 @@
       "id": 323232,
       "title": "Build react app",
       "description": "Create react application using react & redux",
-      "status": "Peer Review"
+      "activeStatus": "Peer Review",
+      "estimateTime": "2 hours",
+      "statuses": {
+        "To Do": 1234354564,
+        "In Progress": 13232,
+        "Peer review": 3000000,
+        "Done": 43254354565
+      }
     },
     {
       "id": 12334,
       "title": "Build node.js api",
       "description": "Create restful api using express & mongoose",
-      "status": "Done"
+      "activeStatus": "Done",
+      "estimateTime": null,
+      "statuses": {
+        "To Do": 1234354564,
+        "In Progress": 13232,
+        "Peer review": 3000000,
+        "Done": 43254354565
+      }
     }
   ]
 }
