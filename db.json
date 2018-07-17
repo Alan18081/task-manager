@@ -10,7 +10,7 @@
       "id": 323232,
       "title": "Build react app",
       "description": "Create react application using react & redux",
-      "status": "Peer Review",
+      "status": "Done",
       "estimateTime": "2 hours",
       "comments": [
         {
@@ -32,7 +32,7 @@
       "title": "Build node.js api",
       "description": "Create restful api using express & mongoose",
       "status": "Done",
-      "estimateTime": null,
+      "estimateTime": "3 hours",
       "comments": [
         {
           "id": 90,
@@ -46,7 +46,8 @@
           "text": "Can I use other ORM",
           "createdAt": "05:30:45"
         }
-      ]
+      ],
+      "estimatedTime": "5 hours"
     }
   ]
 }

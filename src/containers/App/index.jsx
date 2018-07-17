@@ -10,16 +10,17 @@ import Loader from "../../components/Loader/index";
 import TaskPage from "../TaskPage/index";
 
 import styles from "./styles";
-import { fetchUser } from "../../store/actions";
+import {fetchTasks, fetchUser} from '../../store/actions';
 
 class App extends Component {
   componentDidMount() {
     this.props.onFetchUser();
+    this.props.onFetchTasks();
   }
 
   render() {
-    const { classes, user } = this.props;
-    if (!user) {
+    const { classes, user, tasks } = this.props;
+    if (!user || !tasks) {
       return <Loader />;
     }
     return (
@@ -35,12 +36,14 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  user: user.get("profile")
+const mapStateToProps = ({ user, tasks }) => ({
+  user: user.get("profile"),
+  tasks: tasks.get('list')
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFetchUser: () => dispatch(fetchUser())
+  onFetchUser: () => dispatch(fetchUser()),
+  onFetchTasks: () => dispatch(fetchTasks())
 });
 
 export default withRouter(

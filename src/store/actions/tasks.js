@@ -31,9 +31,12 @@ export const changeTaskSuccess = task => ({
   payload: task
 });
 
-export const setTaskTime = time => ({
+export const setTaskTime = (id, time) => ({
   type: SET_TASK_TIME,
-  payload: time
+  payload: {
+    id,
+    time
+  }
 });
 
 export const fetchActiveTask = id => ({

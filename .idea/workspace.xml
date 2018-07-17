@@ -1,74 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/containers/App/index.jsx" line="30" />
+    <bookmark url="file://$PROJECT_DIR$/src/containers/App/index.jsx" line="31" />
     <bookmark url="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx" line="88" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d09524a-b50e-4797-9ede-f2def5169b6a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Comment/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CommentAdd/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CommentAdd/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Input/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Loader/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProfileEdit/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProfileView/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Task/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/App/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Comments/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Header/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Profile/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskPage/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskPage/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskTime/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskTime/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Tasks/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/sagas/addTaskComment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Input/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loader/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loader/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Logo/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileEdit/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileEdit/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileEdit/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileView/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileView/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileView/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Header/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Header/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Header/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Profile/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Profile/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Profile/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/TaskTime/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Tasks/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Tasks/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Tasks/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/changeTaskStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/changeTaskStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/fetchTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/fetchTasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/fetchUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/fetchUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/sagas/updateProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/sagas/updateProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/validate.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,41 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="axios.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/axios.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CommentAdd/index.jsx">
+        <entry file="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+            <state relative-caret-position="164">
+              <caret line="53" column="32" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="32" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -124,60 +39,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/CommentAdd/styles.js">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/App/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="35" selection-start-column="35" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".eslintrc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.eslintrc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ProfileView/styles.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addTaskComment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/sagas/addTaskComment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="161">
+              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
               <folding>
-                <element signature="e#93#145#0" expanded="true" />
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="changeTaskStatus.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/sagas/changeTaskStatus.js">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/Tasks/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="35">
+              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setTaskTime.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/store/sagas/setTaskTime.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding>
-                <element signature="e#0#59#0" expanded="true" />
+                <element signature="e#0#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -191,12 +80,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.eslintignore" />
-        <option value="$PROJECT_DIR$/src/containers/Header/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/Profile/styles.js" />
         <option value="$PROJECT_DIR$/src/store/actions/errors.js" />
-        <option value="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" />
-        <option value="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" />
         <option value="$PROJECT_DIR$/src/containers/Profile/index.js" />
         <option value="$PROJECT_DIR$/src/components/Task/index_scsslint_tmp2431604740791111061.js" />
         <option value="$PROJECT_DIR$/src/components/Task/styles.js" />
@@ -212,7 +96,6 @@
         <option value="$PROJECT_DIR$/src/store/actions/index.js" />
         <option value="$PROJECT_DIR$/src/components/Comments/index.js" />
         <option value="$PROJECT_DIR$/src/components/Input/index.js" />
-        <option value="$PROJECT_DIR$/src/store/actions/tasks.js" />
         <option value="$PROJECT_DIR$/src/components/Comment/index.js" />
         <option value="$PROJECT_DIR$/src/store/selectors/index.js" />
         <option value="$PROJECT_DIR$/src/store/sagas/index.js" />
@@ -225,7 +108,6 @@
         <option value="$PROJECT_DIR$/src/components/ProfileEdit/index.js" />
         <option value="$PROJECT_DIR$/src/containers/Header/styles.js" />
         <option value="$PROJECT_DIR$/src/containers/Comments/index.jsx" />
-        <option value="$PROJECT_DIR$/src/containers/App/index.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Header/index.jsx" />
         <option value="$PROJECT_DIR$/src/store/reducers/tasks.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
@@ -242,6 +124,13 @@
         <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/components/Task/index.jsx" />
+        <option value="$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/tasks.js" />
+        <option value="$PROJECT_DIR$/src/containers/TaskTime/index.jsx" />
+        <option value="$PROJECT_DIR$/src/containers/App/index.jsx" />
+        <option value="$PROJECT_DIR$/src/containers/Tasks/index.jsx" />
+        <option value="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" />
       </list>
     </option>
   </component>
@@ -288,6 +177,30 @@
             <path>
               <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
               <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="sagas" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -351,12 +264,12 @@
       <workItem from="1531724807649" duration="1605000" />
       <workItem from="1531726421514" duration="26197000" />
       <workItem from="1531805724528" duration="920000" />
-      <workItem from="1531809656524" duration="18071000" />
+      <workItem from="1531809656524" duration="19138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49244000" />
+    <option name="totallyTimeSpent" value="50311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -425,26 +338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/sagas/setTaskTime.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -476,23 +369,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Loader/index.jsx">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Task/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="24" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Tasks/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Profile/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -559,20 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/tasks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1505">
-          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -590,37 +452,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="109" column="43" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/TaskTime/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Comments/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="12" column="57" lean-forward="true" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/App/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -723,16 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/sagas/addTaskComment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="e#93#145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/sagas/changeTaskStatus.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -756,6 +581,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -763,10 +602,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/components/Task/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="70">
+          <caret line="2" column="78" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/tasks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/sagas/addTaskComment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#93#145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/TaskTime/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/TaskPage/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/App/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/sagas/fetchActiveTask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Tasks/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/sagas/setTaskTime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
