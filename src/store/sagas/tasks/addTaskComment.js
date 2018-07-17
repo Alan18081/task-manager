@@ -1,7 +1,7 @@
 import { put, takeLatest } from "redux-saga/effects";
 // import { fromJS } from "immutable";
-import { ADD_TASK_COMMENT } from "../actions/types";
-import { serverError } from "../actions";
+import { ADD_TASK_COMMENT } from "../../actions/types";
+import { serverError } from "../../actions/index";
 
 export function* addTaskCommentSaga() {
   yield takeLatest(ADD_TASK_COMMENT, function*() {

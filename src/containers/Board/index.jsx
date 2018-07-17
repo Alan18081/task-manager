@@ -60,6 +60,7 @@ class Board extends Component {
 					<Title
 						title="Board"
 						Icon={() => <Icon icon={users}/>}
+						clicked={this.toggleDrawer}
 					/>
 					<div className={classes.tasks}>
 						{this.renderTasks()}

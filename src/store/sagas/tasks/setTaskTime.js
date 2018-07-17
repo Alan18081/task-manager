@@ -1,11 +1,11 @@
 import { call, put, take } from "redux-saga/effects";
-import axios from "../../axios";
-import { SET_TASK_TIME } from "../actions/types";
+import axios from "../../../axios";
+import { SET_TASK_TIME } from "../../actions/types";
 import {
   serverError,
   changeTaskSuccess,
   fetchActiveTaskSuccess
-} from "../actions";
+} from "../../actions/index";
 
 export function* setTaskTimeSaga() {
   try {

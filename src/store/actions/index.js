@@ -23,4 +23,11 @@ export {
   fetchAllUsersSuccess
 } from "./board";
 
+export {
+  fetchChatRoom,
+  fetchChatRoomSuccess,
+  fetchChatUserSuccess,
+  sendMessage
+} from './chat';
+
 export { serverError } from "./errors";

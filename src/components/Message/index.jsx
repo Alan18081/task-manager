@@ -9,23 +9,23 @@ import PropTypes from "prop-types";
 
 import MessageIcon from "@material-ui/icons/Message";
 
-const Comment = ({ comment }) => (
+const Message = ({ message }) => (
   <ListItem>
     <ListItemIcon>
       <MessageIcon />
     </ListItemIcon>
     <ListItemText>
       <Typography variant="subheading" color="secondary">
-        {comment.get("author")}
+        {message.get("author")}
       </Typography>
-      <Typography variant="body1">{comment.get("text")}</Typography>
-      <Typography variant="caption">{comment.get("createdAt")}</Typography>
+      <Typography variant="body1">{message.get("text")}</Typography>
+      <Typography variant="caption">{message.get("createdAt")}</Typography>
     </ListItemText>
   </ListItem>
 );
 
-Comment.propTypes = {
-  comment: PropTypes.object.isRequired
+Message.propTypes = {
+  message: PropTypes.object.isRequired
 };
 
-export default Comment;
+export default Message;

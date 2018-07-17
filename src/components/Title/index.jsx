@@ -15,7 +15,6 @@ const Title = ({classes,title,Icon,clicked}) => (
 
 Title.propTypes = {
 	title: PropTypes.string.isRequired,
-	Icon: PropTypes.func.isRequired,
 	clicked: PropTypes.func.isRequired
 };
 
