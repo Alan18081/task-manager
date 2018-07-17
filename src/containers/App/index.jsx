@@ -8,6 +8,7 @@ import Profile from "../Profile/index";
 import Tasks from "../Tasks/index";
 import Loader from "../../components/Loader/index";
 import TaskPage from "../TaskPage/index";
+import Board from '../Board/index';
 
 import styles from "./styles";
 import {fetchTasks, fetchUser} from '../../store/actions';
@@ -27,6 +28,7 @@ class App extends Component {
       <Fragment>
         <Header />
         <main className={classes.content}>
+          <Route path="/" exact component={Board}/>
           <Route path="/profile" component={Profile} />
           <Route path="/tasks" exact component={Tasks} />
           <Route path="/tasks/:id" component={TaskPage} />
