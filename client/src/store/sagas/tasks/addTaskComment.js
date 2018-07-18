@@ -1,26 +1,20 @@
 import { put, takeLatest } from "redux-saga/effects";
-// import { fromJS } from "immutable";
+import axios from "../../../axios";
 import { ADD_TASK_COMMENT } from "../../actions/types";
-import { serverError } from "../../actions/index";
+import {
+  serverError,
+  changeTaskSuccess,
+  fetchActiveTaskSuccess
+} from "../../actions/index";
 
 export function* addTaskCommentSaga() {
-  yield takeLatest(ADD_TASK_COMMENT, function*() {
+  yield takeLatest(ADD_TASK_COMMENT, function*({ payload: { id, comment } }) {
     try {
-      // const tasks = yield select(({ tasks }) => tasks.get("list"));
-      // if(tasks) {
-      //   const task = tasks.
-      // }
-      // const newTask = task.update("comments", comments =>
-      //   comments.push(
-      //     fromJS({
-      //       author: "Alan",
-      //       text: comment,
-      //       createdAt: new Date().toLocaleTimeString()
-      //     })
-      //   )
-      // );
-      // yield put(changeTaskSuccess(newTask));
-      // yield put(fetchActiveTaskSuccess(newTask));
+      const { data } = yield call(axios.patch, `/tasks/${id}/addComment`, {
+        comment
+      });
+      yield put(changeTaskSuccess(data));
+      yield put(fetchActiveTaskSuccess(data));
     } catch (e) {
       console.log(e);
       yield put(serverError());
