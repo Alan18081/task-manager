@@ -53,6 +53,7 @@ class Login extends Component {
           {this.renderErrors()}
           <div className={classes.btns}>
             <Button
+              type="submit"
               variant="contained"
               color="primary"
               fullWidth

@@ -6,7 +6,7 @@ import { fetchUserSuccess, serverError } from "../../actions/index";
 export function* fetchUserSaga() {
   try {
     yield take(FETCH_USER);
-    const { data } = yield call(axios.get, "/user");
+    const { data } = yield call(axios.get, "/currentUser");
     yield put(fetchUserSuccess(data));
   } catch (e) {
     console.log(e);

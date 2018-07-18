@@ -71,16 +71,19 @@ module.exports = app => {
         text: req.body.comment,
         createdAt: new Date()
       });
-      const task = await Task.findOneAndUpdate(
-        {
-          _id: id
-        },
-        {
-          $push: {
-            comments: newComment._id
+      const [task] = await Promise.all([
+        Task.findOneAndUpdate(
+          {
+            _id: id
+          },
+          {
+            $push: {
+              comments: newComment._id
+            }
           }
-        }
-      ).populate("comments");
+        ).populate("comments"),
+        Message.save()
+      ]);
       res.send(task);
     } catch (e) {
       res.sendStatus(500);

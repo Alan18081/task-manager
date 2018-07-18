@@ -63,6 +63,7 @@ class Register extends Component {
               color="primary"
               fullWidth
               className={classes.mainBtn}
+              type="submit"
             >
               Sign Up
             </Button>

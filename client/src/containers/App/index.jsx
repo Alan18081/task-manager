@@ -12,7 +12,7 @@ import Board from "../Board/index";
 import Chat from "../Chat/index";
 import Login from "../Login";
 import Register from "../Register";
-import Logout from "../Login";
+import Logout from "../Logout";
 import TaskCreate from "../TaskCreate";
 
 import styles from "./styles";
@@ -24,15 +24,33 @@ class App extends Component {
     this.props.onFetchTasks();
   }
 
+  renderRoutes() {
+    const { user } = this.props;
+    if (user) {
+      return (
+        <Fragment>
+          <Route path="/logout" component={Logout} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/tasks" exact component={Tasks} />
+          <Route path="/tasks/:id" component={TaskPage} />
+          <Route path="/users/:userId/chat" component={Chat} />
+        </Fragment>
+      );
+    } else {
+      return (
+        <Fragment>
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+        </Fragment>
+      );
+    }
+  }
+
   render() {
     const { classes, user, tasks } = this.props;
     if (!user || !tasks) {
       return <Loader />;
     }
-    let routes = (
-      <Fragment>{/*<Route path="/register" component={R}/>*/}</Fragment>
-    );
-    console.log(user.get("isAdmin"));
     return (
       <Fragment>
         <Header user={user} />
@@ -41,13 +59,6 @@ class App extends Component {
           {user.get("isAdmin") && (
             <Route path="/create_task" component={TaskCreate} />
           )}
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/logout" component={Logout} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/tasks" exact component={Tasks} />
-          <Route path="/tasks/:id" component={TaskPage} />
-          <Route path="/users/:userId/chat" component={Chat} />
         </main>
       </Fragment>
     );
