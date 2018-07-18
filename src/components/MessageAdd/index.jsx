@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
-import { withStyles, TextField, IconButton } from "@material-ui/core";
+import { withStyles, IconButton } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
-import { validateComment } from "../../utils/validate";
+import { validateMessage } from "../../utils/validate";
 import PropTypes from "prop-types";
 
 import styles from "./styles";
 
 import Input from "../Input/index";
 
-class CommentAdd extends Component {
+class MessageAdd extends Component {
   constructor(props) {
     super(props);
   }
@@ -35,11 +35,11 @@ class CommentAdd extends Component {
   }
 }
 
-CommentAdd.propTypes = {
-  submit: PropTypes.func.isRequired
+MessageAdd.propTypes = {
+  submitHandler: PropTypes.func.isRequired
 };
 
 export default reduxForm({
-  form: "addComment",
-  validate: validateComment
-})(withStyles(styles)(CommentAdd));
+  form: "addMessage",
+  validate: validateMessage
+})(withStyles(styles)(MessageAdd));

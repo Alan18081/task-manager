@@ -1,7 +1,7 @@
 import { call, takeLatest, put } from "redux-saga/effects";
-import axios from "../../axios";
-import { FETCH_ACTIVE_TASK } from "../actions/types";
-import { fetchActiveTaskSuccess, serverError } from "../actions";
+import axios from "../../../axios";
+import { FETCH_ACTIVE_TASK } from "../../actions/types";
+import { fetchActiveTaskSuccess, serverError } from "../../actions/index";
 
 export function* fetchActiveTaskSaga() {
   yield takeLatest(FETCH_ACTIVE_TASK, function*({ payload }) {

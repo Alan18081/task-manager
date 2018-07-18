@@ -10,8 +10,8 @@ import {
 } from "@material-ui/core";
 import { addTaskComment } from "../../store/actions/index";
 
-import Comment from "../../components/Comment/index.jsx";
-import CommentAdd from "../../components/CommentAdd/index.jsx";
+import Message from "../../components/Message/index.jsx";
+import MessageAdd from "../../components/MessageAdd/index.jsx";
 
 const Comments = ({ taskId, comments, onAddTaskComment }) => (
   <Card>
@@ -19,11 +19,11 @@ const Comments = ({ taskId, comments, onAddTaskComment }) => (
       <Typography variant="headline">Comments</Typography>
       <List>
         {comments.map(comment => (
-          <Comment key={comment.get("id")} comment={comment} />
+          <Message key={comment.get("id")} message={comment} />
         ))}
       </List>
       <Divider />
-      <CommentAdd
+      <MessageAdd
         submitHandler={({ text }) => onAddTaskComment(taskId, text)}
       />
     </CardContent>

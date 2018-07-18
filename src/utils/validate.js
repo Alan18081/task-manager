@@ -24,11 +24,11 @@ export const validateProfile = ({ name, email, birth }) => {
   return errors;
 };
 
-export const validateComment = ({ text }) => {
+export const validateMessage = ({ text }) => {
   const errors = {};
 
   if (!text) {
-    errors.text = "Comment cannot be empty";
+    errors.text = "Message cannot be empty";
   }
 
   return errors;

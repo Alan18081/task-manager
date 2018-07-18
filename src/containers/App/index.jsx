@@ -9,6 +9,7 @@ import Tasks from "../Tasks/index";
 import Loader from "../../components/Loader/index";
 import TaskPage from "../TaskPage/index";
 import Board from '../Board/index';
+import Chat from '../Chat/index';
 
 import styles from "./styles";
 import {fetchTasks, fetchUser} from '../../store/actions';
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path="/profile" component={Profile} />
           <Route path="/tasks" exact component={Tasks} />
           <Route path="/tasks/:id" component={TaskPage} />
+          <Route path="/chats/users/:userId" component={Chat}/>
         </main>
       </Fragment>
     );
