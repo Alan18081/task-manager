@@ -1,7 +1,7 @@
 import { call, put, take } from "redux-saga/effects";
-import axios from "../../axios";
-import { FETCH_ALL_USERS } from "../actions/types";
-import { fetchAllUsersSuccess, serverError } from "../actions";
+import axios from "../../../axios";
+import { FETCH_ALL_USERS } from "../../actions/types";
+import { fetchAllUsersSuccess, serverError } from "../../actions/index";
 
 export function* fetchAllUsersSaga() {
   try {

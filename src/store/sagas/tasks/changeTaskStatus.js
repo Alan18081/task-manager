@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import axios from "../../axios";
-import { CHANGE_TASK_STATUS } from "../actions/types";
-import { changeTaskSuccess, serverError } from "../actions";
+import axios from "../../../axios";
+import { CHANGE_TASK_STATUS } from "../../actions/types";
+import { changeTaskSuccess, serverError } from "../../actions/index";
 
 export function* changeTaskStatusSaga() {
   yield takeLatest(CHANGE_TASK_STATUS, function*({ payload }) {
