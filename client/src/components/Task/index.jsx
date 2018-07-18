@@ -6,7 +6,7 @@ import styles from "./styles";
 
 class Task extends Component {
   render() {
-    const { classes, task} = this.props;
+    const { classes, task } = this.props;
     return (
       <Link className={classes.container} to={`/tasks/${task.get("id")}`}>
         <Card className={classes.card}>

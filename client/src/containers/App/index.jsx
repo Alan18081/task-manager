@@ -56,6 +56,10 @@ class App extends Component {
         <Header user={user} />
         <main className={classes.content}>
           <Route path="/" exact component={Board} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/tasks" exact component={Tasks} />
+          <Route path="/tasks/:id" component={TaskPage} />
+          <Route path="/chats/users/:userId" component={Chat} />
           {user.get("isAdmin") && (
             <Route path="/create_task" component={TaskCreate} />
           )}
