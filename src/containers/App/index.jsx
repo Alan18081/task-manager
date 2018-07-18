@@ -8,11 +8,11 @@ import Profile from "../Profile/index";
 import Tasks from "../Tasks/index";
 import Loader from "../../components/Loader/index";
 import TaskPage from "../TaskPage/index";
-import Board from '../Board/index';
-import Chat from '../Chat/index';
+import Board from "../Board/index";
+import Chat from "../Chat/index";
 
 import styles from "./styles";
-import {fetchTasks, fetchUser} from '../../store/actions';
+import { fetchTasks, fetchUser } from "../../store/actions";
 
 class App extends Component {
   componentDidMount() {
@@ -29,11 +29,11 @@ class App extends Component {
       <Fragment>
         <Header />
         <main className={classes.content}>
-          <Route path="/" exact component={Board}/>
+          <Route path="/" exact component={Board} />
           <Route path="/profile" component={Profile} />
           <Route path="/tasks" exact component={Tasks} />
           <Route path="/tasks/:id" component={TaskPage} />
-          <Route path="/chats/users/:userId" component={Chat}/>
+          <Route path="/chats/users/:userId" component={Chat} />
         </main>
       </Fragment>
     );
@@ -42,7 +42,7 @@ class App extends Component {
 
 const mapStateToProps = ({ user, tasks }) => ({
   user: user.get("profile"),
-  tasks: tasks.get('list')
+  tasks: tasks.get("list")
 });
 
 const mapDispatchToProps = dispatch => ({

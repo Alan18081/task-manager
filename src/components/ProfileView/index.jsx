@@ -1,21 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Typography,
-  withStyles,
-  Card,
-  CardContent
-} from "@material-ui/core";
+import { Typography, withStyles, Card, CardContent } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import StarIcon from "@material-ui/icons/StarBorder";
 
 import styles from "./styles";
 
-import Title from '../../components/Title/index';
+import Title from "../../components/Title/index";
 
 const ProfileView = ({ user, classes, toggle }) => (
   <div className={classes.container}>
-    <Title/>
+    <Title />
     <Card>
       <CardContent className={classes.content}>
         <div className={classes.info}>

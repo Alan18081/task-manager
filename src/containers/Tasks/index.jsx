@@ -25,6 +25,4 @@ const mapStateToProps = ({ tasks, user }) => ({
   isAdmin: user.get("isAdmin")
 });
 
-export default connect(
-  mapStateToProps
-)(Tasks);
+export default connect(mapStateToProps)(Tasks);
