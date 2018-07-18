@@ -1,10 +1,5 @@
 {
   "extends": "airbnb",
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import"
-  ],
   "rules": {
     "quotes": ["error","double"],
     "no-tabs": "off",
@@ -14,7 +9,6 @@
     "import/prefer-default-export": "off",
     "implicit-arrow-linebreak": "off",
     "function-paren-newline": "off",
-    "func-names": "off",
-    "jsx-a11y/img-has-alt": "off"
+    "func-names": "off"
   }
 }
