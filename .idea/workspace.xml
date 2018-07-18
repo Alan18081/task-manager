@@ -6,6 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d09524a-b50e-4797-9ede-f2def5169b6a" name="Default" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/store/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/types.js" afterDir="false" />
+=======
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/Chat/index.jsx" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/store/actions/chat.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/store/reducers/chat.js" />
@@ -34,6 +37,7 @@
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/store/sagas/fetchUser.js" afterPath="$PROJECT_DIR$/src/store/sagas/user/fetchUser.js" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/store/sagas/setTaskTime.js" afterPath="$PROJECT_DIR$/src/store/sagas/tasks/setTaskTime.js" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/store/sagas/updateProfile.js" afterPath="$PROJECT_DIR$/src/store/sagas/user/updateProfile.js" />
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -158,6 +162,44 @@
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+<<<<<<< HEAD
+          <expand>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task-manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="sagas" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+=======
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="task-manager" />
@@ -222,6 +264,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -339,9 +382,43 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57321000" />
+    <option name="totallyTimeSpent" value="57416000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18652292" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50026953" side_tool="true" weight="0.3298647" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32882413" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49973047" weight="0.3298647" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.56815815" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18382749" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3298647" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3298647" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32882413" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.56815815" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+=======
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24743778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -361,6 +438,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,6 +593,9 @@
     <entry file="file://$PROJECT_DIR$/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
+<<<<<<< HEAD
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+=======
           <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
         </state>
       </provider>
@@ -523,6 +604,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </state>
       </provider>
     </entry>
@@ -540,6 +622,10 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/hoc/UserTasks/index.jsx" />
+    <entry file="file://$PROJECT_DIR$/src/containers/App/styles.js">
+=======
     <entry file="file://$PROJECT_DIR$/src/store/actions/board.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -555,6 +641,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/User/styles.js">
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
@@ -591,22 +678,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Loader/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="560">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+=======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Board/styles.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="206">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+=======
         <state relative-caret-position="62">
           <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/axios.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="210">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+=======
         <state relative-caret-position="186">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </state>
       </provider>
     </entry>
@@ -618,6 +720,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/components/User/styles.js">
+=======
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-160">
@@ -627,6 +732,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/sagas/index.js">
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
@@ -652,12 +758,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/User/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="525">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+=======
         <state relative-caret-position="245">
           <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1531849079208" expanded="true" signature="328:625" ph="{...}" />
           </folding>
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </state>
       </provider>
     </entry>
@@ -735,11 +846,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/sagas/chat/fetchChatRoom.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="630">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+=======
         <state relative-caret-position="310">
           <caret line="10" column="79" lean-forward="false" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
+>>>>>>> cc5a18224d66dbf5886d7be62df929fd035644bf
         </state>
       </provider>
     </entry>
@@ -768,6 +884,20 @@
         <state relative-caret-position="-5">
           <caret line="6" column="49" lean-forward="true" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/axios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
