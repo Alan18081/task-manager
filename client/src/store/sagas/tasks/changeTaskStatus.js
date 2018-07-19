@@ -10,13 +10,13 @@ import {
 export function* changeTaskStatusSaga() {
   yield takeLatest(CHANGE_TASK_STATUS, function*({ payload }) {
     try {
+      console.log(payload);
       const { data } = yield call(axios.patch, `/tasks/${payload.id}`, {
         status: payload.status
       });
       yield put(changeTaskSuccess(data));
       yield put(fetchActiveTaskSuccess(data));
     } catch (e) {
-      console.log(e);
       yield put(serverError());
     }
   });

@@ -45,15 +45,15 @@ class TaskCreate extends Component {
         <FormControl className={classes.select}>
           <Typography>Your performer</Typography>
           <Select
-            value={performerId}
+            value={performerId || "no performer"}
             onChange={({ target: { value } }) => change("performerId", value)}
             inputProps={{
               id: "age-simple"
             }}
           >
-            <MenuItem value="">No performer</MenuItem>
+            <MenuItem value="no performer">No performer</MenuItem>
             {users.map(user => (
-              <MenuItem value={user.get("id")} key={user.get("id")}>
+              <MenuItem value={user.get("id")} key={user.get("_id")}>
                 {user.get("name")}
               </MenuItem>
             ))}
@@ -69,6 +69,7 @@ class TaskCreate extends Component {
       );
     }
   }
+
   render() {
     const { handleSubmit, classes } = this.props;
     return (

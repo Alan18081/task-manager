@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { TextField, Button, withStyles } from "@material-ui/core";
-import { setTaskTime } from "../../store/actions/index";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { setTaskTime } from "../../store/actions/index";
 
 import styles from "./styles";
 
@@ -46,7 +46,7 @@ class TaskTime extends Component {
 }
 
 TaskTime.propTypes = {
-  taskId: PropTypes.number.isRequired
+  taskId: PropTypes.string.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({

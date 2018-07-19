@@ -9,7 +9,6 @@ export function* fetchAllUsersSaga() {
     const { data } = yield call(axios.get, "/users");
     yield put(fetchAllUsersSuccess(data));
   } catch (e) {
-    console.log(e);
     yield put(serverError());
   }
 }

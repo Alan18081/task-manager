@@ -10,11 +10,13 @@ const Input = ({
   label,
   classes,
   className,
-  multiline
+  multiline,
+  type
 }) => (
   <TextField
+    type={type}
     fullWidth
-    className={[classes.input, className ? className : ""].join(" ")}
+    className={[classes.input, className].join(" ")}
     label={label}
     helperText={touched && error}
     error={error && touched}
