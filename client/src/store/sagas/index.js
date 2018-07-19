@@ -4,8 +4,8 @@ export { registerSaga } from "./user/register";
 export { loginSaga } from "./user/login";
 export { logoutSaga } from "./user/logout";
 
-export { fetchTasksSaga } from "./tasks/fetchTasks";
-export { changeTaskStatusSaga } from "./tasks/changeTaskStatus";
+export { fetchUserTasksSaga } from "./tasks/fetchUserTasks";
+export { changeTaskSaga } from "./tasks/changeTask";
 export { setTaskTimeSaga } from "./tasks/setTaskTime";
 export { fetchActiveTaskSaga } from "./tasks/fetchActiveTask";
 export { addTaskCommentSaga } from "./tasks/addTaskComment";

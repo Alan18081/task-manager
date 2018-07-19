@@ -15,9 +15,9 @@ export {
 } from "./user";
 
 export {
-  fetchTasks,
-  fetchTasksSuccess,
-  changeTaskStatus,
+  fetchUserTasks,
+  fetchUserTasksSuccess,
+  changeTask,
   changeTaskSuccess,
   setTaskTime,
   fetchActiveTask,

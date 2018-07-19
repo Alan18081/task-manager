@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
-import { withStyles } from "@material-ui/core";
+import { Route, withRouter, Switch } from "react-router-dom";
+import { withStyles, withTheme, createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 
 import Header from "../Header/index";
 import Profile from "../Profile/index";
@@ -12,21 +12,27 @@ import Board from "../Board/index";
 import Chat from "../Chat/index";
 import Login from "../Login";
 import Register from "../Register";
-import TaskCreate from "../TaskCreate";
+import TaskForm from "../TaskForm";
+import PageNotFound from '../../components/PageNotFound';
+import ServerError from '../../components/ServerError';
+
+import TaskCreate from '../../hoc/TaskCreate';
+import TaskEdit from '../../hoc/TaskEdit';
 
 import styles from "./styles";
 import { fetchUser } from "../../store/actions";
 
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 400
+    }
+  },
+});
+
 class App extends Component {
   componentDidMount() {
     this.props.onFetchUser();
-  }
-
-  componentWillUpdate(newProps) {
-    const { user, history } = this.props;
-    if (newProps.user && !user) {
-      history.replace("/profile");
-    }
   }
 
   renderRoutes() {
@@ -37,10 +43,13 @@ class App extends Component {
           <Route path="/" exact component={Board} />
           <Route path="/profile" component={Profile} />
           <Route path="/tasks" exact component={Tasks} />
-          <Route path="/tasks/:id" component={TaskPage} />
+          <Route path="/tasks/:id" exact component={TaskPage} />
           <Route path="/users/:userId/chat" component={Chat} />
           {user.get("isAdmin") && (
-            <Route path="/create_task" component={TaskCreate} />
+            <Fragment>
+              <Route path="/createTask" component={TaskCreate(TaskForm)} />
+              <Route path="/tasks/:id/edit" component={TaskEdit(TaskForm)} />
+            </Fragment>
           )}
         </Fragment>
       );
@@ -59,10 +68,15 @@ class App extends Component {
       return <Loader />;
     }
     return (
-      <Fragment>
+      <MuiThemeProvider theme={theme}>
         <Header user={user} />
-        <main className={classes.content}>{this.renderRoutes()}</main>
-      </Fragment>
+        <main className={classes.content}>
+          <Switch>
+            {this.renderRoutes()}
+            <Route path="*" component={PageNotFound}/>
+          </Switch>
+        </main>
+      </MuiThemeProvider>
     );
   }
 }

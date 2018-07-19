@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { NavLink, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Media from "react-media";
 import {
   AppBar,
@@ -14,7 +14,6 @@ import {
 } from "@material-ui/core";
 import { addressBookO } from "react-icons-kit/fa/addressBookO";
 import { listAlt } from "react-icons-kit/fa/listAlt";
-import { basic_todolist_pen } from "react-icons-kit/linea/basic_todolist_pen";
 import { enter } from "react-icons-kit/icomoon/enter";
 import { userPlus } from "react-icons-kit/icomoon/userPlus";
 import { exit } from "react-icons-kit/icomoon/exit";
@@ -26,12 +25,16 @@ import { logout } from "../../store/actions";
 
 import styles from "./styles";
 
+import NavItem from '../../components/NavItem/index';
+import Logo from '../../components/Logo';
+
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       anchorEl: null
     };
+    this.handleMenu = this.handleMenu.bind(this);
   }
   componentWillUpdate(newProps) {
     const { user, history } = this.props;
@@ -55,7 +58,7 @@ class Header extends Component {
   renderMobileMenu() {
     return (
       <div>
-        <IconButton onClick={this.handleMenu} color="inherit">
+        <IconButton onClick={event => this.handleMenu(event)} color="inherit">
           <Icon icon={menu} size={20} />
         </IconButton>
         <Menu
@@ -78,54 +81,32 @@ class Header extends Component {
     );
   }
   renderLinks() {
-    const { classes, user, onLogout } = this.props;
+    const { classes, user, onLogout, isAdmin } = this.props;
     let links = (
       <div>
-        <NavLink to="/login">
-          <Button>
-            <Icon className={classes.icon} a icon={enter} size={20} />
-            <Typography className={classes.linkText} variant="subheading">
-              Sign In
-            </Typography>
-          </Button>
-        </NavLink>
-        <NavLink to="/register">
-          <Button>
-            <Icon className={classes.icon} icon={userPlus} size={20} />
-            <Typography className={classes.linkText} variant="subheading">
-              Sign Up
-            </Typography>
-          </Button>
-        </NavLink>
+        <NavItem to="/login" icon={enter}>
+          Sign In
+        </NavItem>
+        <NavItem to="/register" icon={userPlus}>
+          Sign Up
+        </NavItem>
       </div>
     );
     if (user) {
       links = (
         <div>
-          <NavLink to="/tasks">
-            <Button>
-              <Icon icon={listAlt} size={20} className={classes.icon} />
-              <Typography className={classes.linkText} variant="subheading">
-                My tasks
-              </Typography>
-            </Button>
-          </NavLink>
-          <NavLink to="/profile">
-            <Button>
-              <Icon icon={addressBookO} size={20} className={classes.icon} />
-              <Typography className={classes.linkText} variant="subheading">
-                Profile
-              </Typography>
-            </Button>
-          </NavLink>
-          <NavLink to="/create_task">
-            <Button variant="contained" color="secondary">
-              <Icon icon={plus} size={20} className={classes.icon} />
-              <Typography className={classes.linkText} variant="subheading">
-                New task
-              </Typography>
-            </Button>
-          </NavLink>
+          <NavItem to="/tasks" icon={listAlt}>
+            My tasks
+          </NavItem>
+          <NavItem to="/profile" icon={addressBookO}>
+            Profile
+          </NavItem>
+          {isAdmin && (
+            <NavItem
+              to="/createTask"
+              icon={plus}
+            >New task</NavItem>
+          )}
           <IconButton onClick={onLogout}>
             <Icon icon={exit} size={20} className={classes.icon} />
           </IconButton>
@@ -140,17 +121,13 @@ class Header extends Component {
       <div>
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
-            <NavLink to="/" className={classes.brand}>
-              <Button>
-                <Icon
-                  icon={basic_todolist_pen}
-                  size={30}
-                  className={classes.icon}
-                />
-              </Button>
-            </NavLink>
+            <Logo/>
             <Media query="(max-width: 768px)">
-              {match => (match ? this.renderMobileMenu() : this.renderLinks())}
+              {match => (
+                <div>
+                  {match ? this.handleMenu() : this.renderLinks()}
+                </div>
+              )}
             </Media>
           </Toolbar>
         </AppBar>
@@ -160,7 +137,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = ({ user }) => ({
-  user: user.get("profile")
+  user: user.get("profile"),
+  isAdmin: user.get('isAdmin')
 });
 
 const mapDispatchToProps = dispatch => ({

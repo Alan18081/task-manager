@@ -13,7 +13,7 @@ const ProfileView = ({ user, classes, toggle }) => (
   <div className={classes.container}>
     <Title
       title="Profile"
-      Icon={() => <Icon icon={ic_mode_edit} />}
+      Icon={() => <Icon icon={ic_mode_edit} size={20} />}
       clicked={toggle}
     />
     <Card>

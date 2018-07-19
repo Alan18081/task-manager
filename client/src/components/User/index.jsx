@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import {
   ListItem,
   ListItemIcon,
@@ -13,16 +14,20 @@ import { user as userIcon } from "react-icons-kit/icomoon/user";
 import styles from "./styles";
 
 const User = ({ user, classes }) => (
-  <Link to={`/users/${user.get("id")}/chat`} className={classes.container}>
+  <Link to={`/users/${user.get("_id")}/chat`} className={classes.container}>
     <ListItem button>
-      <ListItemIcon>
+      <ListItemIcon className={classes.icon}>
         <Icon icon={userIcon} />
       </ListItemIcon>
       <ListItemText>
-        <Typography variant="title">{user.get("name")}</Typography>
+        <Typography variant="subheading">{user.get("name")}</Typography>
       </ListItemText>
     </ListItem>
   </Link>
 );
+
+User.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(User);

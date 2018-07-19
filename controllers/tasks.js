@@ -8,7 +8,10 @@ module.exports = {
     try {
       const tasks = await Task.find({
         $or: [{ worker: req.user.id }, { creator: req.user.id }]
-      }).populate("messages");
+      })
+        .populate("messages")
+        .populate("performer")
+        .populate("creator");
       res.send(tasks);
     } catch (e) {
       res.status(500).send(e);
@@ -16,7 +19,10 @@ module.exports = {
   },
   async getAllTasks(req, res) {
     try {
-      const tasks = await Task.find({}).populate("messages");
+      const tasks = await Task.find({})
+        .populate("messages")
+        .populate("performer")
+        .populate("creator");
       res.send(tasks);
     } catch (e) {
       res.status(500).send(e);
@@ -28,6 +34,7 @@ module.exports = {
         ...req.body,
         creator: req.user.id
       });
+      const populatedTasks = await newTask.populate("messages");
       await newTask.save();
       res.send(newTask);
     } catch (e) {
@@ -39,7 +46,7 @@ module.exports = {
       const { id } = req.params;
       const updatedTask = await Task.findOneAndUpdate(
         {
-          id
+          _id: id
         },
         {
           ...req.body
@@ -56,7 +63,7 @@ module.exports = {
   async getTaskById(req, res) {
     try {
       const { id } = req.params;
-      const task = await Task.findOne({ id }).populate("messages");
+      const task = await Task.findOne({ _id: id }).populate("messages");
       res.send(task);
     } catch (e) {
       res.status(500).send(e);
@@ -94,7 +101,7 @@ module.exports = {
   async removeTask(req, res) {
     try {
       const { id } = req.params;
-      await Task.deleteOne({ id });
+      await Task.deleteOne({ _id: id });
       res.sendStatus(200);
     } catch (e) {
       res.status(500).send(e);

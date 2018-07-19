@@ -1,5 +1,5 @@
 export default () => ({
-  container: {
-    textDecoration: "none"
+  icon: {
+   marginRight: 0
   }
 });
