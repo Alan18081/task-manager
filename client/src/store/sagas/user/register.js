@@ -17,8 +17,9 @@ export function* registerSaga() {
       if (data.errors) {
         yield put(registerFailed(data.errors));
       } else {
+        yield call(localStorage.setItem, "jsonToken", data.token);
         yield put(registerSuccess());
-        yield put(fetchUserSuccess(data));
+        yield put(fetchUserSuccess(data.user));
       }
     } catch (e) {
       yield put(serverError());

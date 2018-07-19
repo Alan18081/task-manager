@@ -9,7 +9,6 @@ export function* fetchTasksSaga() {
     const { data } = yield call(axios.get, "/tasks");
     yield put(fetchTasksSuccess(data));
   } catch (e) {
-    console.log(e);
     yield put(serverError());
   }
 }

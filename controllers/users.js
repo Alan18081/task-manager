@@ -1,14 +1,16 @@
+const mongoose = require("mongoose");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const { jwtSecret } = require("../config");
-const User = require("../models/User");
+
+const User = mongoose.model("User");
 
 module.exports = {
   async getCurrentUser(req, res) {
     try {
       res.send(req.user || false);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async updateUser(req, res) {
@@ -26,7 +28,7 @@ module.exports = {
       );
       res.send(updatedUser);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async getAllUsers(req, res) {
@@ -34,7 +36,7 @@ module.exports = {
       const { data } = await User.find({});
       res.send(data);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   login(req, res) {
@@ -43,16 +45,16 @@ module.exports = {
       { session: false },
       (err, user, info) => {
         if (err) {
-          return res.sendStatus(500);
+          return res.status(500).send(err);
         }
         if (info) {
           return res.status(401).send(info);
         }
         return req.login(user, { session: false }, loginError => {
           if (loginError) {
-            return res.sendStatus(500);
+            return res.status(500).send(loginError);
           }
-          const token = jwt.sign(user.toJSON(), jwtSecret);
+          const token = jwt.sign(user._id, jwtSecret);
           return res.send({ user, token });
         });
       }
@@ -64,23 +66,23 @@ module.exports = {
       { session: false },
       (err, user, info) => {
         if (err) {
-          return res.sendStatus(500);
+          return res.status(500).send(err);
         }
         if (info) {
           return res.status(401).send(info);
         }
         return req.login(user, { session: false }, loginError => {
           if (loginError) {
-            return res.sendStatus(500);
+            return res.status(500).send(loginError);
           }
-          const token = jwt.sign(user.toJSON(), jwtSecret);
+          const token = jwt.sign(user._id, jwtSecret);
           return res.send({ user, token });
         });
       }
     )(req, res);
   },
   logout(req, res) {
-    res.logout();
+    req.logout();
     res.send(false);
   }
 };

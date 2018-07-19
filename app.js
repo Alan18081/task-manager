@@ -9,11 +9,16 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/*", cors);
+app.use("*", cors);
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect(mongodbUrl);
+
+require("./models/User");
+require("./models/Task");
+require("./models/Message");
+require("./models/ChatRoom");
 
 require("./services/passport");
 

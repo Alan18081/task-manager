@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { Button, withStyles, List, ListItem } from "@material-ui/core";
-import { login } from "../../store/actions";
+import { login as loginAction } from "../../store/actions";
 import { validateLogin } from "../../utils/validate";
 
 import styles from "./styles";
@@ -12,14 +12,13 @@ import Input from "../../components/Input";
 import FormCard from "../../components/FormCard";
 
 class Login extends Component {
-  componentWillUpdate(nextProps) {
-    if (nextProps.user && !this.props.user) {
-      this.props.history.replace("/profile");
-    }
+  constructor(props) {
+    super(props);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
-  submitHandler({ login, email }) {
-    this.props.onLogin(login, email);
+  submitHandler({ login, password }) {
+    this.props.onLogin(login, password);
   }
 
   renderErrors() {
@@ -39,7 +38,7 @@ class Login extends Component {
   }
 
   render() {
-    const { handleSubmit, classes } = this.props;
+    const { handleSubmit, classes, user } = this.props;
     return (
       <FormCard title="Login">
         <form onSubmit={handleSubmit(this.submitHandler)}>
@@ -80,7 +79,7 @@ const mapStateToProps = ({ user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLogin: (loginField, password) => dispatch(login(loginField, password))
+  onLogin: (loginField, password) => dispatch(loginAction(loginField, password))
 });
 
 export default connect(

@@ -1,5 +1,7 @@
-const Task = require("../models/Task");
-const Message = require("../models/Task");
+const mongoose = require("mongoose");
+
+const Task = mongoose.model("Task");
+const Message = mongoose.model("Message");
 
 module.exports = {
   async getUserTasks(req, res) {
@@ -9,7 +11,7 @@ module.exports = {
       }).populate("messages");
       res.send(tasks);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async getAllTasks(req, res) {
@@ -17,7 +19,7 @@ module.exports = {
       const tasks = await Task.find({}).populate("messages");
       res.send(tasks);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async createTask(req, res) {
@@ -29,7 +31,7 @@ module.exports = {
       await newTask.save();
       res.send(newTask);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async updateTask(req, res) {
@@ -48,7 +50,7 @@ module.exports = {
       ).populate("messages");
       res.send(updatedTask);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async getTaskById(req, res) {
@@ -57,7 +59,7 @@ module.exports = {
       const task = await Task.findOne({ _id: id }).populate("messages");
       res.send(task);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   },
   async addMessageToTask(req, res) {
@@ -86,7 +88,7 @@ module.exports = {
       ]);
       res.send(task);
     } catch (e) {
-      res.sendStatus(500);
+      res.status(500).send(e);
     }
   }
 };

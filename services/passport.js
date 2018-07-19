@@ -27,7 +27,6 @@ passport.use(
         }
         return cb(null, user);
       } catch (e) {
-        console.log(e);
         return cb(e);
       }
     }
@@ -58,7 +57,6 @@ passport.use(
         await newUser.save();
         return cb(null, newUser);
       } catch (e) {
-        console.log(e);
         return cb(e);
       }
     }
@@ -71,9 +69,13 @@ passport.use(
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: jwtSecret
     },
-    (jwtPayload, cb) => {
-      console.log(jwtPayload);
-      cb(null, jwtPayload);
+    async (jwtPayload, cb) => {
+      try {
+        const user = await User.findOne({ _id: jwtPayload });
+        cb(null, user);
+      } catch (e) {
+        cb(e);
+      }
     }
   )
 );

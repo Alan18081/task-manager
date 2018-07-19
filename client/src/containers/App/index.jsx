@@ -12,16 +12,21 @@ import Board from "../Board/index";
 import Chat from "../Chat/index";
 import Login from "../Login";
 import Register from "../Register";
-import Logout from "../Logout";
 import TaskCreate from "../TaskCreate";
 
 import styles from "./styles";
-import { fetchTasks, fetchUser } from "../../store/actions";
+import { fetchUser } from "../../store/actions";
 
 class App extends Component {
   componentDidMount() {
     this.props.onFetchUser();
-    this.props.onFetchTasks();
+  }
+
+  componentWillUpdate(newProps) {
+    const { user, history } = this.props;
+    if (newProps.user && !user) {
+      history.replace("/profile");
+    }
   }
 
   renderRoutes() {
@@ -29,7 +34,7 @@ class App extends Component {
     if (user) {
       return (
         <Fragment>
-          <Route path="/logout" component={Logout} />
+          <Route path="/" exact component={Board} />
           <Route path="/profile" component={Profile} />
           <Route path="/tasks" exact component={Tasks} />
           <Route path="/tasks/:id" component={TaskPage} />
@@ -39,19 +44,18 @@ class App extends Component {
           )}
         </Fragment>
       );
-    } else {
-      return (
-        <Fragment>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-        </Fragment>
-      );
     }
+    return (
+      <Fragment>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Fragment>
+    );
   }
 
   render() {
-    const { classes, user, tasks } = this.props;
-    if (!user || !tasks) {
+    const { classes, user } = this.props;
+    if (user === null) {
       return <Loader />;
     }
     return (
@@ -69,8 +73,7 @@ const mapStateToProps = ({ user, tasks }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFetchUser: () => dispatch(fetchUser()),
-  onFetchTasks: () => dispatch(fetchTasks())
+  onFetchUser: () => dispatch(fetchUser())
 });
 
 export default withRouter(

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { Button, withStyles, ListItem, List } from "@material-ui/core";
@@ -12,11 +12,10 @@ import Input from "../../components/Input";
 import FormCard from "../../components/FormCard";
 
 class Register extends Component {
-  componentWillUpdate(nextProps) {
-    if (nextProps.user && !this.props.user) {
-      this.props.history.replace("/profile");
-    }
+  submitHandler({ login, email, password }) {
+    this.props.onRegister(login, email, password);
   }
+
   renderErrors() {
     const { errors } = this.props;
     if (errors.size) {
@@ -33,12 +32,11 @@ class Register extends Component {
     return null;
   }
 
-  submitHandler({ login, email, password }) {
-    this.props.onRegister(login, email, password);
-  }
-
   render() {
-    const { handleSubmit, classes } = this.props;
+    const { handleSubmit, classes, user } = this.props;
+    if (user) {
+      return <Redirect to="/profile" />;
+    }
     return (
       <FormCard title="New account">
         <form onSubmit={handleSubmit(this.submitHandler)} noValidate>
