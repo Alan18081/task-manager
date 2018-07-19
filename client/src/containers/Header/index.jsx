@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { NavLink, withRouter } from "react-router-dom";
 import Media from "react-media";
 import {
   AppBar,
@@ -21,6 +22,8 @@ import { plus } from "react-icons-kit/entypo/plus";
 import { menu } from "react-icons-kit/entypo/menu";
 import { Icon } from "react-icons-kit";
 
+import { logout } from "../../store/actions";
+
 import styles from "./styles";
 
 class Header extends Component {
@@ -30,6 +33,13 @@ class Header extends Component {
       anchorEl: null
     };
   }
+  componentWillUpdate(newProps) {
+    const { user, history } = this.props;
+    if (!newProps.user && user) {
+      history.replace("/login");
+    }
+  }
+
   handleMenu(event) {
     this.setState({
       anchorEl: event.currentTarget
@@ -68,7 +78,7 @@ class Header extends Component {
     );
   }
   renderLinks() {
-    const { classes, user } = this.props;
+    const { classes, user, onLogout } = this.props;
     let links = (
       <div>
         <NavLink to="/login">
@@ -116,11 +126,9 @@ class Header extends Component {
               </Typography>
             </Button>
           </NavLink>
-          <NavLink to="/logout">
-            <IconButton>
-              <Icon icon={exit} size={20} className={classes.icon} />
-            </IconButton>
-          </NavLink>
+          <IconButton onClick={onLogout}>
+            <Icon icon={exit} size={20} className={classes.icon} />
+          </IconButton>
         </div>
       );
     }
@@ -151,4 +159,15 @@ class Header extends Component {
   }
 }
 
-export default withStyles(styles)(Header);
+const mapStateToProps = ({ user }) => ({
+  user: user.get("profile")
+});
+
+const mapDispatchToProps = dispatch => ({
+  onLogout: () => dispatch(logout())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(withRouter(Header)));

@@ -1,11 +1,5 @@
 {
-  "currentUser": {
-    "id": 3417,
-    "name": "Alan",
-    "email": "alan@gmail.com",
-    "birth": "12.10.1995",
-    "isAdmin": true
-  },
+  "currentUser": {},
   "users": [
     {
       "id": 4545,

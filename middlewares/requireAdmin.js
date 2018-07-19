@@ -4,5 +4,5 @@ module.exports = (req, res, next) => {
       error: "Not an admin"
     });
   }
-  next();
+  return next();
 };

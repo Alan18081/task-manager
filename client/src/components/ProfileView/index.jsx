@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Typography, withStyles, Card, CardContent } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
 import { ic_mode_edit } from "react-icons-kit/md/ic_mode_edit";
 import StarIcon from "@material-ui/icons/StarBorder";
 import { Icon } from "react-icons-kit";

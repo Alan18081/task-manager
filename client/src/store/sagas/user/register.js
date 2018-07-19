@@ -13,12 +13,13 @@ export function* registerSaga() {
   yield takeLatest(REGISTER, function*({ payload }) {
     try {
       yield put(registerStart());
-      const { data } = yield call(axios.post, "/register", payload);
+      const { data } = yield call(axios.post, "/signup", payload);
       if (data.errors) {
         yield put(registerFailed(data.errors));
       } else {
+        yield call(localStorage.setItem, "jsonToken", data.token);
         yield put(registerSuccess());
-        yield put(fetchUserSuccess(data));
+        yield put(fetchUserSuccess(data.user));
       }
     } catch (e) {
       yield put(serverError());

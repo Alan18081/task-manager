@@ -6,10 +6,9 @@ import { serverError, updateProfileSuccess } from "../../actions/index";
 export function* updateProfileSaga() {
   yield takeLatest(UPDATE_PROFILE, function*({ payload }) {
     try {
-      const { data } = yield call(axios.put, "/user", payload);
+      const { data } = yield call(axios.put, "/currentUser", payload);
       yield put(updateProfileSuccess(data));
     } catch (e) {
-      console.log(e);
       yield put(serverError());
     }
   });
