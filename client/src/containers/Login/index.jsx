@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
-import { Button, withStyles, List, ListItem } from "@material-ui/core";
+import {
+  Button,
+  withStyles,
+  List,
+  ListItem,
+  Typography
+} from "@material-ui/core";
 import { login as loginAction } from "../../store/actions";
 import { validateLogin } from "../../utils/validate";
 
@@ -28,7 +34,7 @@ class Login extends Component {
         <List>
           {errors.map(error => (
             <ListItem key={error.get("message")}>
-              {error.get("message")}
+              <Typography color="error">{error.get("message")}</Typography>
             </ListItem>
           ))}
         </List>
@@ -38,7 +44,7 @@ class Login extends Component {
   }
 
   render() {
-    const { handleSubmit, classes, user } = this.props;
+    const { handleSubmit, classes } = this.props;
     return (
       <FormCard title="Login">
         <form onSubmit={handleSubmit(this.submitHandler)}>
@@ -73,7 +79,6 @@ class Login extends Component {
 }
 
 const mapStateToProps = ({ user }) => ({
-  user: user.get("profile"),
   loading: user.get("loginLoading"),
   errors: user.get("loginErrors")
 });

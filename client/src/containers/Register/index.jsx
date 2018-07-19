@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
-import { Button, withStyles, ListItem, List } from "@material-ui/core";
+import {
+  Button,
+  withStyles,
+  ListItem,
+  List,
+  Typography
+} from "@material-ui/core";
 import { register } from "../../store/actions";
 import { validateRegister } from "../../utils/validate";
 
@@ -12,18 +18,24 @@ import Input from "../../components/Input";
 import FormCard from "../../components/FormCard";
 
 class Register extends Component {
-  submitHandler({ login, email, password }) {
-    this.props.onRegister(login, email, password);
+  constructor(props) {
+    super(props);
+
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+
+  submitHandler({ name, email, password }) {
+    this.props.onRegister(name, email, password);
   }
 
   renderErrors() {
-    const { errors } = this.props;
+    const { errors, classes } = this.props;
     if (errors.size) {
       return (
         <List>
           {errors.map(error => (
-            <ListItem key={error.get("message")}>
-              {error.get("message")}
+            <ListItem key={error.get("message")} className={classes.error}>
+              <Typography color="error">{error.get("message")}</Typography>
             </ListItem>
           ))}
         </List>

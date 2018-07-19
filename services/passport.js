@@ -20,10 +20,10 @@ passport.use(
           $or: [{ email: login }, { name: login }]
         });
         if (!user) {
-          return cb(null, false, { error: "No user with this login" });
+          return cb(null, false, { message: "No user with this login" });
         }
         if (!user.validatePassword(password)) {
-          return cb(null, false, { error: "Wrong password" });
+          return cb(null, false, { message: "Wrong password" });
         }
         return cb(null, user);
       } catch (e) {

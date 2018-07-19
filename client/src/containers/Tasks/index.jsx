@@ -10,8 +10,9 @@ class Tasks extends Component {
     this.createTask = this.createTask.bind(this);
   }
   renderTasks() {
-    return this.props.tasks.map(task => (
-      <Task isAdmin={this.props.isAdmin} task={task} key={task.get("id")} />
+    const { tasks, isAdmin } = this.props;
+    return tasks.map(task => (
+      <Task isAdmin={isAdmin} task={task} key={task.get("_id")} />
     ));
   }
 

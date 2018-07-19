@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import axios from "axios";
+import axios from "../../../axios";
 import { CREATE_TASK } from "../../actions/types";
 import { createTaskSuccess, serverError } from "../../actions";
 
