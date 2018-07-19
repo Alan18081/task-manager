@@ -1,38 +1,16 @@
-const User = require("../models/User");
 const requireAuth = require("../middlewares/requireAuth");
+const UsersController = require("../controllers/users");
 
 module.exports = app => {
-  app.get("/currentUser", (req, res) => {
-    res.send(req.user);
-  });
+  app.post("/login", UsersController.login);
 
-  app.get("/logout", (req, res) => {
-    res.logout();
-    res.send(false);
-  });
+  app.post("/signup", UsersController.signUp);
 
-  app.get("/users", requireAuth, async (req, res) => {
-    try {
-      const { data } = await User.find({});
-      res.send(data);
-    } catch (e) {
-      res.sendStatus(500);
-    }
-  });
+  app.get("/currentUser", requireAuth, UsersController.getCurrentUser);
 
-  app.put("/currentUser", requireAuth, async (req, res) => {
-    try {
-      const updatedUser = await User.findOneAndUpdate(
-        {
-          _id: req._id
-        },
-        {
-          ...req.body
-        }
-      );
-      res.send(updatedUser);
-    } catch (e) {
-      res.sendStatus(500);
-    }
-  });
+  app.get("/logout", UsersController.logout);
+
+  app.get("/users", requireAuth, UsersController.getAllUsers);
+
+  app.put("/currentUser", requireAuth, UsersController.updateUser);
 };

@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { fetchAllTasks, fetchAllUsers } from "../../store/actions";
-import { Drawer, Button, List, withStyles } from "@material-ui/core";
+import { Drawer, List, withStyles } from "@material-ui/core";
 import { users as usersIcon } from "react-icons-kit/icomoon/users";
 import { Icon } from "react-icons-kit";
+
+import { fetchAllTasks, fetchAllUsers } from "../../store/actions";
 
 import styles from "./styles";
 
@@ -57,7 +58,7 @@ class Board extends Component {
         </Drawer>
         <Title
           title="Board"
-          Icon={() => <Icon icon={userIcon} />}
+          Icon={() => <Icon icon={usersIcon} />}
           clicked={this.toggleDrawer}
         />
         <div className={classes.tasks}>{this.renderTasks()}</div>

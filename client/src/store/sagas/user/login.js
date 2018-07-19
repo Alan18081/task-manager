@@ -17,8 +17,9 @@ export function* loginSaga() {
       if (data.errors) {
         yield put(loginFailed(data.errors));
       } else {
+        localStorage.setItem("jsonToken", data.token);
         yield put(loginSuccess());
-        yield put(fetchUserSuccess(data));
+        yield put(fetchUserSuccess(data.user));
       }
     } catch (e) {
       yield put(serverError());
