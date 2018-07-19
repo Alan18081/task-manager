@@ -6,7 +6,7 @@ module.exports = {
     try {
       const tasks = await Task.find({
         $or: [{ worker: req.user._id }, { creator: req.user._id }]
-      });
+      }).populate("messages");
       res.send(tasks);
     } catch (e) {
       res.sendStatus(500);
@@ -14,7 +14,7 @@ module.exports = {
   },
   async getAllTasks(req, res) {
     try {
-      const tasks = await Task.find({}).populate("comments");
+      const tasks = await Task.find({}).populate("messages");
       res.send(tasks);
     } catch (e) {
       res.sendStatus(500);
@@ -23,7 +23,8 @@ module.exports = {
   async createTask(req, res) {
     try {
       const newTask = new Task({
-        ...req.body
+        ...req.body,
+        creator: req.user._id
       });
       await newTask.save();
       res.send(newTask);
@@ -40,8 +41,11 @@ module.exports = {
         },
         {
           ...req.body
+        },
+        {
+          new: true
         }
-      );
+      ).populate("messages");
       res.send(updatedTask);
     } catch (e) {
       res.sendStatus(500);
@@ -50,16 +54,16 @@ module.exports = {
   async getTaskById(req, res) {
     try {
       const { id } = req.params;
-      const task = await Task.findOne({ _id: id }).populate("comments");
+      const task = await Task.findOne({ _id: id }).populate("messages");
       res.send(task);
     } catch (e) {
       res.sendStatus(500);
     }
   },
-  async addCommentToTask(req, res) {
+  async addMessageToTask(req, res) {
     try {
       const { id } = req.params;
-      const newComment = new Message({
+      const newMessage = new Message({
         author: req.user._id,
         text: req.body.comment,
         createdAt: new Date()
@@ -71,11 +75,14 @@ module.exports = {
           },
           {
             $push: {
-              comments: newComment._id
+              messages: newMessage._id
             }
+          },
+          {
+            new: true
           }
         ).populate("comments"),
-        Message.save()
+        newMessage.save()
       ]);
       res.send(task);
     } catch (e) {

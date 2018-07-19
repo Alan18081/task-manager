@@ -14,8 +14,8 @@ module.exports = app => {
   app.get("/tasks/:id", requireAuth, TasksController.getTaskById);
 
   app.post(
-    "/tasks/:id/addComment",
+    "/tasks/:id/addMessage",
     requireAuth,
-    TasksController.addCommentToTask
+    TasksController.addMessageToTask
   );
 };

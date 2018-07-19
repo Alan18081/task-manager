@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { port, mongodbUrl } = require("./config");
+const cors = require("./middlewares/allowCors");
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/*", cors);
 
 mongoose.Promise = global.Promise;
 
