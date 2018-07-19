@@ -34,6 +34,9 @@ class App extends Component {
           <Route path="/tasks" exact component={Tasks} />
           <Route path="/tasks/:id" component={TaskPage} />
           <Route path="/users/:userId/chat" component={Chat} />
+          {user.get("isAdmin") && (
+            <Route path="/create_task" component={TaskCreate} />
+          )}
         </Fragment>
       );
     } else {
@@ -54,16 +57,7 @@ class App extends Component {
     return (
       <Fragment>
         <Header user={user} />
-        <main className={classes.content}>
-          <Route path="/" exact component={Board} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/tasks" exact component={Tasks} />
-          <Route path="/tasks/:id" component={TaskPage} />
-          <Route path="/chats/users/:userId" component={Chat} />
-          {user.get("isAdmin") && (
-            <Route path="/create_task" component={TaskCreate} />
-          )}
-        </main>
+        <main className={classes.content}>{this.renderRoutes()}</main>
       </Fragment>
     );
   }

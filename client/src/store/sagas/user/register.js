@@ -13,7 +13,7 @@ export function* registerSaga() {
   yield takeLatest(REGISTER, function*({ payload }) {
     try {
       yield put(registerStart());
-      const { data } = yield call(axios.post, "/register", payload);
+      const { data } = yield call(axios.post, "/signup", payload);
       if (data.errors) {
         yield put(registerFailed(data.errors));
       } else {
