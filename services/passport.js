@@ -25,6 +25,7 @@ passport.use(
         if (!user.validatePassword(password)) {
           return cb(null, false, { message: "Wrong password" });
         }
+
         return cb(null, user);
       } catch (e) {
         return cb(e);

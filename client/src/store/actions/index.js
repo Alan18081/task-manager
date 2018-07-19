@@ -24,7 +24,9 @@ export {
   fetchActiveTaskSuccess,
   addTaskComment,
   createTask,
-  createTaskSuccess
+  createTaskSuccess,
+  removeTask,
+  removeTaskSuccess
 } from "./tasks";
 
 export {

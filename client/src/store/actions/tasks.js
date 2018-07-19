@@ -8,7 +8,9 @@ import {
   FETCH_ACTIVE_TASK_SUCCESS,
   ADD_TASK_COMMENT,
   CREATE_TASK,
-  CREATE_TASK_SUCCESS
+  CREATE_TASK_SUCCESS,
+  REMOVE_TASK,
+  REMOVE_TASK_SUCCESS
 } from "./types";
 
 export const fetchTasks = () => ({
@@ -71,4 +73,14 @@ export const createTask = (title, description, estimateTime) => ({
 export const createTaskSuccess = task => ({
   type: CREATE_TASK_SUCCESS,
   payload: task
+});
+
+export const removeTask = id => ({
+  type: REMOVE_TASK,
+  payload: id
+});
+
+export const removeTaskSuccess = id => ({
+  type: REMOVE_TASK_SUCCESS,
+  payload: id
 });

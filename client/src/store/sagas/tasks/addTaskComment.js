@@ -16,7 +16,6 @@ export function* addTaskCommentSaga() {
       yield put(changeTaskSuccess(data));
       yield put(fetchActiveTaskSuccess(data));
     } catch (e) {
-      console.log(e);
       yield put(serverError());
     }
   });

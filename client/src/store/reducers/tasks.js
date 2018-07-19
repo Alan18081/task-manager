@@ -3,7 +3,8 @@ import {
   CHANGE_TASK_SUCCESS,
   CREATE_TASK_SUCCESS,
   FETCH_ACTIVE_TASK_SUCCESS,
-  FETCH_TASKS_SUCCESS
+  FETCH_TASKS_SUCCESS,
+  REMOVE_TASK_SUCCESS
 } from "../actions/types";
 
 const initialState = fromJS({
@@ -26,6 +27,10 @@ export default (state = initialState, { type, payload }) => {
       );
     case CREATE_TASK_SUCCESS:
       return state.update("list", tasks => tasks.push(fromJS(payload)));
+    case REMOVE_TASK_SUCCESS:
+      return state.update("list", tasks =>
+        tasks.filter(task => task.get("_id") !== payload)
+      );
     default:
       return state;
   }

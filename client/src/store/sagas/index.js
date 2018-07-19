@@ -10,6 +10,7 @@ export { setTaskTimeSaga } from "./tasks/setTaskTime";
 export { fetchActiveTaskSaga } from "./tasks/fetchActiveTask";
 export { addTaskCommentSaga } from "./tasks/addTaskComment";
 export { createTaskSaga } from "./tasks/createTask";
+export { removeTaskSaga } from "./tasks/removeTask";
 
 export { fetchAllTasksSaga } from "./board/fetchAllTasks";
 export { fetchAllUsersSaga } from "./board/fetchAllUsers";

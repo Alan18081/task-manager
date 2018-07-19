@@ -9,28 +9,29 @@ import {
 } from "@material-ui/core";
 import { addTaskComment } from "../../store/actions/index";
 
-import Message from "../../components/Message/index.jsx";
-import MessageAdd from "../../components/MessageAdd/index.jsx";
+import Message from "../../components/Message/index";
+import MessageAdd from "../../components/MessageAdd/index";
 
-const Comments = ({ taskId, comments, onAddTaskComment }) => (
+const Comments = ({ taskId, messages, onAddTaskMessage }) => (
   <Card>
     <CardContent>
       <Typography variant="headline">Comments</Typography>
       <List>
-        {comments.map(comment => (
+        {messages.map(comment => (
           <Message key={comment.get("id")} message={comment} />
         ))}
       </List>
       <Divider />
       <MessageAdd
-        submitHandler={({ text }) => onAddTaskComment(taskId, text)}
+        label="Your comment"
+        submitHandler={({ text }) => onAddTaskMessage(taskId, text)}
       />
     </CardContent>
   </Card>
 );
 
 const mapDispatchToProps = dispatch => ({
-  onAddTaskComment: (taskId, text) => dispatch(addTaskComment(taskId, text))
+  onAddTaskMessage: (taskId, text) => dispatch(addTaskComment(taskId, text))
 });
 
 export default connect(

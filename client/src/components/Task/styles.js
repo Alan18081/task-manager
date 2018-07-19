@@ -17,5 +17,13 @@ export default ({
   },
   status: {
     marginTop: unit
+  },
+  content: {
+    display: "flex",
+    alignItems: "flex-start"
+  },
+  info: {
+    flexGrow: 1,
+    paddingRight: unit
   }
 });

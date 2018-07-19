@@ -13,6 +13,13 @@ module.exports = app => {
 
   app.get("/tasks/:id", requireAuth, TasksController.getTaskById);
 
+  app.delete(
+    "/tasks/:id",
+    requireAuth,
+    requireAdmin,
+    TasksController.removeTask
+  );
+
   app.post(
     "/tasks/:id/addMessage",
     requireAuth,

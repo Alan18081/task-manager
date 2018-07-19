@@ -17,7 +17,7 @@ module.exports = {
     try {
       const updatedUser = await User.findOneAndUpdate(
         {
-          _id: req.user._id
+          _id: req.user.id
         },
         {
           ...req.body
@@ -33,13 +33,14 @@ module.exports = {
   },
   async getAllUsers(req, res) {
     try {
-      const { data } = await User.find({});
-      res.send(data);
+      const users = await User.find({});
+      res.send(users);
     } catch (e) {
       res.status(500).send(e);
     }
   },
   login(req, res) {
+    console.log(req.body);
     passport.authenticate(
       "local.login",
       { session: false },
@@ -56,7 +57,7 @@ module.exports = {
           if (loginError) {
             return res.status(500).send(loginError);
           }
-          const token = jwt.sign(user._id, jwtSecret);
+          const token = jwt.sign(user.id, jwtSecret);
           return res.send({ user, token });
         });
       }
@@ -80,7 +81,7 @@ module.exports = {
           if (loginError) {
             return res.status(500).send(loginError);
           }
-          const token = jwt.sign(user._id, jwtSecret);
+          const token = jwt.sign(user.id, jwtSecret);
           return res.send({ user, token });
         });
       }
