@@ -11,9 +11,9 @@ export function* fetchActiveTaskSaga() {
       let activeTask;
 
       if (tasks) {
-        activeTask = tasks.find(task => task.get("id") === payload);
+        activeTask = tasks.find(task => task.get("_id") === payload);
       } else if (allTasks) {
-        activeTask = allTasks.find(task => task.get("id") === payload);
+        activeTask = allTasks.find(task => task.get("_id") === payload);
       } else {
         const { data } = yield call(axios.get, `/tasks/${payload}`);
         activeTask = data;

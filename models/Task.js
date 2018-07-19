@@ -10,7 +10,7 @@ const TaskSchema = new Schema({
     type: String,
     default: stages[0]
   },
-  esitmateTime: Boolean,
+  estimateTime: String,
   messages: [{ type: Schema.Types.ObjectId, ref: "Message" }],
   creator: { type: Schema.Types.ObjectId, ref: "User" },
   performer: { type: Schema.Types.ObjectId, ref: "User" }

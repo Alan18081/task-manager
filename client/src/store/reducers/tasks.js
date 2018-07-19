@@ -3,7 +3,7 @@ import {
   CHANGE_TASK_SUCCESS,
   CREATE_TASK_SUCCESS,
   FETCH_ACTIVE_TASK_SUCCESS,
-  FETCH_TASKS_SUCCESS,
+  FETCH_USER_TASKS_SUCCESS,
   REMOVE_TASK_SUCCESS
 } from "../actions/types";
 
@@ -14,14 +14,14 @@ const initialState = fromJS({
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_TASKS_SUCCESS:
+    case FETCH_USER_TASKS_SUCCESS:
       return state.set("list", fromJS(payload));
     case FETCH_ACTIVE_TASK_SUCCESS:
       return state.set("activeTask", fromJS(payload));
     case CHANGE_TASK_SUCCESS:
       return state.update("list", tasks =>
         tasks.update(
-          tasks.findIndex(task => task.get("id") === payload.id),
+          tasks.findIndex(task => task.get("_id") === payload.id),
           () => fromJS(payload)
         )
       );

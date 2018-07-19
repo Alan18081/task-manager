@@ -1,14 +1,12 @@
 export default ({
   spacing: { unit },
   palette: { primary },
-  transitions: { easing, duration }
+  transitions: { easing, duration },
+  breakpoints
 }) => ({
   container: {
     marginBottom: unit * 2,
     display: "block",
-    textDecoration: "none"
-  },
-  card: {
     border: "1px solid transparent",
     transition: `all ${duration.short}ms ${easing.easeIn}`,
     "&:hover": {
@@ -20,10 +18,20 @@ export default ({
   },
   content: {
     display: "flex",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    [breakpoints.down("xs")]: {
+      flexDirection: "column"
+    }
   },
   info: {
     flexGrow: 1,
     paddingRight: unit
+  },
+  performer: {
+    marginTop: unit * 2
+  },
+  controls: {
+    display: 'flex',
+    flexDirection: 'column'
   }
 });

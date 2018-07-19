@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Loader from "../../components/Loader/index";
 import Task from "../../components/Task/index";
 
-import { removeTask } from "../../store/actions";
+import { removeTask, fetchUserTasks } from "../../store/actions";
 
 class Tasks extends Component {
   constructor(props) {
@@ -13,12 +13,15 @@ class Tasks extends Component {
     this.removeTaskHandler = this.removeTaskHandler.bind(this);
   }
 
+  componentDidMount() {
+    this.props.onFetchUserTasks();
+  }
+
   createTask() {
     this.props.history.push("/create_task");
   }
 
-  removeTaskHandler(event, id) {
-    event.stopPropagation();
+  removeTaskHandler(id) {
     this.props.onRemoveTask(id);
   }
 
@@ -29,7 +32,7 @@ class Tasks extends Component {
         isAdmin={isAdmin}
         task={task}
         key={task.get("_id")}
-        remove={event => this.removeTaskHandler(event, "_id")}
+        remove={() => this.removeTaskHandler(task.get("_id"))}
       />
     ));
   }
@@ -49,7 +52,8 @@ const mapStateToProps = ({ tasks, user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onRemoveTask: id => dispatch(removeTask(id))
+  onRemoveTask: id => dispatch(removeTask(id)),
+  onFetchUserTasks: () => dispatch(fetchUserTasks())
 });
 
 export default connect(

@@ -1,9 +1,9 @@
 import {
   SET_TASK_TIME,
-  CHANGE_TASK_STATUS,
+  CHANGE_TASK,
   CHANGE_TASK_SUCCESS,
-  FETCH_TASKS,
-  FETCH_TASKS_SUCCESS,
+  FETCH_USER_TASKS,
+  FETCH_USER_TASKS_SUCCESS,
   FETCH_ACTIVE_TASK,
   FETCH_ACTIVE_TASK_SUCCESS,
   ADD_TASK_COMMENT,
@@ -13,20 +13,19 @@ import {
   REMOVE_TASK_SUCCESS
 } from "./types";
 
-export const fetchTasks = () => ({
-  type: FETCH_TASKS
+export const fetchUserTasks = () => ({
+  type: FETCH_USER_TASKS
 });
 
-export const fetchTasksSuccess = tasks => ({
-  type: FETCH_TASKS_SUCCESS,
+export const fetchUserTasksSuccess = tasks => ({
+  type: FETCH_USER_TASKS_SUCCESS,
   payload: tasks
 });
 
-export const changeTaskStatus = (id, status) => ({
-  type: CHANGE_TASK_STATUS,
+export const changeTask = (id,info) => ({
+  type: CHANGE_TASK,
   payload: {
-    id,
-    status
+    id,info
   }
 });
 
@@ -61,13 +60,9 @@ export const addTaskComment = (id, comment) => ({
   }
 });
 
-export const createTask = (title, description, estimateTime) => ({
+export const createTask = (task) => ({
   type: CREATE_TASK,
-  payload: {
-    title,
-    description,
-    estimateTime
-  }
+  payload: task
 });
 
 export const createTaskSuccess = task => ({

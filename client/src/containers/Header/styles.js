@@ -5,16 +5,5 @@ export default ({ spacing: { unit }, breakpoints }) => ({
       flexDirection: "column",
       alignItems: "center"
     }
-  },
-  brand: {
-    flexGrow: 1,
-    textDecoration: "none"
-  },
-  linkText: {
-    color: "#fff",
-    marginLeft: unit
-  },
-  icon: {
-    color: "#fff"
   }
 });

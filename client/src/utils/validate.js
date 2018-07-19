@@ -87,7 +87,7 @@ export const validateRegister = ({
   return errors;
 };
 
-export const validateCreateTask = ({ title, description }) => {
+export const validateTask = ({ title, description,estimateTime }) => {
   const errors = {};
 
   if (!title) {
@@ -97,6 +97,8 @@ export const validateCreateTask = ({ title, description }) => {
   if (!description) {
     errors.description = "Please, provide description";
   }
+
+
 
   return errors;
 };

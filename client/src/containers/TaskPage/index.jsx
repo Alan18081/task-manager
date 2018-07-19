@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Card, CardContent, Typography, withStyles } from "@material-ui/core";
 import StatusIcon from "@material-ui/icons/Cached";
-import { changeTaskStatus, fetchActiveTask } from "../../store/actions";
+import { changeTask, fetchActiveTask } from "../../store/actions";
 import styles from "./styles";
 
 import TaskTime from "../TaskTime/index";
@@ -25,8 +25,10 @@ class TaskPage extends Component {
   }
 
   handleStatus({ target: { value } }) {
-    const { task, onChangeTaskStatus } = this.props;
-    onChangeTaskStatus(task.get("id"), value);
+    const { task, onChangeTask } = this.props;
+    onChangeTask(task.get("id"), {
+      status: value
+    });
   }
 
   render() {
@@ -78,7 +80,7 @@ const mapStateToProps = ({ tasks, user }) => ({
 
 const mapDispatchToProps = dispatch => ({
   onFetchActiveTask: id => dispatch(fetchActiveTask(id)),
-  onChangeTaskStatus: (id, status) => dispatch(changeTaskStatus(id, status))
+  onChangeTask: (id, info) => dispatch(changeTask(id, info))
 });
 
 export default connect(
