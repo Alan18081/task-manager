@@ -48,7 +48,9 @@ module.exports = {
           return res.status(500).send(err);
         }
         if (info) {
-          return res.status(401).send(info);
+          return res.status(401).send({
+            errors: [info]
+          });
         }
         return req.login(user, { session: false }, loginError => {
           if (loginError) {
@@ -61,6 +63,7 @@ module.exports = {
     )(req, res);
   },
   signUp(req, res) {
+    console.log(req.body);
     passport.authenticate(
       "local.signup",
       { session: false },
@@ -69,7 +72,9 @@ module.exports = {
           return res.status(500).send(err);
         }
         if (info) {
-          return res.status(401).send(info);
+          return res.status(401).send({
+            errors: [info]
+          });
         }
         return req.login(user, { session: false }, loginError => {
           if (loginError) {

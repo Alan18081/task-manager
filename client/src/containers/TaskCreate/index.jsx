@@ -24,20 +24,28 @@ import styles from "./styles";
 const selector = formValueSelector("createTask");
 
 class TaskCreate extends Component {
+  constructor(props) {
+    super(props);
+
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+
   componentDidMount() {
     this.props.onFetchAllUsers();
   }
+
   submitHandler({ title, description, estimateTime }) {
     this.props.onCreateTask(title, description, estimateTime);
   }
+
   renderUsersSelect() {
-    const { users, classes, change } = this.props;
+    const { users, classes, change, performerId } = this.props;
     if (users) {
       return (
         <FormControl className={classes.select}>
           <Typography>Your performer</Typography>
           <Select
-            value={this.props.performerId}
+            value={performerId}
             onChange={({ target: { value } }) => change("performerId", value)}
             inputProps={{
               id: "age-simple"
@@ -76,6 +84,7 @@ class TaskCreate extends Component {
           {this.renderUsersSelect()}
           <div className={classes.btns}>
             <Button
+              type="submit"
               variant="contained"
               color="primary"
               fullWidth

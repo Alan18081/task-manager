@@ -37,7 +37,7 @@ export default (state = initialState, { type, payload }) => {
       return state.set("loginLoading", false);
     case LOGIN_FAILED:
       return state.merge({
-        loginErrors: fromJS([]),
+        loginErrors: fromJS(payload),
         loginLoading: false
       });
     case REGISTER_START:
@@ -49,7 +49,7 @@ export default (state = initialState, { type, payload }) => {
       return state.set("registerLoading", false);
     case REGISTER_FAILED:
       return state.merge({
-        registerErrors: fromJS([]),
+        registerErrors: fromJS(payload),
         registerLoading: false
       });
     default:

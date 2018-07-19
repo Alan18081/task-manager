@@ -25,7 +25,7 @@ export default (state = initialState, { type, payload }) => {
         )
       );
     case CREATE_TASK_SUCCESS:
-      return state.update("tasks", tasks => tasks.push(fromJS(payload)));
+      return state.update("list", tasks => tasks.push(fromJS(payload)));
     default:
       return state;
   }
