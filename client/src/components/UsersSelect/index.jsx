@@ -9,7 +9,12 @@ import {
 import PropTypes from "prop-types";
 import styles from "./styles";
 
-const UsersSelect = ({ users, classes, input: { onChange, value } }) => (
+const UsersSelect = ({
+  users,
+  classes,
+  input: { onChange, value },
+  meta: { error, touched }
+}) => (
   <FormControl className={classes.select}>
     <Typography>Your performer</Typography>
     <Select
@@ -26,6 +31,12 @@ const UsersSelect = ({ users, classes, input: { onChange, value } }) => (
         </MenuItem>
       ))}
     </Select>
+    {touched &&
+      error && (
+        <Typography variant="body1" color="error">
+          {error}
+        </Typography>
+      )}
   </FormControl>
 );
 
