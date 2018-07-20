@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   withStyles,
@@ -7,11 +7,12 @@ import {
   Typography,
   IconButton
 } from "@material-ui/core";
+import PropTypes from "prop-types";
 import { trashO } from "react-icons-kit/fa/trashO";
 import { ic_mode_edit } from "react-icons-kit/md/ic_mode_edit";
 import { Icon } from "react-icons-kit";
 
-import User from "../../components/User/index";
+import User from "../User/index";
 
 import styles from "./styles";
 
@@ -27,9 +28,7 @@ const Task = ({ classes, task, remove, isAdmin }) => (
           <Typography variant="subheading" color="primary">
             Performer
           </Typography>
-          <Link to={`/users/${task.get("performer").get("_id")}/chat`}>
-            <User user={task.get("performer")} />
-          </Link>
+          <User user={task.get("performer")} />
         </div>
       </div>
       {isAdmin && (
@@ -47,5 +46,10 @@ const Task = ({ classes, task, remove, isAdmin }) => (
     </CardContent>
   </Card>
 );
+
+Task.propTypes = {
+  isAdmin: PropTypes.bool.isRequired,
+  task: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(Task);

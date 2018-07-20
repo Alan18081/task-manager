@@ -1,9 +1,7 @@
-export default ({ spacing: { unit }, breakpoints }) => ({
+export default ({ spacing: { unit } }) => ({
   toolbar: {
     display: "flex",
-    [breakpoints.down("sm")]: {
-      flexDirection: "column",
-      alignItems: "center"
-    }
+    justifyContent: "space-between",
+    padding: `${unit}px 0`
   }
 });
