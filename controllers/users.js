@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const { jwtSecret } = require("../config");
 
 const User = mongoose.model("User");
+const Chat = mongoose.model("Chat");
 
 module.exports = {
   async getCurrentUser(req, res) {
@@ -40,7 +41,6 @@ module.exports = {
     }
   },
   login(req, res) {
-    console.log(req.body);
     passport.authenticate(
       "local.login",
       { session: false },
@@ -90,5 +90,35 @@ module.exports = {
   logout(req, res) {
     req.logout();
     res.send(false);
+  },
+  async getUserChat(req, res) {
+    try {
+      const { id } = req.params;
+      const chat = await Chat.findOne({
+        users: {
+          $in: [req.user.id, id]
+        }
+      })
+        .populate("users")
+        .populate("messages");
+      if (!chat) {
+        const newChat = new Chat({
+          users: [req.user.id, id],
+          messages: []
+        });
+        await Promise.all([
+          Chat.populate(newChat, {
+            path: "users",
+            model: "User"
+          }),
+          newChat.save()
+        ]);
+        res.send(newChat);
+      } else {
+        res.send(chat);
+      }
+    } catch (e) {
+      res.status(500).send(e);
+    }
   }
 };

@@ -13,4 +13,6 @@ module.exports = app => {
   app.get("/users", requireAuth, UsersController.getAllUsers);
 
   app.put("/currentUser", requireAuth, UsersController.updateUser);
+
+  app.get("/users/:id/chat", requireAuth, UsersController.getUserChat);
 };

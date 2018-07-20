@@ -92,7 +92,7 @@ class Navigation extends Component {
             Profile
           </NavItem>
           {isAdmin && (
-            <NavItem to="/createTask" icon={plus} mobile={mobile}>
+            <NavItem to="/createTask" icon={plus} mobile={mobile} important>
               New task
             </NavItem>
           )}

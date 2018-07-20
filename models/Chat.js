@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const ChatRoomSchema = new Schema({
+const ChatSchema = new Schema({
   users: [
     {
       type: Schema.Types.ObjectId,
@@ -17,4 +17,4 @@ const ChatRoomSchema = new Schema({
   ]
 });
 
-module.exports = mongoose.model("ChatRoom", ChatRoomSchema);
+module.exports = mongoose.model("Chat", ChatSchema);

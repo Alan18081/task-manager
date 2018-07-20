@@ -39,8 +39,11 @@ export {
 export {
   fetchChatRoom,
   fetchChatRoomSuccess,
-  fetchChatUserSuccess,
-  sendMessage
+  createChatConnection,
+  createChatConnectionSuccess,
+  sendMessage,
+  leaveChat,
+  leaveChatSuccess
 } from "./chat";
 
 export { serverError } from "./errors";

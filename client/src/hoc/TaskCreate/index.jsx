@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { reduxForm, formValueSelector } from "redux-form";
-import {
-  fetchActiveTask,
-  createTask,
-  fetchAllUsers
-} from "../../store/actions";
+import { createTask, fetchAllUsers } from "../../store/actions";
 import { getPerformers } from "../../selectors";
 import { validateTask } from "../../utils/validate";
 
@@ -19,17 +15,10 @@ export default WrappedComponent => {
     }
 
     componentDidMount() {
-      const {
-        onFetchActiveTask,
-        onFetchAllUsers,
-        history,
-        match,
-        isAdmin
-      } = this.props;
+      const { onFetchAllUsers, history, isAdmin } = this.props;
       if (!isAdmin) {
         history.replace("/tasks");
       } else {
-        onFetchActiveTask(match.params.id);
         onFetchAllUsers();
       }
     }
@@ -52,7 +41,6 @@ export default WrappedComponent => {
   });
 
   const mapDispatchToProps = dispatch => ({
-    onFetchActiveTask: id => dispatch(fetchActiveTask(id)),
     onCreateTask: task => dispatch(createTask(task)),
     onFetchAllUsers: () => dispatch(fetchAllUsers())
   });

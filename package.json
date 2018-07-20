@@ -11,6 +11,10 @@
     "dev:static": "cd ./client && npm run dev",
     "lint": "eslint **/*.js"
   },
+  "engines": {
+    "node": "10.6.0",
+    "npm": "6.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alan18081/task-manager.git"

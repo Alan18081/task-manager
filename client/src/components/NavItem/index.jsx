@@ -13,7 +13,7 @@ import { Icon } from "react-icons-kit";
 
 import styles from "./styles";
 
-const NavItem = ({ to, classes, children, icon, mobile }) => (
+const NavItem = ({ to, classes, children, icon, mobile, important }) => (
   <NavLink to={to}>
     {mobile ? (
       <ListItem button>
@@ -23,7 +23,10 @@ const NavItem = ({ to, classes, children, icon, mobile }) => (
         <ListItemText>{children}</ListItemText>
       </ListItem>
     ) : (
-      <Button color="inherit">
+      <Button
+        variant={important && "contained"}
+        color={important && "secondary"}
+      >
         <Icon icon={icon} size={20} className={classes.icon} />
         <Typography className={classes.text} variant="subheading">
           {children}

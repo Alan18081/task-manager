@@ -8,10 +8,10 @@ import styles from "./styles";
 
 const Logo = ({ classes }) => (
   <NavLink to="/">
-    <Button>
-      <Icon icon={basic_todolist_pen} size={30} />
+    <Button variant="outlined">
+      <Icon className={classes.icon} icon={basic_todolist_pen} size={30} />
     </Button>
   </NavLink>
 );
 
-export default Logo;
+export default withStyles(styles)(Logo);

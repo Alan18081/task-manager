@@ -15,7 +15,7 @@ export function* registerSaga() {
     try {
       yield put(registerStart());
       const { data } = yield call(axios.post, "/signup", payload);
-      yield call(localStorage.setItem, "jsonToken", data.token);
+      localStorage.setItem("jsonToken", data.token);
       yield put(registerSuccess());
       yield put(replace("/tasks"));
       yield put(fetchUserSuccess(data.user));

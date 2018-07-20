@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
+const createIO = require("socket.io");
+const http = require("http");
 const { port, mongodbUrl } = require("./config");
 const cors = require("./middlewares/allowCors");
 
@@ -18,7 +20,7 @@ mongoose.connect(mongodbUrl);
 require("./models/User");
 require("./models/Task");
 require("./models/Message");
-require("./models/ChatRoom");
+require("./models/Chat");
 
 require("./services/passport");
 
@@ -31,6 +33,12 @@ app.get("/", (req, res) => {
 
 app.get("/*", express.static(path.join(__dirname, "/client/build/static")));
 
-app.listen(port, () => {
+const server = http.createServer(app);
+
+const io = createIO(server);
+
+require("./sockets/chat")(io);
+
+server.listen(port, () => {
   console.log(`Server is listening at port ${port}`);
 });

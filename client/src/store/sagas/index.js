@@ -16,3 +16,4 @@ export { fetchAllTasksSaga } from "./board/fetchAllTasks";
 export { fetchAllUsersSaga } from "./board/fetchAllUsers";
 
 export { fetchChatRoomSaga } from "./chat/fetchChatRoom";
+export { createChatConnectionSaga } from "./chat/createChatConnection";

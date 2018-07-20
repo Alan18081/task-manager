@@ -40,7 +40,10 @@ class App extends Component {
   }
 
   renderRoutes() {
-    const { user } = this.props;
+    const { user, error } = this.props;
+    if (error) {
+      return <ServerError />;
+    }
     if (user) {
       return (
         <Fragment>
@@ -85,9 +88,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user, tasks }) => ({
+const mapStateToProps = ({ user, tasks, serverError }) => ({
   user: user.get("profile"),
-  tasks: tasks.get("list")
+  tasks: tasks.get("list"),
+  error: serverError.get("error")
 });
 
 const mapDispatchToProps = dispatch => ({
