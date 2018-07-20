@@ -20,7 +20,7 @@ module.exports = app => {
     TasksController.removeTask
   );
 
-  app.post(
+  app.patch(
     "/tasks/:id/addMessage",
     requireAuth,
     TasksController.addMessageToTask

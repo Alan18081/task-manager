@@ -10,7 +10,7 @@ import {
 export function* addTaskCommentSaga() {
   yield takeLatest(ADD_TASK_COMMENT, function*({ payload: { id, comment } }) {
     try {
-      const { data } = yield call(axios.patch, `/tasks/${id}/addComment`, {
+      const { data } = yield call(axios.patch, `/tasks/${id}/addMessage`, {
         comment
       });
       yield put(changeTaskSuccess(data));

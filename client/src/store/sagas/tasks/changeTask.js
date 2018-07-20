@@ -1,4 +1,5 @@
 import { call, put, takeLatest, select } from "redux-saga/effects";
+import { push } from "connected-react-router";
 import axios from "../../../axios";
 import { CHANGE_TASK } from "../../actions/types";
 import {
@@ -8,16 +9,17 @@ import {
 } from "../../actions/index";
 
 export function* changeTaskSaga() {
-  yield takeLatest(CHANGE_TASK, function*({ payload: {id,info} }) {
+  yield takeLatest(CHANGE_TASK, function*({ payload: { id, info } }) {
     try {
       const { data } = yield call(axios.patch, `/tasks/${id}`, {
         ...info
       });
-      const tasks = yield select(({tasks}) => tasks.get('list'));
-      if(tasks) {
+      const loadedTasks = yield select(({ tasks }) => tasks.get("list"));
+      if (loadedTasks) {
         yield put(changeTaskSuccess(data));
       }
       yield put(fetchActiveTaskSuccess(data));
+      yield put(push("/tasks"));
     } catch (e) {
       yield put(serverError());
     }

@@ -19,6 +19,7 @@ export default (state = initialState, { type, payload }) => {
     case FETCH_ACTIVE_TASK_SUCCESS:
       return state.set("activeTask", fromJS(payload));
     case CHANGE_TASK_SUCCESS:
+      console.log(payload);
       return state.update("list", tasks =>
         tasks.update(
           tasks.findIndex(task => task.get("_id") === payload.id),

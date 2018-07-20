@@ -10,7 +10,7 @@ import {
 
 import Input from "../../components/Input";
 import FormCard from "../../components/FormCard";
-import UsersSelect from '../../components/UsersSelect';
+import UsersSelect from "../../components/UsersSelect";
 
 import styles from "./styles";
 
@@ -21,21 +21,18 @@ class TaskForm extends Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
 
-
   submitHandler(values) {
     this.props.submit(values);
   }
 
   renderUsersSelect() {
-    const { users } = this.props;
+    const { users, classes } = this.props;
     if (users) {
-      return (
-        <Field name="performer" component={UsersSelect} users={users}/>
-      );
+      return <Field name="performer" component={UsersSelect} users={users} />;
     } else {
       return (
-        <div>
-          <CircularProgress />
+        <div className={classes.selectLoading}>
+          <CircularProgress size={20} />
           <Typography color="primary">Loading possible performers</Typography>
         </div>
       );

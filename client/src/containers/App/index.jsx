@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Route, withRouter, Switch } from "react-router-dom";
-import { withStyles, withTheme, createMuiTheme, MuiThemeProvider } from "@material-ui/core";
+import {
+  withStyles,
+  createMuiTheme,
+  MuiThemeProvider
+} from "@material-ui/core";
 
 import Header from "../Header/index";
 import Profile from "../Profile/index";
@@ -13,11 +17,11 @@ import Chat from "../Chat/index";
 import Login from "../Login";
 import Register from "../Register";
 import TaskForm from "../TaskForm";
-import PageNotFound from '../../components/PageNotFound';
-import ServerError from '../../components/ServerError';
+import PageNotFound from "../../components/PageNotFound";
+import ServerError from "../../components/ServerError";
 
-import TaskCreate from '../../hoc/TaskCreate';
-import TaskEdit from '../../hoc/TaskEdit';
+import TaskCreate from "../../hoc/TaskCreate";
+import TaskEdit from "../../hoc/TaskEdit";
 
 import styles from "./styles";
 import { fetchUser } from "../../store/actions";
@@ -27,7 +31,7 @@ const theme = createMuiTheme({
     values: {
       xs: 400
     }
-  },
+  }
 });
 
 class App extends Component {
@@ -36,7 +40,10 @@ class App extends Component {
   }
 
   renderRoutes() {
-    const { user } = this.props;
+    const { user, error } = this.props;
+    if (error) {
+      return <ServerError />;
+    }
     if (user) {
       return (
         <Fragment>
@@ -73,7 +80,7 @@ class App extends Component {
         <main className={classes.content}>
           <Switch>
             {this.renderRoutes()}
-            <Route path="*" component={PageNotFound}/>
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </main>
       </MuiThemeProvider>
@@ -81,9 +88,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user, tasks }) => ({
+const mapStateToProps = ({ user, tasks, serverError }) => ({
   user: user.get("profile"),
-  tasks: tasks.get("list")
+  tasks: tasks.get("list"),
+  error: serverError.get("error")
 });
 
 const mapDispatchToProps = dispatch => ({

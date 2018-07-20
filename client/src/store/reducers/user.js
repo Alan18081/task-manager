@@ -24,7 +24,7 @@ export default (state = initialState, { type, payload }) => {
     case FETCH_USER_SUCCESS:
       return state.merge({
         profile: fromJS(payload),
-        isAdmin: payload.isAdmin
+        isAdmin: payload.isAdmin || false
       });
     case UPDATE_PROFILE_SUCCESS:
       return state.set("profile", fromJS(payload));

@@ -6,6 +6,7 @@ import {
   ListItemText
 } from "@material-ui/core";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 import MessageIcon from "@material-ui/icons/Message";
 
@@ -16,10 +17,12 @@ const Message = ({ message }) => (
     </ListItemIcon>
     <ListItemText>
       <Typography variant="subheading" color="secondary">
-        {message.get("author")}
+        {message.get("author").get("name")}
       </Typography>
       <Typography variant="body1">{message.get("text")}</Typography>
-      <Typography variant="caption">{message.get("createdAt")}</Typography>
+      <Typography variant="caption">
+        {moment(message.get("createdAt")).format("MMMM Do, h:mm:ss a")}
+      </Typography>
     </ListItemText>
   </ListItem>
 );

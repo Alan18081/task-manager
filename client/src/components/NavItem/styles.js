@@ -1,4 +1,4 @@
-export default ({spacing: {unit}}) => ({
+export default ({ spacing: { unit } }) => ({
   text: {
     color: "#fff",
     marginLeft: unit

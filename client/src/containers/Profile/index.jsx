@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateProfile } from "../../store/actions";
-import { withStyles } from "@material-ui/core";
-
 import ProfileView from "../../components/ProfileView/index";
 import ProfileEdit from "../../components/ProfileEdit/index";
-
-import styles from "./styles";
 
 class Profile extends Component {
   constructor(props) {
@@ -29,20 +25,18 @@ class Profile extends Component {
     this.toggleEditing();
   }
   render() {
-    const { user, classes } = this.props;
-    return (
-      <div className={classes.container}>
-        {this.state.editing ? (
-          <ProfileEdit
-            toggle={this.toggleEditing}
-            initialValues={user.toJS()}
-            onSave={this.save}
-          />
-        ) : (
-          <ProfileView user={user} toggle={this.toggleEditing} />
-        )}
-      </div>
-    );
+    const { user } = this.props;
+    const { editing } = this.state;
+    if (editing) {
+      return (
+        <ProfileEdit
+          toggle={this.toggleEditing}
+          initialValues={user.toJS()}
+          onSave={this.save}
+        />
+      );
+    }
+    return <ProfileView user={user} toggle={this.toggleEditing} />;
   }
 }
 
@@ -57,4 +51,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(Profile));
+)(Profile);

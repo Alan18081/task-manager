@@ -31,7 +31,7 @@ export default ({
     marginTop: unit * 2
   },
   controls: {
-    display: 'flex',
-    flexDirection: 'column'
+    display: "flex",
+    flexDirection: "column"
   }
 });

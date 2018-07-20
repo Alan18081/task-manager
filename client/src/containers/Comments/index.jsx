@@ -18,7 +18,7 @@ const Comments = ({ taskId, messages, onAddTaskMessage }) => (
       <Typography variant="headline">Comments</Typography>
       <List>
         {messages.map(comment => (
-          <Message key={comment.get("id")} message={comment} />
+          <Message key={comment.get("_id")} message={comment} />
         ))}
       </List>
       <Divider />

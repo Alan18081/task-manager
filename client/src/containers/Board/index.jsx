@@ -24,8 +24,9 @@ class Board extends Component {
   }
 
   componentDidMount() {
-    this.props.onFetchAllTasks();
-    this.props.onFetchAllUsers();
+    const { onFetchAllTasks, onFetchAllUsers } = this.props;
+    onFetchAllTasks();
+    onFetchAllUsers();
   }
 
   toggleDrawer() {
@@ -35,15 +36,15 @@ class Board extends Component {
   }
 
   renderTasks() {
-    return this.props.tasks.map(task => (
-      <Task key={task.get("id")} task={task} />
+    const { tasks, isAdmin } = this.props;
+    return tasks.map(task => (
+      <Task key={task.get("_id")} task={task} isAdmin={isAdmin} />
     ));
   }
 
   renderUsers() {
-    return this.props.users.map(user => (
-      <User key={user.get("id")} user={user} />
-    ));
+    const { users } = this.props;
+    return users.map(user => <User key={user.get("_id")} user={user} />);
   }
 
   render() {
@@ -67,9 +68,10 @@ class Board extends Component {
   }
 }
 
-const mapStateToProps = ({ board }) => ({
+const mapStateToProps = ({ board, user }) => ({
   tasks: board.get("tasks"),
-  users: board.get("users")
+  users: board.get("users"),
+  isAdmin: user.get("isAdmin")
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,18 +1,17 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Card,CardContent,Typography,Button,withStyles} from '@material-ui/core';
-import {Icon} from 'react-icons-kit';
-import {ic_find_in_page} from 'react-icons-kit/md/ic_find_in_page'
+import React from "react";
+import { Card, CardContent, Typography, withStyles } from "@material-ui/core";
+import { Icon } from "react-icons-kit";
+import { ic_find_in_page } from "react-icons-kit/md/ic_find_in_page";
 
-import styles from './styles';
+import styles from "./styles";
 
-const PageNotFound = ({classes}) => (
+const PageNotFound = ({ classes }) => (
   <Card className={classes.container}>
     <CardContent>
       <Typography variant="title" className={classes.title} align="center">
         Page not found
       </Typography>
-      <Icon icon={ic_find_in_page} size={50} className={classes.icon}/>
+      <Icon icon={ic_find_in_page} size={50} className={classes.icon} />
     </CardContent>
   </Card>
 );

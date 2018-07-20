@@ -1,4 +1,5 @@
 import { call, put, take } from "redux-saga/effects";
+import { push } from "connected-react-router";
 import axios from "../../../axios";
 import { FETCH_USER } from "../../actions/types";
 import { fetchUserSuccess, serverError } from "../../actions/index";
@@ -11,7 +12,9 @@ export function* fetchUserSaga() {
   } catch (e) {
     if (e.response.status === 401) {
       yield put(fetchUserSuccess(false));
+      yield put(push("/login"));
+    } else {
+      yield put(serverError());
     }
-    yield put(serverError());
   }
 }

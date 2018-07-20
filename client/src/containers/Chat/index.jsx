@@ -1,39 +1,64 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchChatRoom, sendMessage } from "../../store/actions";
+import { withStyles } from "@material-ui/core";
+import { fetchChatRoom, leaveChat, sendMessage } from "../../store/actions";
 
 import MessageAdd from "../../components/MessageAdd";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 
+import { getOtherUser } from "../../selectors";
+
+import styles from "./styles";
+
 class Chat extends Component {
+  constructor(props) {
+    super(props);
+    this.sendMessageHandler = this.sendMessageHandler.bind(this);
+  }
+
   componentDidMount() {
     const { userId } = this.props.match.params;
     this.props.onFetchChatRoom(userId);
   }
 
-  renderMessages() {
-    this.props.room
-      .get("messages")
-      .map(message => <Message key={message.get("id")} message={message} />);
+  componentWillUnmount() {
+    const { onLeaveChat, room } = this.props;
+    onLeaveChat(room.get("_id"));
   }
 
   sendMessageHandler({ text }) {
-    this.props.onSendMessage(text);
+    const { onSendMessage, currentUser, room } = this.props;
+    onSendMessage({
+      message: {
+        author: currentUser.get("_id"),
+        text,
+        createdAt: new Date()
+      },
+      roomId: room.get("_id")
+    });
+  }
+
+  renderMessages() {
+    return this.props.room
+      .get("messages")
+      .map(message => <Message key={message.get("_id")} message={message} />);
   }
 
   render() {
-    const { room, user } = this.props;
-    if (!room || !user) {
+    const { room, otherUser, classes } = this.props;
+    if (!room || !otherUser) {
       return <Loader />;
     }
     return (
-      <div>
-        {this.renderMessages()}
-        <MessageAdd
-          submitHandler={this.sendMessageHandler}
-          label="Your message"
-        />
+      <div className={classes.container}>
+        <div className={classes.messages}>{this.renderMessages()}</div>
+        <div className={classes.form}>
+          <MessageAdd
+            submitHandler={this.sendMessageHandler}
+            label="Your message"
+          />
+        </div>
       </div>
     );
   }
@@ -41,17 +66,19 @@ class Chat extends Component {
 
 Chat.propTypes = {};
 
-const mapStateToProps = ({ chat }) => ({
-  room: chat.get("room"),
-  user: chat.get("otherUser")
+const mapStateToProps = state => ({
+  room: state.chat.get("room"),
+  currentUser: state.user.get("profile"),
+  otherUser: getOtherUser(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   onFetchChatRoom: userId => dispatch(fetchChatRoom(userId)),
-  onSendMessage: text => dispatch(sendMessage(text))
+  onSendMessage: message => dispatch(sendMessage(message)),
+  onLeaveChat: id => dispatch(leaveChat(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Chat);
+)(withStyles(styles)(Chat));

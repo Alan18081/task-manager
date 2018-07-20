@@ -1,4 +1,4 @@
-export default ({spacing: {unit}}) => ({
+export default ({ spacing: { unit } }) => ({
   container: {
     margin: `${unit * 4}px auto 0`,
     width: 400
