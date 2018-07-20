@@ -13,6 +13,7 @@ export default ({ spacing: { unit } }) => ({
     bottom: unit,
     left: 0,
     padding: `0 ${unit * 3}px`,
-    width: "100%"
+    width: "100%",
+    boxSizing: "border-box"
   }
 });

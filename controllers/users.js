@@ -64,7 +64,6 @@ module.exports = {
     )(req, res);
   },
   signUp(req, res) {
-    console.log(req.body);
     passport.authenticate(
       "local.signup",
       { session: false },
@@ -100,7 +99,13 @@ module.exports = {
         }
       })
         .populate("users")
-        .populate("messages");
+        .populate("messages")
+        .populate({
+          path: "messages",
+          populate: {
+            path: "author"
+          }
+        });
       if (!chat) {
         const newChat = new Chat({
           users: [req.user.id, id],
@@ -115,6 +120,7 @@ module.exports = {
         ]);
         res.send(newChat);
       } else {
+        console.log("Old chat");
         res.send(chat);
       }
     } catch (e) {

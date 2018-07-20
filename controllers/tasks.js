@@ -122,7 +122,7 @@ module.exports = {
           },
           {
             $push: {
-              messages: newMessage.id
+              messages: newMessage._id
             }
           },
           {
