@@ -93,7 +93,6 @@ module.exports = {
   async getUserChat(req, res) {
     try {
       const { id } = req.params;
-      console.log(req.user.id, id);
       const chat = await Chat.findOne({
         $or: [{ users: [req.user.id, id] }, { users: [req.user.id, id] }]
       })
@@ -119,7 +118,6 @@ module.exports = {
         ]);
         res.send(newChat);
       } else {
-        console.log("Old chat");
         res.send(chat);
       }
     } catch (e) {
