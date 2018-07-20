@@ -25,8 +25,8 @@ import { logout } from "../../store/actions";
 
 import styles from "./styles";
 
-import NavItem from '../../components/NavItem/index';
-import Logo from '../../components/Logo';
+import NavItem from "../../components/NavItem/index";
+import Logo from "../../components/Logo";
 
 class Header extends Component {
   constructor(props) {
@@ -102,10 +102,9 @@ class Header extends Component {
             Profile
           </NavItem>
           {isAdmin && (
-            <NavItem
-              to="/createTask"
-              icon={plus}
-            >New task</NavItem>
+            <NavItem to="/createTask" icon={plus}>
+              New task
+            </NavItem>
           )}
           <IconButton onClick={onLogout}>
             <Icon icon={exit} size={20} className={classes.icon} />
@@ -121,12 +120,10 @@ class Header extends Component {
       <div>
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
-            <Logo/>
+            <Logo />
             <Media query="(max-width: 768px)">
               {match => (
-                <div>
-                  {match ? this.handleMenu() : this.renderLinks()}
-                </div>
+                <div>{match ? this.handleMenu() : this.renderLinks()}</div>
               )}
             </Media>
           </Toolbar>
@@ -138,7 +135,7 @@ class Header extends Component {
 
 const mapStateToProps = ({ user }) => ({
   user: user.get("profile"),
-  isAdmin: user.get('isAdmin')
+  isAdmin: user.get("isAdmin")
 });
 
 const mapDispatchToProps = dispatch => ({

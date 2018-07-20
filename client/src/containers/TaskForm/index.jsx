@@ -10,7 +10,7 @@ import {
 
 import Input from "../../components/Input";
 import FormCard from "../../components/FormCard";
-import UsersSelect from '../../components/UsersSelect';
+import UsersSelect from "../../components/UsersSelect";
 
 import styles from "./styles";
 
@@ -21,7 +21,6 @@ class TaskForm extends Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
 
-
   submitHandler(values) {
     this.props.submit(values);
   }
@@ -29,9 +28,7 @@ class TaskForm extends Component {
   renderUsersSelect() {
     const { users } = this.props;
     if (users) {
-      return (
-        <Field name="performer" component={UsersSelect} users={users}/>
-      );
+      return <Field name="performer" component={UsersSelect} users={users} />;
     } else {
       return (
         <div>

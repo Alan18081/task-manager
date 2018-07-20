@@ -22,10 +22,11 @@ export const fetchUserTasksSuccess = tasks => ({
   payload: tasks
 });
 
-export const changeTask = (id,info) => ({
+export const changeTask = (id, info) => ({
   type: CHANGE_TASK,
   payload: {
-    id,info
+    id,
+    info
   }
 });
 
@@ -60,7 +61,7 @@ export const addTaskComment = (id, comment) => ({
   }
 });
 
-export const createTask = (task) => ({
+export const createTask = task => ({
   type: CREATE_TASK,
   payload: task
 });
