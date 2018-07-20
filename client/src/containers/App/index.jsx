@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Route, withRouter, Switch } from "react-router-dom";
 import {
   withStyles,
-  withTheme,
   createMuiTheme,
   MuiThemeProvider
 } from "@material-ui/core";

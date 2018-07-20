@@ -1,12 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  withStyles
-} from "@material-ui/core";
+import { Card, CardContent, Typography, withStyles } from "@material-ui/core";
 import { Icon } from "react-icons-kit";
 import { ic_find_in_page } from "react-icons-kit/md/ic_find_in_page";
 

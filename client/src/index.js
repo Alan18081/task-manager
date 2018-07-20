@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
 import App from "./containers/App/index";
 import "./index.css";
-import store from "./store/store";
+import store, { history } from "./store/store";
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
+    <ConnectedRouter history={history}>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>
 );
 

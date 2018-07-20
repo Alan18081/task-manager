@@ -14,5 +14,12 @@ export default ({ spacing: { unit }, breakpoints }) => ({
     [breakpoints.down("sm")]: {
       marginBottom: unit
     }
+  },
+  status: {
+    display: "flex",
+    alignItems: "center"
+  },
+  statusIcon: {
+    marginRight: unit
   }
 });

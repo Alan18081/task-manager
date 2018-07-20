@@ -4,5 +4,8 @@ export default ({ spacing: { unit } }) => ({
   },
   mainBtn: {
     marginBottom: unit
+  },
+  selectLoading: {
+    display: "flex"
   }
 });

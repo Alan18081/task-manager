@@ -71,7 +71,7 @@ class Navigation extends Component {
   }
 
   renderLinks(mobile = false) {
-    const { classes, user, onLogout, isAdmin } = this.props;
+    const { classes, user, logout, isAdmin } = this.props;
     let links = (
       <div>
         <NavItem to="/login" icon={enter} mobile={mobile}>
@@ -97,14 +97,14 @@ class Navigation extends Component {
             </NavItem>
           )}
           {mobile ? (
-            <ListItem button onClick={onLogout}>
+            <ListItem button onClick={logout}>
               <ListItemIcon>
                 <Icon icon={exit} size={20} />
               </ListItemIcon>
               <ListItemText>Logout</ListItemText>
             </ListItem>
           ) : (
-            <IconButton onClick={onLogout}>
+            <IconButton onClick={logout}>
               <Icon icon={exit} size={20} className={classes.icon} />
             </IconButton>
           )}
@@ -126,8 +126,7 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  isAdmin: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired
+  isAdmin: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(Navigation);

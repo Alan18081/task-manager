@@ -12,19 +12,19 @@ import Input from "../Input/index";
 class MessageAdd extends Component {
   constructor(props) {
     super(props);
-    this.input = React.createRef();
+    this.submit = this.submit.bind(this);
   }
+
   submit(values) {
-    this.props.submitHandler(values);
-    this.input.current.value = '';
+    const { submitHandler, reset } = this.props;
+    submitHandler(values);
+    reset();
   }
+
   render() {
     const { classes, handleSubmit, label } = this.props;
     return (
-      <form
-        onSubmit={handleSubmit(this.submit)}
-        className={classes.container}
-      >
+      <form onSubmit={handleSubmit(this.submit)} className={classes.container}>
         <Field
           ref={this.input}
           name="text"

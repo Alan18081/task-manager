@@ -17,16 +17,13 @@ class TaskPage extends Component {
   }
 
   componentDidMount() {
-    const {
-      match: { id },
-      onFetchActiveTask
-    } = this.props;
-    onFetchActiveTask(id);
+    const { match, onFetchActiveTask } = this.props;
+    onFetchActiveTask(match.params.id);
   }
 
   handleStatus({ target: { value } }) {
     const { task, onChangeTask } = this.props;
-    onChangeTask(task.get("id"), {
+    onChangeTask(task.get("_id"), {
       status: value
     });
   }

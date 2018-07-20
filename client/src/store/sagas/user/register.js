@@ -1,4 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
+import { replace } from "connected-react-router";
 import axios from "../../../axios";
 import { REGISTER } from "../../actions/types";
 import {
@@ -16,10 +17,10 @@ export function* registerSaga() {
       const { data } = yield call(axios.post, "/signup", payload);
       yield call(localStorage.setItem, "jsonToken", data.token);
       yield put(registerSuccess());
+      yield put(replace("/tasks"));
       yield put(fetchUserSuccess(data.user));
     } catch (e) {
       if (e.response.status === 401) {
-        console.log(e.response);
         yield put(registerFailed(e.response.data.errors));
       } else {
         yield put(serverError());

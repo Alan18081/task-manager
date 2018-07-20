@@ -26,13 +26,13 @@ class TaskForm extends Component {
   }
 
   renderUsersSelect() {
-    const { users } = this.props;
+    const { users, classes } = this.props;
     if (users) {
       return <Field name="performer" component={UsersSelect} users={users} />;
     } else {
       return (
-        <div>
-          <CircularProgress />
+        <div className={classes.selectLoading}>
+          <CircularProgress size={20} />
           <Typography color="primary">Loading possible performers</Typography>
         </div>
       );

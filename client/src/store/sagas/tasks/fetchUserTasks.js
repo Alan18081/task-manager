@@ -6,7 +6,11 @@ import { FETCH_USER_TASKS } from "../../actions/types";
 export function* fetchUserTasksSaga() {
   try {
     yield take(FETCH_USER_TASKS);
-    const { data } = yield call(axios.get, "/tasks");
+    const { data } = yield call(axios.get, "/tasks", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jsonToken")}`
+      }
+    });
     yield put(fetchUserTasksSuccess(data));
   } catch (e) {
     yield put(serverError());

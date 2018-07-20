@@ -11,21 +11,14 @@ import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation";
 
 class Header extends Component {
-  componentDidUpdate(newProps) {
-    const { user, history } = this.props;
-    if (!newProps.user && user) {
-      history.replace("/login");
-    }
-  }
-
   render() {
-    const { classes, user, isAdmin } = this.props;
+    const { classes, user, isAdmin, onLogout } = this.props;
     return (
       <div>
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
             <Logo />
-            <Navigation isAdmin={isAdmin} user={user} />
+            <Navigation isAdmin={isAdmin} user={user} logout={onLogout} />
           </Toolbar>
         </AppBar>
       </div>
