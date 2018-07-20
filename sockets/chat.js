@@ -31,7 +31,8 @@ module.exports = io => {
           Message.populate(newMessage, {
             path: "author",
             model: "User"
-          })
+          }),
+          newMessage.save()
         ]);
         io.to(roomId).emit("message", newMessage);
       }

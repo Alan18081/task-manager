@@ -64,7 +64,6 @@ module.exports = {
     )(req, res);
   },
   signUp(req, res) {
-    console.log(req.body);
     passport.authenticate(
       "local.signup",
       { session: false },
@@ -95,12 +94,16 @@ module.exports = {
     try {
       const { id } = req.params;
       const chat = await Chat.findOne({
-        users: {
-          $in: [req.user.id, id]
-        }
+        $or: [{ users: [req.user.id, id] }, { users: [req.user.id, id] }]
       })
         .populate("users")
-        .populate("messages");
+        .populate("messages")
+        .populate({
+          path: "messages",
+          populate: {
+            path: "author"
+          }
+        });
       if (!chat) {
         const newChat = new Chat({
           users: [req.user.id, id],

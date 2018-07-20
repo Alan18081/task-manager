@@ -44,7 +44,16 @@ export default WrappedComponent => {
       if (!initialValues) {
         return <Loader />;
       }
-      return <WrappedComponent {...this.props} submit={this.submitHandler} />;
+      return (
+        <WrappedComponent
+          {...this.props}
+          title="Edit task"
+          initialValues={{
+            ...initialValues
+          }}
+          submit={this.submitHandler}
+        />
+      );
     }
   }
 

@@ -29,7 +29,13 @@ export default WrappedComponent => {
     }
 
     render() {
-      return <WrappedComponent {...this.props} submit={this.submitHandler} />;
+      return (
+        <WrappedComponent
+          {...this.props}
+          title="New task"
+          submit={this.submitHandler}
+        />
+      );
     }
   }
 
