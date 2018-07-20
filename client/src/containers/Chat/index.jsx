@@ -64,8 +64,6 @@ class Chat extends Component {
   }
 }
 
-Chat.propTypes = {};
-
 const mapStateToProps = state => ({
   room: state.chat.get("room"),
   currentUser: state.user.get("profile"),

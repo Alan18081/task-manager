@@ -8,9 +8,9 @@ import {
   Typography
 } from "@material-ui/core";
 
-import Input from "../../components/Input";
-import FormCard from "../../components/FormCard";
-import UsersSelect from "../../components/UsersSelect";
+import Input from "../Input/index";
+import FormCard from "../FormCard/index";
+import UsersSelect from "../UsersSelect/index";
 
 import styles from "./styles";
 
@@ -40,9 +40,9 @@ class TaskForm extends Component {
   }
 
   render() {
-    const { handleSubmit, classes } = this.props;
+    const { handleSubmit, classes, title } = this.props;
     return (
-      <FormCard title="New task">
+      <FormCard title={title}>
         <form onSubmit={handleSubmit(this.submitHandler)}>
           <Field name="title" label="Title" component={Input} />
           <Field name="description" label="Description" component={Input} />

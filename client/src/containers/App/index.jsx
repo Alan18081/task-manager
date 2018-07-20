@@ -16,7 +16,7 @@ import Board from "../Board/index";
 import Chat from "../Chat/index";
 import Login from "../Login";
 import Register from "../Register";
-import TaskForm from "../TaskForm";
+import TaskForm from "../../components/TaskForm";
 import PageNotFound from "../../components/PageNotFound";
 import ServerError from "../../components/ServerError";
 

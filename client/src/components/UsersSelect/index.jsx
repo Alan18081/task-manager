@@ -13,13 +13,13 @@ const UsersSelect = ({ users, classes, input: { onChange, value } }) => (
   <FormControl className={classes.select}>
     <Typography>Your performer</Typography>
     <Select
-      value={value}
+      value={value ? value._id : ""}
       onChange={event => onChange(event.target.value)}
       inputProps={{
         id: "age-simple"
       }}
     >
-      <MenuItem value="no performer">No performer</MenuItem>
+      <MenuItem value="">No performer</MenuItem>
       {users.map(user => (
         <MenuItem value={user.get("_id")} key={user.get("_id")}>
           {user.get("name")}
