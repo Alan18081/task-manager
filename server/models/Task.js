@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { stages } = require("../config");
+const { stages } = require("../config/index");
 
 const { Schema } = mongoose;
 
@@ -16,4 +16,4 @@ const TaskSchema = new Schema({
   performer: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
-module.exports = mongoose.model("Task", TaskSchema);
+const Task = mongoose.model("Task", TaskSchema, "Task");

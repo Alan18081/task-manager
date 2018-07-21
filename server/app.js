@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const createIO = require("socket.io");
 const http = require("http");
-const { port, mongodbUrl } = require("./config");
+const { port, mongodbUrl } = require("./config/index");
 const cors = require("./middlewares/allowCors");
 
 const app = express();
@@ -15,14 +15,21 @@ app.use("*", cors);
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(mongodbUrl);
+mongoose.connect(mongodbUrl,{
+  useNewUrlParser: true
+});
+
+const server = http.createServer(app);
+
+const io = createIO(server);
+
+require("./services/passport");
 
 require("./models/User");
 require("./models/Task");
 require("./models/Message");
 require("./models/Chat");
 
-require("./services/passport");
 
 require("./routes/users")(app);
 require("./routes/tasks")(app);
@@ -33,11 +40,9 @@ app.get("/", (req, res) => {
 
 app.get("/*", express.static(path.join(__dirname, "/client/build/static")));
 
-const server = http.createServer(app);
-
-const io = createIO(server);
-
 require("./sockets/chat")(io);
+require("./sockets/online")(io);
+require("./sockets/changes")(io);
 
 server.listen(port, () => {
   console.log(`Server is listening at port ${port}`);

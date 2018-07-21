@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 
 const Task = mongoose.model("Task");
 const Message = mongoose.model("Message");
-
 module.exports = {
   async getUserTasks(req, res) {
     try {
       const tasks = await Task.find({
-        $or: [{ worker: req.user.id }, { creator: req.user.id }]
+        $or: [{ performer: req.user.id }, { creator: req.user.id }]
       })
         .populate("messages")
         .populate("performer")

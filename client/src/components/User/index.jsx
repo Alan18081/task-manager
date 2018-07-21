@@ -17,9 +17,9 @@ const User = ({ user, classes }) => (
   <Link to={`/users/${user.get("_id")}/chat`} className={classes.container}>
     <ListItem button>
       <ListItemIcon className={classes.icon}>
-        <Icon icon={userIcon} />
+        <Icon icon={userIcon} className={user.get("online") ? classes.online : ""} />
       </ListItemIcon>
-      <ListItemText>
+      <ListItemText className={classes.caption}>
         <Typography variant="subheading">{user.get("name")}</Typography>
       </ListItemText>
     </ListItem>

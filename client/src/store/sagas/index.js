@@ -1,8 +1,8 @@
-export { fetchUserSaga } from "./user/fetchUser";
+export { fetchLoggedUserSaga } from "./user/fetchLoggedUser";
 export { updateProfileSaga } from "./user/updateProfile";
 export { registerSaga } from "./user/register";
 export { loginSaga } from "./user/login";
-export { logoutSaga } from "./user/logout";
+// export { logoutSaga } from "./user/logout";
 
 export { fetchUserTasksSaga } from "./tasks/fetchUserTasks";
 export { changeTaskSaga } from "./tasks/changeTask";
@@ -16,4 +16,6 @@ export { fetchAllTasksSaga } from "./board/fetchAllTasks";
 export { fetchAllUsersSaga } from "./board/fetchAllUsers";
 
 export { fetchChatRoomSaga } from "./chat/fetchChatRoom";
-export { createChatConnectionSaga } from "./chat/createChatConnection";
+export { attendChatSaga } from "./chat/attendChat";
+
+export {setSocketConnectionSaga} from "./socket/setSocketConnection";

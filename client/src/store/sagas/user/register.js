@@ -1,14 +1,17 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest, spawn } from "redux-saga/effects";
 import { replace } from "connected-react-router";
 import axios from "../../../axios";
 import { REGISTER } from "../../actions/types";
 import {
-  fetchUserSuccess,
+  fetchLoggedUserSuccess,
   registerFailed,
   registerStart,
   registerSuccess,
   serverError
 } from "../../actions";
+
+import {logoutSaga} from "./logout";
+import {setSocketConnectionSaga} from  "../socket/setSocketConnection";
 
 export function* registerSaga() {
   yield takeLatest(REGISTER, function*({ payload }) {
@@ -18,7 +21,9 @@ export function* registerSaga() {
       localStorage.setItem("jsonToken", data.token);
       yield put(registerSuccess());
       yield put(replace("/tasks"));
-      yield put(fetchUserSuccess(data.user));
+      yield put(fetchLoggedUserSuccess(data.user));
+      yield spawn(logoutSaga);
+      yield spawn(setSocketConnectionSaga);
     } catch (e) {
       if (e.response.status === 401) {
         yield put(registerFailed(e.response.data.errors));

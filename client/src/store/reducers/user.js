@@ -1,6 +1,6 @@
 import { fromJS } from "immutable";
 import {
-  FETCH_USER_SUCCESS,
+  FETCH_LOGGED_USER_SUCCESS,
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
@@ -21,7 +21,7 @@ const initialState = fromJS({
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_USER_SUCCESS:
+    case FETCH_LOGGED_USER_SUCCESS:
       return state.merge({
         profile: fromJS(payload),
         isAdmin: payload.isAdmin || false

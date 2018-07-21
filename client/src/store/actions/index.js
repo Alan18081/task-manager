@@ -1,6 +1,6 @@
 export {
-  fetchUser,
-  fetchUserSuccess,
+  fetchLoggedUser,
+  fetchLoggedUserSuccess,
   updateProfile,
   updateProfileSuccess,
   register,
@@ -11,12 +11,15 @@ export {
   loginStart,
   loginSuccess,
   loginFailed,
-  logout
+  logout,
+  changeUserStatus
 } from "./user";
 
 export {
   fetchUserTasks,
   fetchUserTasksSuccess,
+  fetchTaskById,
+  fetchTaskByIdSuccess,
   changeTask,
   changeTaskSuccess,
   setTaskTime,
@@ -31,19 +34,26 @@ export {
 
 export {
   fetchAllTasks,
-  fetchAllTasksSuccess,
-  fetchAllUsers,
-  fetchAllUsersSuccess
+  fetchAllTasksSuccess
 } from "./board";
 
 export {
   fetchChatRoom,
   fetchChatRoomSuccess,
-  createChatConnection,
-  createChatConnectionSuccess,
+  attendChat,
+  attendChatSuccess,
   sendMessage,
   leaveChat,
   leaveChatSuccess
 } from "./chat";
 
 export { serverError } from "./errors";
+
+export {setSocketConnection,setSocketConnectionSuccess} from "./socket";
+
+export {
+  fetchAllUsers,
+  fetchAllUsersSuccess,
+  fetchUser,
+  fetchUserSuccess
+} from "./users";

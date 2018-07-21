@@ -1,0 +1,48 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "lint": "eslint **/*.js"
+  },
+  "engines": {
+    "node": "10.6.0",
+    "npm": "6.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alan18081/task-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alan18081/task-manager/issues"
+  },
+  "homepage": "https://github.com/Alan18081/task-manager#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.13.7"
+  }
+}

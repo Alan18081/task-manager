@@ -1,6 +1,6 @@
 import {
-  CREATE_CHAT_CONNECTION,
-  CREATE_CHAT_CONNECTION_SUCCESS,
+  ATTEND_CHAT,
+  ATTEND_CHAT_SUCCESS,
   FETCH_CHAT_ROOM,
   FETCH_CHAT_ROOM_SUCCESS,
   GET_MESSAGE_SUCCESS,
@@ -24,13 +24,13 @@ export const sendMessage = message => ({
   payload: message
 });
 
-export const createChatConnection = id => ({
-  type: CREATE_CHAT_CONNECTION,
+export const attendChat = id => ({
+  type: ATTEND_CHAT,
   payload: id
 });
 
-export const createChatConnectionSuccess = () => ({
-  type: CREATE_CHAT_CONNECTION_SUCCESS
+export const attendChatSuccess = () => ({
+  type: ATTEND_CHAT_SUCCESS
 });
 
 export const getMessageSuccess = message => ({

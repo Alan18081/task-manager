@@ -2,6 +2,8 @@ import {
   SET_TASK_TIME,
   CHANGE_TASK,
   CHANGE_TASK_SUCCESS,
+  FETCH_TASK_BY_ID,
+  FETCH_TASK_BY_ID_SUCCESS,
   FETCH_USER_TASKS,
   FETCH_USER_TASKS_SUCCESS,
   FETCH_ACTIVE_TASK,
@@ -79,4 +81,14 @@ export const removeTask = id => ({
 export const removeTaskSuccess = id => ({
   type: REMOVE_TASK_SUCCESS,
   payload: id
+});
+
+export const fetchTaskById = id => ({
+  type: FETCH_TASK_BY_ID,
+  payload: id
+});
+
+export const fetchTaskByIdSuccess = task => ({
+  type: FETCH_TASK_BY_ID_SUCCESS,
+  payload: task
 });

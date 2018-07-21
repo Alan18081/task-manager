@@ -14,12 +14,24 @@ const UsersSelect = ({
   classes,
   input: { onChange, value },
   meta: { error, touched }
-}) => (
-  <FormControl className={classes.select}>
+}) => {
+  let actualValue;
+  if(typeof value === 'object') {
+    actualValue = value._id
+  }
+  else if(!value) {
+    actualValue = "";
+  }
+  else {
+    actualValue = value;
+  }
+  return <FormControl className={classes.select}>
     <Typography>Your performer</Typography>
     <Select
-      value={value ? value._id : ""}
-      onChange={event => onChange(event.target.value)}
+      value={actualValue}
+      onChange={event => {
+        onChange(event.target.value)
+      }}
       inputProps={{
         id: "age-simple"
       }}
@@ -32,13 +44,13 @@ const UsersSelect = ({
       ))}
     </Select>
     {touched &&
-      error && (
-        <Typography variant="body1" color="error">
-          {error}
-        </Typography>
-      )}
-  </FormControl>
-);
+    error && (
+      <Typography variant="body1" color="error">
+        {error}
+      </Typography>
+    )}
+  </FormControl>;
+};
 
 UsersSelect.propTypes = {
   users: PropTypes.object.isRequired

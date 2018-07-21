@@ -1,4 +1,4 @@
-import { put, takeLatest, call } from "redux-saga/effects";
+import { put, takeLatest, call, select } from "redux-saga/effects";
 import axios from "../../../axios";
 import { ADD_TASK_COMMENT } from "../../actions/types";
 import {
@@ -13,7 +13,10 @@ export function* addTaskCommentSaga() {
       const { data } = yield call(axios.patch, `/tasks/${id}/addMessage`, {
         comment
       });
-      yield put(changeTaskSuccess(data));
+      const loadedTasks = yield select(({tasks}) => tasks.get("list"));
+      if(loadedTasks) {
+        yield put(changeTaskSuccess(data));
+      }
       yield put(fetchActiveTaskSuccess(data));
     } catch (e) {
       yield put(serverError());

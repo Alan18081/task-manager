@@ -94,7 +94,7 @@ module.exports = {
     try {
       const { id } = req.params;
       const chat = await Chat.findOne({
-        $or: [{ users: [req.user.id, id] }, { users: [req.user.id, id] }]
+        $or: [{ users: [req.user.id, id] }, { users: [id,req.user.id] }]
       })
         .populate("users")
         .populate("messages")

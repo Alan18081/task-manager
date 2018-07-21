@@ -5,6 +5,7 @@ import { users as usersIcon } from "react-icons-kit/icomoon/users";
 import { Icon } from "react-icons-kit";
 
 import { fetchAllTasks, fetchAllUsers } from "../../store/actions";
+import {getOtherUsersList} from "../../selectors";
 
 import styles from "./styles";
 
@@ -68,10 +69,10 @@ class Board extends Component {
   }
 }
 
-const mapStateToProps = ({ board, user }) => ({
-  tasks: board.get("tasks"),
-  users: board.get("users"),
-  isAdmin: user.get("isAdmin")
+const mapStateToProps = state => ({
+  tasks: state.tasks.get("list"),
+  users: getOtherUsersList(state),
+  isAdmin: state.user.get("isAdmin")
 });
 
 const mapDispatchToProps = dispatch => ({

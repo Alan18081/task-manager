@@ -4,14 +4,14 @@ import { FETCH_CHAT_ROOM } from "../../actions/types";
 import {
   serverError,
   fetchChatRoomSuccess,
-  createChatConnection
+  attendChat
 } from "../../actions";
 
 export function* fetchChatRoomSaga() {
   yield takeLatest(FETCH_CHAT_ROOM, function*({ payload }) {
     try {
       const { data } = yield call(axios.get, `/users/${payload}/chat`);
-      yield put(createChatConnection(data._id));
+      yield put(attendChat(data._id));
       yield put(fetchChatRoomSuccess(data));
     } catch (e) {
       yield put(serverError());
