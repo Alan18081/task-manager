@@ -1,7 +1,6 @@
 module.exports = io => {
   io.on('connection', socket => {
     socket.on('onCreateTask', task => {
-      console.log('created new task',task);
       io.sockets.emit('createdTask', task);
     });
 

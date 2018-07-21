@@ -26,8 +26,8 @@ const io = createIO(server);
 require("./services/passport");
 
 require("./models/User");
-require("./models/Task");
 require("./models/Message");
+require("./models/Task");
 require("./models/Chat");
 
 

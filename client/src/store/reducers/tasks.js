@@ -1,4 +1,4 @@
-import { fromJS, List } from "immutable";
+import { fromJS } from "immutable";
 import {
   CHANGE_TASK_SUCCESS,
   CREATE_TASK_SUCCESS,
@@ -10,17 +10,25 @@ import {
 } from "../actions/types";
 
 const initialState = fromJS({
-  list: null,
+  list: fromJS([]),
   activeTask: null
 });
+
+const removeTaskSuccess = (state,payload) => {
+  if(!state.get("activeTask")) {
+    return state.update("list", tasks =>
+      tasks.filter(task => task.get("_id") !== payload));
+  }
+  return state.update("list", tasks =>
+    tasks.filter(task => task.get("_id") !== payload)
+  ).update("activeTask", task => task.get("_id") === payload ? false : task);
+};
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_ALL_TASKS_SUCCESS:
       return state.update("list",
-        tasks => tasks
-          ? tasks.concat(fromJS(payload)).toSet().toList()
-          : fromJS(payload)
+        tasks => tasks.concat(fromJS(payload)).toSet().toList()
       );
     case FETCH_TASK_BY_ID_SUCCESS:
       return state.update("list",
@@ -38,11 +46,10 @@ export default (state = initialState, { type, payload }) => {
       );
     case CREATE_TASK_SUCCESS:
       return state.update("list",
-        tasks => tasks ? tasks.push(fromJS(payload)) : new List([fromJS(payload)]));
-    case REMOVE_TASK_SUCCESS:
-      return state.update("list", tasks =>
-        tasks.filter(task => task.get("_id") !== payload)
+        tasks => tasks.push(fromJS(payload))
       );
+    case REMOVE_TASK_SUCCESS:
+      return removeTaskSuccess(state,payload);
     default:
       return state;
   }

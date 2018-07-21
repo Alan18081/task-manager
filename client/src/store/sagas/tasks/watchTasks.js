@@ -34,6 +34,7 @@ export function* watchTasksSaga() {
     let {type,payload} = yield take(channel);
     switch (type) {
       case REMOVED_TASK_EVENT:
+        console.log(type,payload);
         yield put(removeTaskSuccess(payload));
         break;
       case CHANGED_TASK_EVENT:
@@ -41,6 +42,7 @@ export function* watchTasksSaga() {
         yield call(fetchTaskByIdSaga,payload);
         break;
       case CREATED_TASK_EVENT:
+        console.log(type,payload);
         yield call(fetchTaskByIdSaga,payload);
     }
   }

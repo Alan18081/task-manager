@@ -26,4 +26,16 @@ module.exports = app => {
     requireAuth,
     TasksController.addMessageToTask
   );
+
+  app.delete(
+    "/tasks/:taskId/messages/:msgId",
+    requireAuth,
+    TasksController.removeTaskMessage
+  );
+
+  app.put(
+    "/tasks/:taskId/messages/:msgId",
+    requireAuth,
+    TasksController.updateTaskMessage
+  );
 };

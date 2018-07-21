@@ -7,14 +7,15 @@ export function* fetchActiveTaskSaga() {
   yield takeLatest(FETCH_ACTIVE_TASK, function*({ payload }) {
     try {
       const tasks = yield select(({ tasks }) => tasks.get("list"));
-      let activeTask;
-      if (tasks) {
-        activeTask = tasks.find(task => task.get("_id") === payload);
-      } else {
-        const {data} = yield call(axios.get,`/tasks/${payload}`);
-        activeTask = {...data};
+      const activeTask = tasks.find(task => task.get("_id") === payload);
+      if(activeTask) {
+        yield put(fetchActiveTaskSuccess(activeTask));
       }
-      yield put(fetchActiveTaskSuccess(activeTask));
+      else {
+        const {data} = yield call(axios.get,`/tasks/${payload}`);
+        yield put(fetchActiveTaskSuccess(Boolean(data)));
+      }
+
     } catch (e) {
       console.log(e);
       yield put(serverError());

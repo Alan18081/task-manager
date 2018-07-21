@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Task = mongoose.model("Task");
 const Message = mongoose.model("Message");
+
 module.exports = {
   async getUserTasks(req, res) {
     try {
@@ -150,6 +151,53 @@ module.exports = {
       await Task.deleteOne({ _id: id });
       res.sendStatus(200);
     } catch (e) {
+      res.status(500).send(e);
+    }
+  },
+  async removeTaskMessage(req,res) {
+    const {taskId,msgId} = req.params;
+    try {
+      const [task] = await Promise.all([
+        Task.findOneAndUpdate(
+          {
+            _id: taskId
+          },
+          {
+            $pop: {
+              messages: msgId
+            }
+          },
+          {
+            new: true
+          }
+        ).populate("messages").populate("creator").populate({
+          path: "messages",
+          populate: {
+            path: "author"
+          }
+        }),
+        Message.deleteOne({
+          _id: msgId
+        })
+      ]);
+      res.send(task);
+    }
+    catch (e) {
+      res.status(500).send(e);
+    }
+  },
+  async updateTaskMessage(req,res) {
+    const {taskId,msgId} = req.params;
+    try {
+      const [task] = await Promise.all([
+        Task.findOne(
+          {
+            _id: taskId
+          }
+        ).populate("")
+      ]);
+    }
+    catch (e) {
       res.status(500).send(e);
     }
   }

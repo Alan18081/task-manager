@@ -4,13 +4,13 @@ import {
   FETCH_USER_SUCCESS
 } from "../actions/types";
 
-const initialState = null;
+const initialState = fromJS([]);
 
 const fetchUserSuccess = (state,payload) => {
   if(!state) {
     return new List([fromJS(payload)]);
   }
-  const index = state.find(user => user.get("_id") === payload);
+  const index = state.findIndex(user => user.get("_id") === payload._id);
   if(index >= 0) {
     return state.update(index,fromJS(payload));
   }

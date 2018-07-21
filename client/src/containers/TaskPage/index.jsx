@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 import { connect } from "react-redux";
-import { Card, CardContent, Typography, withStyles } from "@material-ui/core";
+import { Card, CardContent, Typography, withStyles, Button } from "@material-ui/core";
 import StatusIcon from "@material-ui/icons/Cached";
 import { changeTask, fetchActiveTask } from "../../store/actions";
 import styles from "./styles";
@@ -13,12 +14,26 @@ import TaskStatus from "../../components/TaskStatus";
 class TaskPage extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      removed: false
+    };
     this.handleStatus = this.handleStatus.bind(this);
   }
 
   componentDidMount() {
     const { match, onFetchActiveTask } = this.props;
     onFetchActiveTask(match.params.id);
+  }
+
+  static getDerivedStateFromProps({task}) {
+    if(task === false) {
+      return {
+        removed: true
+      }
+    }
+    return {
+      removed: false
+    }
   }
 
   handleStatus({ target: { value } }) {
@@ -30,6 +45,20 @@ class TaskPage extends Component {
 
   render() {
     const { task, classes, isAdmin } = this.props;
+    if(this.state.removed) {
+      return (
+        <Card className={classes.warning}>
+          <CardContent className={classes.warningContainer}>
+            <Typography variant="title" className={classes.warningText}>
+              Task was removed or never existed at all
+            </Typography>
+            <Link to="/tasks">
+              <Button variant="outlined" color="secondary">Tasks</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      )
+    }
     if (!task) {
       return <Loader />;
     }

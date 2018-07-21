@@ -5,13 +5,11 @@ const User = mongoose.model("User");
 module.exports = io => {
   const onlineUsers = [];
   io.on('connection', socket => {
-    console.log("Hey");
     socket.on('attendOnlineUser', async ({userId}) => {
       onlineUsers.push({
         userId,
         userSocket: socket
       });
-      console.log(userId);
       const updatedUser = await User.findOneAndUpdate({
         _id: userId
       }, {
@@ -32,8 +30,6 @@ module.exports = io => {
         new: true
       });
       onlineUsers.splice(removedSocketIndex,1);
-      console.log(updatedUser);
-      console.log("Disconnect");
       io.sockets.emit("newOfflineUser", updatedUser);
     });
     socket.on("onNewOfflineUser", async ({userId}) => {
@@ -44,8 +40,6 @@ module.exports = io => {
       },{
         new: true
       });
-      console.log(updatedUser);
-      console.log("Logout");
       io.sockets.emit("newOfflineUser", updatedUser);
     });
   });

@@ -8,7 +8,9 @@ const MessageSchema = new Schema({
     ref: "User"
   },
   text: String,
-  createdAt: Date
+  createdAt: Date,
+  taskId: String,
+  chatId: String
 });
 
 module.exports = mongoose.model("Message", MessageSchema);
