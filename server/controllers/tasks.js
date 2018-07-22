@@ -9,15 +9,8 @@ module.exports = {
       const tasks = await Task.find({
         $or: [{ performer: req.user.id }, { creator: req.user.id }]
       })
-        .populate("messages")
         .populate("performer")
-        .populate("creator")
-        .populate({
-          path: "messages",
-          populate: {
-            path: "author"
-          }
-        });
+        .populate("creator");
       res.send(tasks);
     } catch (e) {
       res.status(500).send(e);
@@ -26,15 +19,8 @@ module.exports = {
   async getAllTasks(req, res) {
     try {
       const tasks = await Task.find({})
-        .populate("messages")
         .populate("performer")
-        .populate("creator")
-        .populate({
-          path: "messages",
-          populate: {
-            path: "author"
-          }
-        });
+        .populate("creator");
       res.send(tasks);
     } catch (e) {
       res.status(500).send(e);
@@ -76,15 +62,8 @@ module.exports = {
           new: true
         }
       )
-        .populate("messages")
         .populate("creator")
-        .populate("performer")
-        .populate({
-          path: "messages",
-          populate: {
-            path: "author"
-          }
-        });
+        .populate("performer");
       res.send(updatedTask);
     } catch (e) {
       res.status(500).send(e);
@@ -95,51 +74,7 @@ module.exports = {
       const { id } = req.params;
       const task = await Task.findOne({ _id: id })
         .populate("creator")
-        .populate("performer")
-        .populate({
-          path: "messages",
-          populate: {
-            path: "author"
-          }
-        });
-      res.send(task);
-    } catch (e) {
-      res.status(500).send(e);
-    }
-  },
-  async addMessageToTask(req, res) {
-    try {
-      const { id } = req.params;
-      const newMessage = new Message({
-        author: req.user.id,
-        text: req.body.comment,
-        createdAt: new Date()
-      });
-      const [task] = await Promise.all([
-        Task.findOneAndUpdate(
-          {
-            _id: id
-          },
-          {
-            $push: {
-              messages: newMessage._id
-            }
-          },
-          {
-            new: true
-          }
-        )
-          .populate("messages")
-          .populate("creator")
-          .populate("performer")
-          .populate({
-            path: "messages",
-            populate: {
-              path: "author"
-            }
-          }),
-        newMessage.save()
-      ]);
+        .populate("performer");
       res.send(task);
     } catch (e) {
       res.status(500).send(e);
@@ -154,51 +89,4 @@ module.exports = {
       res.status(500).send(e);
     }
   },
-  async removeTaskMessage(req,res) {
-    const {taskId,msgId} = req.params;
-    try {
-      const [task] = await Promise.all([
-        Task.findOneAndUpdate(
-          {
-            _id: taskId
-          },
-          {
-            $pop: {
-              messages: msgId
-            }
-          },
-          {
-            new: true
-          }
-        ).populate("messages").populate("creator").populate({
-          path: "messages",
-          populate: {
-            path: "author"
-          }
-        }),
-        Message.deleteOne({
-          _id: msgId
-        })
-      ]);
-      res.send(task);
-    }
-    catch (e) {
-      res.status(500).send(e);
-    }
-  },
-  async updateTaskMessage(req,res) {
-    const {taskId,msgId} = req.params;
-    try {
-      const [task] = await Promise.all([
-        Task.findOne(
-          {
-            _id: taskId
-          }
-        ).populate("")
-      ]);
-    }
-    catch (e) {
-      res.status(500).send(e);
-    }
-  }
 };

@@ -3,8 +3,10 @@ import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import { Card, CardContent, Typography, withStyles, Button } from "@material-ui/core";
 import StatusIcon from "@material-ui/icons/Cached";
-import { changeTask, fetchActiveTask } from "../../store/actions";
+import { changeTask, sendTaskMessage, fetchActiveTask, resetActiveTask } from "../../store/actions";
 import styles from "./styles";
+
+import {getMessagesByTaskId} from "../../selectors";
 
 import TaskTime from "../TaskTime/index";
 import Loader from "../../components/Loader/index";
@@ -18,11 +20,16 @@ class TaskPage extends Component {
       removed: false
     };
     this.handleStatus = this.handleStatus.bind(this);
+    this.addComment = this.addComment.bind(this);
   }
 
   componentDidMount() {
     const { match, onFetchActiveTask } = this.props;
     onFetchActiveTask(match.params.id);
+  }
+
+  componentWillUnmount() {
+    this.props.onResetActiveTask();
   }
 
   static getDerivedStateFromProps({task}) {
@@ -43,8 +50,17 @@ class TaskPage extends Component {
     });
   }
 
+  addComment({text}) {
+    const {onSendTaskMessage,task,currentUser} = this.props;
+    onSendTaskMessage(task.get("_id"),{
+      author: currentUser.get("_id"),
+      text,
+      createdAt: new Date()
+    });
+  }
+
   render() {
-    const { task, classes, isAdmin } = this.props;
+    const { task, classes, isAdmin, messages } = this.props;
     if(this.state.removed) {
       return (
         <Card className={classes.warning}>
@@ -93,21 +109,24 @@ class TaskPage extends Component {
             </div>
           </CardContent>
         </Card>
-        <Comments taskId={task.get("_id")} messages={task.get("messages")} />
+        <Comments sendHandler={this.addComment} messages={messages} />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ tasks, user }) => ({
-  task: tasks.get("activeTask"),
-  isAdmin: user.get("isAdmin")
+const mapStateToProps = state => ({
+  task: state.tasks.get("activeTask"),
+  isAdmin: state.user.get("isAdmin"),
+  messages: getMessagesByTaskId(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   onFetchActiveTask: id => dispatch(fetchActiveTask(id)),
-  onChangeTask: (id, info) => dispatch(changeTask(id, info))
-});
+  onChangeTask: (id, info) => dispatch(changeTask(id, info)),
+  onResetActiveTask: () => dispatch(resetActiveTask()),
+  onSendTaskMessage: (id,message) => dispatch(sendTaskMessage(id,message))
+ });
 
 export default connect(
   mapStateToProps,

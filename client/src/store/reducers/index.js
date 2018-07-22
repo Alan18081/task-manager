@@ -6,6 +6,7 @@ import chat from "./chat";
 import serverError from "./serverError";
 import socket from "./socket";
 import users from "./users";
+import messages from "./messages";
 
 export default combineReducers({
   user,
@@ -14,5 +15,6 @@ export default combineReducers({
   chat,
   serverError,
   socket,
+  messages,
   form
 });

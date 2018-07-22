@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import {
   Typography,
   Card,
@@ -7,12 +6,12 @@ import {
   List,
   Divider
 } from "@material-ui/core";
-import { addTaskComment } from "../../store/actions/index";
+import { sendTaskMessage} from "../../store/actions/index";
 
 import Message from "../../components/Message/index";
 import MessageAdd from "../../components/MessageAdd/index";
 
-const Comments = ({ taskId, messages, onAddTaskMessage }) => (
+const Comments = ({ taskId, messages, sendHandler }) => (
   <Card>
     <CardContent>
       <Typography variant="headline">Comments</Typography>
@@ -24,17 +23,11 @@ const Comments = ({ taskId, messages, onAddTaskMessage }) => (
       <Divider />
       <MessageAdd
         label="Your comment"
-        submitHandler={({ text }) => onAddTaskMessage(taskId, text)}
+        submitHandler={sendTaskMessage}
       />
     </CardContent>
   </Card>
 );
 
-const mapDispatchToProps = dispatch => ({
-  onAddTaskMessage: (taskId, text) => dispatch(addTaskComment(taskId, text))
-});
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Comments);
+export default Comments;

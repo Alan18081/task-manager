@@ -8,7 +8,7 @@ import {
   FETCH_USER_TASKS_SUCCESS,
   FETCH_ACTIVE_TASK,
   FETCH_ACTIVE_TASK_SUCCESS,
-  ADD_TASK_COMMENT,
+  RESET_ACTIVE_TASK,
   CREATE_TASK,
   CREATE_TASK_SUCCESS,
   REMOVE_TASK,
@@ -55,12 +55,8 @@ export const fetchActiveTaskSuccess = task => ({
   payload: task
 });
 
-export const addTaskComment = (id, comment) => ({
-  type: ADD_TASK_COMMENT,
-  payload: {
-    id,
-    comment
-  }
+export const resetActiveTask = () => ({
+  type: RESET_ACTIVE_TASK
 });
 
 export const createTask = task => ({

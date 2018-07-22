@@ -2,13 +2,11 @@ export { fetchLoggedUserSaga } from "./user/fetchLoggedUser";
 export { updateProfileSaga } from "./user/updateProfile";
 export { registerSaga } from "./user/register";
 export { loginSaga } from "./user/login";
-// export { logoutSaga } from "./user/logout";
 
 export { fetchUserTasksSaga } from "./tasks/fetchUserTasks";
 export { changeTaskSaga } from "./tasks/changeTask";
 export { setTaskTimeSaga } from "./tasks/setTaskTime";
 export { fetchActiveTaskSaga } from "./tasks/fetchActiveTask";
-export { addTaskCommentSaga } from "./tasks/addTaskComment";
 export { createTaskSaga } from "./tasks/createTask";
 export { removeTaskSaga } from "./tasks/removeTask";
 
@@ -19,3 +17,8 @@ export { fetchChatRoomSaga } from "./chat/fetchChatRoom";
 export { attendChatSaga } from "./chat/attendChat";
 
 export {setSocketConnectionSaga} from "./socket/setSocketConnection";
+
+export { sendTaskMessageSaga } from "./messages/sendTaskMessage";
+export {sendChatMessageSaga} from "./messages/sendChatMessage";
+export {updateMessageSaga} from "./messages/updateMessage";
+export {removeMessageSaga} from "./messages/removeMessage";

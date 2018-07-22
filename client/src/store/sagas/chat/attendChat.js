@@ -1,8 +1,8 @@
 import { takeLatest, spawn, select } from "redux-saga/effects";
 import { ATTEND_CHAT } from "../../actions/types";
 
-import { sendMessageSaga } from "./sendMessage";
-import { watchMessageSaga } from "./watchMessage";
+import { sendChatMessageSaga } from "../messages/sendChatMessage";
+import { watchMessageSaga } from "../messages/watchMessage";
 import { leaveChatSaga } from "./leaveChat";
 
 export function* attendChatSaga() {
@@ -10,7 +10,7 @@ export function* attendChatSaga() {
     const socket = yield select(({socket}) => socket);
     socket.emit("newUser", { roomId: payload });
     const watchMessagesProcess = yield spawn(watchMessageSaga, socket);
-    const sendMessageProcess = yield spawn(sendMessageSaga, socket);
+    const sendMessageProcess = yield spawn(sendChatMessageSaga, socket);
     yield spawn(
       leaveChatSaga,
       socket,

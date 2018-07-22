@@ -6,7 +6,8 @@ import {
   FETCH_USER_TASKS_SUCCESS,
   REMOVE_TASK_SUCCESS,
   FETCH_TASK_BY_ID_SUCCESS,
-  FETCH_ALL_TASKS_SUCCESS
+  FETCH_ALL_TASKS_SUCCESS,
+  RESET_ACTIVE_TASK
 } from "../actions/types";
 
 const initialState = fromJS({
@@ -40,16 +41,19 @@ export default (state = initialState, { type, payload }) => {
     case CHANGE_TASK_SUCCESS:
       return state.update("list", tasks =>
         tasks.update(
-          tasks.findIndex(task => task.get("_id") === payload.id),
+          tasks.findIndex(task => task.get("_id") === payload._id),
           () => fromJS(payload)
         )
       );
     case CREATE_TASK_SUCCESS:
+      console.log(payload);
       return state.update("list",
         tasks => tasks.push(fromJS(payload))
       );
     case REMOVE_TASK_SUCCESS:
       return removeTaskSuccess(state,payload);
+    case RESET_ACTIVE_TASK:
+      return state.set("activeTask",null);
     default:
       return state;
   }

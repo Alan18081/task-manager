@@ -14,28 +14,11 @@ module.exports = app => {
 
   app.get("/tasks/:id", requireAuth, TasksController.getTaskById);
 
+
   app.delete(
     "/tasks/:id",
     requireAuth,
     requireAdmin,
     TasksController.removeTask
-  );
-
-  app.patch(
-    "/tasks/:id/addMessage",
-    requireAuth,
-    TasksController.addMessageToTask
-  );
-
-  app.delete(
-    "/tasks/:taskId/messages/:msgId",
-    requireAuth,
-    TasksController.removeTaskMessage
-  );
-
-  app.put(
-    "/tasks/:taskId/messages/:msgId",
-    requireAuth,
-    TasksController.updateTaskMessage
   );
 };

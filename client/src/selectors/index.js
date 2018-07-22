@@ -30,3 +30,17 @@ export const getOtherUsersList = ({users,user}) => {
     return users.filter(user => user.get("_id") !== userId);
   }
 };
+
+export const getMessagesByTaskId = ({tasks,messages}) => {
+  const activeTask = tasks.get("activeTask");
+  if(activeTask) {
+    return messages.get("list").filter(msg => msg.get("taskId") === activeTask.get("_id"))
+  }
+};
+
+export const getMessagesByChatId = ({chat,messages}) => {
+  const activeRoom = chat.get("room");
+  if(activeRoom) {
+    return messages.get("list").filter(msg => msg.get("chatId") === activeRoom.get("_id"))
+  }
+};

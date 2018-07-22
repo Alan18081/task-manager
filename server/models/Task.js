@@ -11,7 +11,6 @@ const TaskSchema = new Schema({
     default: stages[0]
   },
   estimateTime: String,
-  messages: [{ type: Schema.Types.ObjectId, ref: "Message" }],
   creator: { type: Schema.Types.ObjectId, ref: "User" },
   performer: { type: Schema.Types.ObjectId, ref: "User" }
 });

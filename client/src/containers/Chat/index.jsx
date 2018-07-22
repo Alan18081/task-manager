@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import FlipMove from "react-flip-move";
 import { connect } from "react-redux";
-import { withStyles } from "@material-ui/core";
-import { fetchChatRoom, leaveChat, sendMessage } from "../../store/actions";
+import { withStyles, List } from "@material-ui/core";
+import { fetchChatRoom, leaveChat, sendChatMessage, removeMessage, getActiveMessage } from "../../store/actions";
 
 import MessageAdd from "../../components/MessageAdd";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
+import MessageEdit from "../../containers/MessageEdit";
 
-import { getOtherUser } from "../../selectors";
+import { getOtherUser, getMessagesByChatId } from "../../selectors";
 
 import styles from "./styles";
 
@@ -28,8 +30,8 @@ class Chat extends Component {
   }
 
   sendMessageHandler({ text }) {
-    const { onSendMessage, currentUser, room } = this.props;
-    onSendMessage({
+    const { onSendChatMessage, currentUser, room } = this.props;
+    onSendChatMessage({
       message: {
         author: currentUser.get("_id"),
         text,
@@ -40,9 +42,17 @@ class Chat extends Component {
   }
 
   renderMessages() {
-    return this.props.room
-      .get("messages")
-      .map(message => <Message key={message.get("_id")} message={message} />);
+    const {messages,currentUser, onRemoveMessage, onGetActiveMessage} = this.props;
+    const userId = currentUser.get("_id");
+    return messages.reverse().map(message => (
+      <Message
+        key={message.get("_id")}
+        message={message}
+        remove={() => onRemoveMessage(message.get("_id"))}
+        editable={userId === message.get("author").get("_id")}
+        edit={() => onGetActiveMessage(message.get("_id"))}
+      />
+    ));
   }
 
   render() {
@@ -52,13 +62,14 @@ class Chat extends Component {
     }
     return (
       <div className={classes.container}>
-        <div className={classes.messages}>{this.renderMessages()}</div>
-        <div className={classes.form}>
-          <MessageAdd
-            submitHandler={this.sendMessageHandler}
-            label="Your message"
-          />
-        </div>
+        <MessageEdit/>
+        <MessageAdd
+          submitHandler={this.sendMessageHandler}
+          label="Your message"
+        />
+          <FlipMove typeName="ul" className={classes.messages}>
+            {this.renderMessages()}
+          </FlipMove>
       </div>
     );
   }
@@ -66,14 +77,17 @@ class Chat extends Component {
 
 const mapStateToProps = state => ({
   room: state.chat.get("room"),
+  messages: getMessagesByChatId(state),
   currentUser: state.user.get("profile"),
   otherUser: getOtherUser(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   onFetchChatRoom: userId => dispatch(fetchChatRoom(userId)),
-  onSendMessage: message => dispatch(sendMessage(message)),
-  onLeaveChat: id => dispatch(leaveChat(id))
+  onSendChatMessage: message => dispatch(sendChatMessage(message)),
+  onLeaveChat: id => dispatch(leaveChat(id)),
+  onRemoveMessage: id => dispatch(removeMessage(id)),
+  onGetActiveMessage: id => dispatch(getActiveMessage(id))
 });
 
 export default connect(

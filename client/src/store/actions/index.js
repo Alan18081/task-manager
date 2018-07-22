@@ -25,6 +25,7 @@ export {
   setTaskTime,
   fetchActiveTask,
   fetchActiveTaskSuccess,
+  resetActiveTask,
   addTaskComment,
   createTask,
   createTaskSuccess,
@@ -42,7 +43,6 @@ export {
   fetchChatRoomSuccess,
   attendChat,
   attendChatSuccess,
-  sendMessage,
   leaveChat,
   leaveChatSuccess
 } from "./chat";
@@ -57,3 +57,18 @@ export {
   fetchUser,
   fetchUserSuccess
 } from "./users";
+
+export {
+  fetchMessagesListSuccess,
+  fetchMessageSuccess,
+  removeMessageByTaskId,
+  removeMessageByChatId,
+  getActiveMessage,
+  resetActiveMessage,
+  updateMessage,
+  updateMessageSuccess,
+  removeMessage,
+  removeMessageSuccess,
+  sendChatMessage,
+  sendTaskMessage
+} from "./messages";
