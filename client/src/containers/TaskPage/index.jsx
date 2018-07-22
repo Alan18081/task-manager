@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import { Card, CardContent, Typography, withStyles, Button } from "@material-ui/core";
 import StatusIcon from "@material-ui/icons/Cached";
-import { changeTask, sendTaskMessage, fetchActiveTask, resetActiveTask,getActiveMessage } from "../../store/actions";
+import { changeTask, removeMessage, sendTaskMessage, fetchActiveTask, resetActiveTask,getActiveMessage } from "../../store/actions";
 import styles from "./styles";
 
 import {getMessagesByTaskId} from "../../selectors";
@@ -60,7 +60,7 @@ class TaskPage extends Component {
   }
 
   render() {
-    const { task, classes, isAdmin, messages, user, onGetActiveMessage } = this.props;
+    const { task, classes, isAdmin, messages, user, onGetActiveMessage, onRemoveMessage } = this.props;
     if(this.state.removed) {
       return (
         <Card className={classes.warning}>
@@ -111,6 +111,7 @@ class TaskPage extends Component {
         </Card>
         <Comments
           getActiveMessage={onGetActiveMessage}
+          removeMessage={onRemoveMessage}
           userId={user.get("_id")}
           sendHandler={this.addComment}
           messages={messages} />
@@ -131,7 +132,8 @@ const mapDispatchToProps = dispatch => ({
   onChangeTask: (id, info) => dispatch(changeTask(id, info)),
   onResetActiveTask: () => dispatch(resetActiveTask()),
   onSendTaskMessage: (id,message) => dispatch(sendTaskMessage(id,message)),
-  onGetActiveMessage: id => dispatch(getActiveMessage(id))
+  onGetActiveMessage: id => dispatch(getActiveMessage(id)),
+  onRemoveMessage: id => dispatch(removeMessage(id))
  });
 
 export default connect(

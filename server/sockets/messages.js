@@ -37,6 +37,7 @@ module.exports = io => {
           }),
           newMessage.save()
         ]);
+        console.log(newMessage);
         io.sockets.emit("addedMessage", newMessage);
       }
     );

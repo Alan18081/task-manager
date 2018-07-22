@@ -13,8 +13,8 @@ export function* fetchChatRoomSaga() {
   yield takeLatest(FETCH_CHAT_ROOM, function*({ payload }) {
     try {
       const { data } = yield call(axios.get, `/users/${payload}/chat`);
-      yield call(fetchMessagesByChatIdSaga,data._id);
       yield put(attendChat(data._id));
+      yield call(fetchMessagesByChatIdSaga,data._id);
       yield put(fetchChatRoomSuccess(data));
     } catch (e) {
       yield put(serverError());

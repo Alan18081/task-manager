@@ -42,9 +42,9 @@ app.get("/", (req, res) => {
 app.get("/*", express.static(path.join(__dirname, "/client/build/static")));
 
 require("./sockets/chat")(io);
-require("./sockets/messages")(io);
 require("./sockets/online")(io);
 require("./sockets/tasks")(io);
+require("./sockets/messages")(io);
 
 server.listen(port, () => {
   console.log(`Server is listening at port ${port}`);

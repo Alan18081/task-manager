@@ -12,7 +12,7 @@ import Message from "../../components/Message/index";
 import MessageAdd from "../../components/MessageAdd/index";
 import MessageEdit from "../../components/MessageEdit";
 
-const Comments = ({ userId, messages, sendHandler, getActiveMessage }) => (
+const Comments = ({ userId, messages, sendHandler, getActiveMessage, removeMessage }) => (
   <Card>
     <CardContent>
       <MessageEdit/>
@@ -24,6 +24,7 @@ const Comments = ({ userId, messages, sendHandler, getActiveMessage }) => (
             message={message}
             editable={message.get("_id") === userId}
             edit={() => getActiveMessage(message.get("_id"))}
+            remove={() => removeMessage(message.get("_id"))}
           />
         ))}
       </List>
@@ -38,6 +39,7 @@ const Comments = ({ userId, messages, sendHandler, getActiveMessage }) => (
 
 Comments.propTypes = {
   getActiveMessage: PropTypes.func.isRequired,
+  removeMessage: PropTypes.func.isRequired,
   userId: PropTypes.string.isRequired,
   sendHandler: PropTypes.func.isRequired,
   messages: PropTypes.object.isRequired

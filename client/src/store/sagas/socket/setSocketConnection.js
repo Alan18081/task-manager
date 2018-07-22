@@ -5,6 +5,7 @@ import {url} from "../../../config";
 
 import {checkOnlineUsersSaga} from "../users/checkOnlineUsers";
 import {watchTasksSaga} from "../tasks/watchTasks";
+import {watchMessageSaga} from "../messages/watchMessage";
 
 export function* setSocketConnectionSaga() {
   try {
@@ -14,6 +15,7 @@ export function* setSocketConnectionSaga() {
     yield put(setSocketConnectionSuccess(socket));
     yield spawn(checkOnlineUsersSaga);
     yield spawn(watchTasksSaga);
+    yield spawn(watchMessageSaga);
   }
   catch (e) {
     yield put(serverError());

@@ -1,4 +1,4 @@
-import { call, take, put } from "redux-saga/effects";
+import { select, take, put } from "redux-saga/effects";
 import { eventChannel } from "redux-saga";
 import { fetchMessageSuccess, removeMessageSuccess, updateMessageSuccess } from "../../actions";
 
@@ -6,10 +6,11 @@ const SENT_MESSAGE_EVENT = "SENT_MESSAGE_EVENT";
 const UPDATE_MESSAGE_EVENT = "UPDATE_MESSAGE_EVENT";
 const REMOVED_MESSAGE_EVENT = "REMOVED_MESSAGE_EVENT";
 
-export function* watchMessageSaga(socket) {
+export function* watchMessageSaga() {
+  const socket = yield select(({socket}) => socket);
+  console.log("hey");
   const channel = new eventChannel(emit => {
     socket.on("addedMessage", message => {
-      console.log(message);
       emit({type: SENT_MESSAGE_EVENT, payload: message});
     });
 

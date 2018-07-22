@@ -19,6 +19,5 @@ export { attendChatSaga } from "./chat/attendChat";
 export {setSocketConnectionSaga} from "./socket/setSocketConnection";
 
 export { sendTaskMessageSaga } from "./messages/sendTaskMessage";
-export {sendChatMessageSaga} from "./messages/sendChatMessage";
 export {updateMessageSaga} from "./messages/updateMessage";
 export {removeMessageSaga} from "./messages/removeMessage";
