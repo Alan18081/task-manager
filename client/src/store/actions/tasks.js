@@ -12,7 +12,8 @@ import {
   CREATE_TASK,
   CREATE_TASK_SUCCESS,
   REMOVE_TASK,
-  REMOVE_TASK_SUCCESS
+  REMOVE_TASK_SUCCESS,
+  CHANGE_TASK_STATUS
 } from "./types";
 
 export const fetchUserTasks = () => ({
@@ -87,4 +88,11 @@ export const fetchTaskById = id => ({
 export const fetchTaskByIdSuccess = task => ({
   type: FETCH_TASK_BY_ID_SUCCESS,
   payload: task
+});
+
+export const changeTaskStatus = (id,status) => ({
+  type: CHANGE_TASK_STATUS,
+  payload: {
+    id,status
+  }
 });

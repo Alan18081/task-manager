@@ -3,8 +3,6 @@ import {
   FETCH_MESSAGES_LIST_SUCCESS,
   SEND_CHAT_MESSAGE,
   SEND_TASK_MESSAGE,
-  REMOVE_MESSAGE_BY_CHAT_ID,
-  REMOVE_MESSAGE_BY_TASK_ID,
   RESET_ACTIVE_MESSAGE,
   GET_ACTIVE_MESSAGE,
   REMOVE_MESSAGE,
@@ -28,19 +26,11 @@ export const sendChatMessage = message => ({
   payload: message
 });
 
-export const sendTaskMessage = message => ({
+export const sendTaskMessage = (id,message) => ({
   type: SEND_TASK_MESSAGE,
-  payload: message
-});
-
-export const removeMessageByTaskId = taskId => ({
-  type: REMOVE_MESSAGE_BY_TASK_ID,
-  payload: taskId
-});
-
-export const removeMessageByChatId = chatId => ({
-  type: REMOVE_MESSAGE_BY_CHAT_ID,
-  payload: chatId
+  payload: {
+    id,message
+  }
 });
 
 export const getActiveMessage = id => ({
@@ -64,9 +54,12 @@ export const updateMessageSuccess = message => ({
   payload: message
 });
 
-export const removeMessage = id => ({
+export const removeMessage = (messageId,roomId) => ({
   type: REMOVE_MESSAGE,
-  payload: id
+  payload: {
+    messageId,
+    roomId
+  }
 });
 
 export const removeMessageSuccess = id => ({

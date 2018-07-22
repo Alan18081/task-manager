@@ -6,12 +6,10 @@ module.exports = io => {
   io.on("connection", socket => {
 
     socket.on(
-      "addChatMessage",
-      async ({ message: { text, createdAt, author }, roomId }) => {
+      "sendChatMessage",
+      async ({ message, roomId }) => {
         const newMessage = new Message({
-          author,
-          text,
-          createdAt,
+          ...message,
           chatId: roomId
         });
         await Promise.all([
@@ -26,11 +24,11 @@ module.exports = io => {
     );
 
     socket.on(
-      "addTaskMessage",
-      async ({ message, taskId }) => {
+      "sendTaskMessage",
+      async ({ message, id }) => {
         const newMessage = new Message({
           ...message,
-          taskId
+          taskId: id
         });
         await Promise.all([
           Message.populate(newMessage, {

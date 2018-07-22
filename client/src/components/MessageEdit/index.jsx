@@ -3,10 +3,10 @@ import {connect} from "react-redux";
 import {reduxForm,Field} from "redux-form";
 
 import {Dialog,DialogContent,DialogActions,Button} from "@material-ui/core";
-import {getActiveMessage,resetActiveMessage,updateMessage} from "../../store/actions";
+import {getActiveMessage,resetActiveMessage,updateMessage} from "../../store/actions/index";
 import {validateMessage} from "../../utils/validate";
 
-import Input from "../../components/Input";
+import Input from "../Input/index";
 
 class MessageEdit extends Component {
   constructor(props) {

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import FlipMove from "react-flip-move";
 import { connect } from "react-redux";
-import { withStyles, List } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import { fetchChatRoom, leaveChat, sendChatMessage, removeMessage, getActiveMessage } from "../../store/actions";
 
 import MessageAdd from "../../components/MessageAdd";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
-import MessageEdit from "../../containers/MessageEdit";
+import MessageEdit from "../../components/MessageEdit";
 
 import { getOtherUser, getMessagesByChatId } from "../../selectors";
 
@@ -20,8 +20,8 @@ class Chat extends Component {
   }
 
   componentDidMount() {
-    const { userId } = this.props.match.params;
-    this.props.onFetchChatRoom(userId);
+    const { match, onFetchChatRoom } = this.props;
+    onFetchChatRoom(match.params.userId);
   }
 
   componentWillUnmount() {
@@ -48,7 +48,7 @@ class Chat extends Component {
       <Message
         key={message.get("_id")}
         message={message}
-        remove={() => onRemoveMessage(message.get("_id"))}
+        remove={() => onRemoveMessage(message.get("_id"), message.get("chatId"))}
         editable={userId === message.get("author").get("_id")}
         edit={() => onGetActiveMessage(message.get("_id"))}
       />
@@ -86,7 +86,7 @@ const mapDispatchToProps = dispatch => ({
   onFetchChatRoom: userId => dispatch(fetchChatRoom(userId)),
   onSendChatMessage: message => dispatch(sendChatMessage(message)),
   onLeaveChat: id => dispatch(leaveChat(id)),
-  onRemoveMessage: id => dispatch(removeMessage(id)),
+  onRemoveMessage: (messageId,roomId) => dispatch(removeMessage(messageId,roomId)),
   onGetActiveMessage: id => dispatch(getActiveMessage(id))
 });
 

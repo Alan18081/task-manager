@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import { Card, CardContent, Typography, withStyles, Button } from "@material-ui/core";
 import StatusIcon from "@material-ui/icons/Cached";
-import { changeTask, sendTaskMessage, fetchActiveTask, resetActiveTask } from "../../store/actions";
+import { changeTask, sendTaskMessage, fetchActiveTask, resetActiveTask,getActiveMessage } from "../../store/actions";
 import styles from "./styles";
 
 import {getMessagesByTaskId} from "../../selectors";
@@ -51,16 +51,16 @@ class TaskPage extends Component {
   }
 
   addComment({text}) {
-    const {onSendTaskMessage,task,currentUser} = this.props;
+    const {onSendTaskMessage,task,user} = this.props;
     onSendTaskMessage(task.get("_id"),{
-      author: currentUser.get("_id"),
+      author: user.get("_id"),
       text,
       createdAt: new Date()
     });
   }
 
   render() {
-    const { task, classes, isAdmin, messages } = this.props;
+    const { task, classes, isAdmin, messages, user, onGetActiveMessage } = this.props;
     if(this.state.removed) {
       return (
         <Card className={classes.warning}>
@@ -109,7 +109,11 @@ class TaskPage extends Component {
             </div>
           </CardContent>
         </Card>
-        <Comments sendHandler={this.addComment} messages={messages} />
+        <Comments
+          getActiveMessage={onGetActiveMessage}
+          userId={user.get("_id")}
+          sendHandler={this.addComment}
+          messages={messages} />
       </div>
     );
   }
@@ -118,6 +122,7 @@ class TaskPage extends Component {
 const mapStateToProps = state => ({
   task: state.tasks.get("activeTask"),
   isAdmin: state.user.get("isAdmin"),
+  user: state.user.get("profile"),
   messages: getMessagesByTaskId(state)
 });
 
@@ -125,7 +130,8 @@ const mapDispatchToProps = dispatch => ({
   onFetchActiveTask: id => dispatch(fetchActiveTask(id)),
   onChangeTask: (id, info) => dispatch(changeTask(id, info)),
   onResetActiveTask: () => dispatch(resetActiveTask()),
-  onSendTaskMessage: (id,message) => dispatch(sendTaskMessage(id,message))
+  onSendTaskMessage: (id,message) => dispatch(sendTaskMessage(id,message)),
+  onGetActiveMessage: id => dispatch(getActiveMessage(id))
  });
 
 export default connect(

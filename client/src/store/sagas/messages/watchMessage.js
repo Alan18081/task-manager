@@ -9,11 +9,11 @@ const REMOVED_MESSAGE_EVENT = "REMOVED_MESSAGE_EVENT";
 export function* watchMessageSaga(socket) {
   const channel = new eventChannel(emit => {
     socket.on("addedMessage", message => {
+      console.log(message);
       emit({type: SENT_MESSAGE_EVENT, payload: message});
     });
 
     socket.on("editedMessage",message => {
-      console.log("Hey");
       emit({type: UPDATE_MESSAGE_EVENT, payload: message});
     });
 

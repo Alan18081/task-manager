@@ -26,7 +26,6 @@ export {
   fetchActiveTask,
   fetchActiveTaskSuccess,
   resetActiveTask,
-  addTaskComment,
   createTask,
   createTaskSuccess,
   removeTask,
@@ -61,8 +60,6 @@ export {
 export {
   fetchMessagesListSuccess,
   fetchMessageSuccess,
-  removeMessageByTaskId,
-  removeMessageByChatId,
   getActiveMessage,
   resetActiveMessage,
   updateMessage,

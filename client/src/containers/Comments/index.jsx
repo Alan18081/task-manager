@@ -6,28 +6,42 @@ import {
   List,
   Divider
 } from "@material-ui/core";
-import { sendTaskMessage} from "../../store/actions/index";
+import PropTypes from "prop-types";
 
 import Message from "../../components/Message/index";
 import MessageAdd from "../../components/MessageAdd/index";
+import MessageEdit from "../../components/MessageEdit";
 
-const Comments = ({ taskId, messages, sendHandler }) => (
+const Comments = ({ userId, messages, sendHandler, getActiveMessage }) => (
   <Card>
     <CardContent>
+      <MessageEdit/>
       <Typography variant="headline">Comments</Typography>
       <List>
-        {messages.map(comment => (
-          <Message key={comment.get("_id")} message={comment} />
+        {messages.map(message => (
+          <Message
+            key={message.get("_id")}
+            message={message}
+            editable={message.get("_id") === userId}
+            edit={() => getActiveMessage(message.get("_id"))}
+          />
         ))}
       </List>
       <Divider />
       <MessageAdd
         label="Your comment"
-        submitHandler={sendTaskMessage}
+        submitHandler={sendHandler}
       />
     </CardContent>
   </Card>
 );
+
+Comments.propTypes = {
+  getActiveMessage: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
+  sendHandler: PropTypes.func.isRequired,
+  messages: PropTypes.object.isRequired
+};
 
 
 export default Comments;
