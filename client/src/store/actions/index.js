@@ -1,6 +1,6 @@
 export {
-  fetchUser,
-  fetchUserSuccess,
+  fetchLoggedUser,
+  fetchLoggedUserSuccess,
   updateProfile,
   updateProfileSuccess,
   register,
@@ -11,18 +11,21 @@ export {
   loginStart,
   loginSuccess,
   loginFailed,
-  logout
+  logout,
+  changeUserStatus
 } from "./user";
 
 export {
   fetchUserTasks,
   fetchUserTasksSuccess,
+  fetchTaskById,
+  fetchTaskByIdSuccess,
   changeTask,
   changeTaskSuccess,
   setTaskTime,
   fetchActiveTask,
   fetchActiveTaskSuccess,
-  addTaskComment,
+  resetActiveTask,
   createTask,
   createTaskSuccess,
   removeTask,
@@ -31,19 +34,38 @@ export {
 
 export {
   fetchAllTasks,
-  fetchAllTasksSuccess,
-  fetchAllUsers,
-  fetchAllUsersSuccess
+  fetchAllTasksSuccess
 } from "./board";
 
 export {
   fetchChatRoom,
   fetchChatRoomSuccess,
-  createChatConnection,
-  createChatConnectionSuccess,
-  sendMessage,
+  attendChat,
+  attendChatSuccess,
   leaveChat,
   leaveChatSuccess
 } from "./chat";
 
 export { serverError } from "./errors";
+
+export {setSocketConnection,setSocketConnectionSuccess} from "./socket";
+
+export {
+  fetchAllUsers,
+  fetchAllUsersSuccess,
+  fetchUser,
+  fetchUserSuccess
+} from "./users";
+
+export {
+  fetchMessagesListSuccess,
+  fetchMessageSuccess,
+  getActiveMessage,
+  resetActiveMessage,
+  updateMessage,
+  updateMessageSuccess,
+  removeMessage,
+  removeMessageSuccess,
+  sendChatMessage,
+  sendTaskMessage
+} from "./messages";

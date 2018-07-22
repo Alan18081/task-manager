@@ -2,15 +2,18 @@ import {
   SET_TASK_TIME,
   CHANGE_TASK,
   CHANGE_TASK_SUCCESS,
+  FETCH_TASK_BY_ID,
+  FETCH_TASK_BY_ID_SUCCESS,
   FETCH_USER_TASKS,
   FETCH_USER_TASKS_SUCCESS,
   FETCH_ACTIVE_TASK,
   FETCH_ACTIVE_TASK_SUCCESS,
-  ADD_TASK_COMMENT,
+  RESET_ACTIVE_TASK,
   CREATE_TASK,
   CREATE_TASK_SUCCESS,
   REMOVE_TASK,
-  REMOVE_TASK_SUCCESS
+  REMOVE_TASK_SUCCESS,
+  CHANGE_TASK_STATUS
 } from "./types";
 
 export const fetchUserTasks = () => ({
@@ -53,12 +56,8 @@ export const fetchActiveTaskSuccess = task => ({
   payload: task
 });
 
-export const addTaskComment = (id, comment) => ({
-  type: ADD_TASK_COMMENT,
-  payload: {
-    id,
-    comment
-  }
+export const resetActiveTask = () => ({
+  type: RESET_ACTIVE_TASK
 });
 
 export const createTask = task => ({
@@ -79,4 +78,21 @@ export const removeTask = id => ({
 export const removeTaskSuccess = id => ({
   type: REMOVE_TASK_SUCCESS,
   payload: id
+});
+
+export const fetchTaskById = id => ({
+  type: FETCH_TASK_BY_ID,
+  payload: id
+});
+
+export const fetchTaskByIdSuccess = task => ({
+  type: FETCH_TASK_BY_ID_SUCCESS,
+  payload: task
+});
+
+export const changeTaskStatus = (id,status) => ({
+  type: CHANGE_TASK_STATUS,
+  payload: {
+    id,status
+  }
 });

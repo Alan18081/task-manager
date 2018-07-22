@@ -1,5 +1,5 @@
 export default () => ({
   icon: {
-    color: "#fff"
+    width: 40
   }
 });

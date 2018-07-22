@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import {
   Typography,
   Card,
@@ -7,34 +6,44 @@ import {
   List,
   Divider
 } from "@material-ui/core";
-import { addTaskComment } from "../../store/actions/index";
+import PropTypes from "prop-types";
 
 import Message from "../../components/Message/index";
 import MessageAdd from "../../components/MessageAdd/index";
+import MessageEdit from "../../components/MessageEdit";
 
-const Comments = ({ taskId, messages, onAddTaskMessage }) => (
+const Comments = ({ userId, messages, sendHandler, getActiveMessage, removeMessage }) => (
   <Card>
     <CardContent>
+      <MessageEdit/>
       <Typography variant="headline">Comments</Typography>
       <List>
-        {messages.map(comment => (
-          <Message key={comment.get("_id")} message={comment} />
+        {messages.map(message => (
+          <Message
+            key={message.get("_id")}
+            message={message}
+            editable={message.get("_id") === userId}
+            edit={() => getActiveMessage(message.get("_id"))}
+            remove={() => removeMessage(message.get("_id"))}
+          />
         ))}
       </List>
       <Divider />
       <MessageAdd
         label="Your comment"
-        submitHandler={({ text }) => onAddTaskMessage(taskId, text)}
+        submitHandler={sendHandler}
       />
     </CardContent>
   </Card>
 );
 
-const mapDispatchToProps = dispatch => ({
-  onAddTaskMessage: (taskId, text) => dispatch(addTaskComment(taskId, text))
-});
+Comments.propTypes = {
+  getActiveMessage: PropTypes.func.isRequired,
+  removeMessage: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
+  sendHandler: PropTypes.func.isRequired,
+  messages: PropTypes.object.isRequired
+};
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Comments);
+
+export default Comments;

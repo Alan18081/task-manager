@@ -4,48 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon app.js",
+    "install": "cd ./server && npm i && cd ../client && npm i",
     "client": "cd ./client && npm run start",
-    "client:build": "cd ./client && npm run build",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "dev:static": "cd ./client && npm run dev",
-    "lint": "eslint **/*.js"
-  },
-  "engines": {
-    "node": "10.6.0",
-    "npm": "6.1.0"
+    "server": "cd ./server && npm run dev",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alan18081/task-manager.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Alex",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Alan18081/task-manager/issues"
   },
-  "homepage": "https://github.com/Alan18081/task-manager#readme",
-  "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "jsonwebtoken": "^8.3.0",
-    "moment": "^2.22.2",
-    "mongoose": "^5.2.4",
-    "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "socket.io": "^2.1.1"
-  },
-  "devDependencies": {
-    "concurrently": "^3.6.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.10.0",
-    "nodemon": "^1.18.3",
-    "prettier": "^1.13.7"
-  }
+  "homepage": "https://github.com/Alan18081/task-manager#readme"
 }

@@ -48,9 +48,6 @@ export default WrappedComponent => {
         <WrappedComponent
           {...this.props}
           title="Edit task"
-          initialValues={{
-            ...initialValues
-          }}
           submit={this.submitHandler}
         />
       );

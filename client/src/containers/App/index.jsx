@@ -24,7 +24,7 @@ import TaskCreate from "../../hoc/TaskCreate";
 import TaskEdit from "../../hoc/TaskEdit";
 
 import styles from "./styles";
-import { fetchUser } from "../../store/actions";
+import { fetchLoggedUser } from "../../store/actions";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -36,14 +36,11 @@ const theme = createMuiTheme({
 
 class App extends Component {
   componentDidMount() {
-    this.props.onFetchUser();
+    this.props.onFetchLoggedUser();
   }
 
   renderRoutes() {
-    const { user, error } = this.props;
-    if (error) {
-      return <ServerError />;
-    }
+    const { user } = this.props;
     if (user) {
       return (
         <Fragment>
@@ -88,14 +85,15 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user, tasks, serverError }) => ({
+const mapStateToProps = ({ user, tasks, serverError, socket }) => ({
   user: user.get("profile"),
   tasks: tasks.get("list"),
-  error: serverError.get("error")
+  error: serverError.get("error"),
+  socket
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFetchUser: () => dispatch(fetchUser())
+  onFetchLoggedUser: () => dispatch(fetchLoggedUser())
 });
 
 export default withRouter(

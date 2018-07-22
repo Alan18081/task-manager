@@ -11,9 +11,11 @@ import {
 export function* changeTaskSaga() {
   yield takeLatest(CHANGE_TASK, function*({ payload: { id, info } }) {
     try {
+      const socket = yield select(({socket}) => socket);
       const { data } = yield call(axios.patch, `/tasks/${id}`, {
         ...info
       });
+      socket.emit("onChangeTask",{id});
       const loadedTasks = yield select(({ tasks }) => tasks.get("list"));
       if (loadedTasks) {
         yield put(changeTaskSuccess(data));
@@ -21,6 +23,7 @@ export function* changeTaskSaga() {
       yield put(fetchActiveTaskSuccess(data));
       yield put(push("/tasks"));
     } catch (e) {
+      console.log(e);
       yield put(serverError());
     }
   });

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { reduxForm, formValueSelector } from "redux-form";
+import { reduxForm } from "redux-form";
 import { createTask, fetchAllUsers } from "../../store/actions";
 import { getPerformers } from "../../selectors";
 import { validateTask } from "../../utils/validate";
-
-const selector = formValueSelector("createTask");
 
 export default WrappedComponent => {
   class TaskCreate extends Component {
@@ -41,9 +39,7 @@ export default WrappedComponent => {
 
   const mapStateToProps = state => ({
     users: getPerformers(state),
-    task: state.tasks.get("activeTask"),
-    isAdmin: state.user.get("isAdmin"),
-    performer: selector(state.board, "performer")
+    isAdmin: state.user.get("isAdmin")
   });
 
   const mapDispatchToProps = dispatch => ({

@@ -4,16 +4,8 @@ export default ({ spacing: { unit } }) => ({
     flexDirection: "column"
   },
   messages: {
-    marginBottom: unit * 3,
-    flexGrow: 1,
-    overflowY: "auto"
-  },
-  form: {
-    position: "absolute",
-    bottom: unit,
-    left: 0,
-    padding: `0 ${unit * 3}px`,
-    width: "100%",
-    boxSizing: "border-box"
+    marginTop: unit * 3,
+    listStyleType: "none",
+    paddingLeft: 0
   }
 });

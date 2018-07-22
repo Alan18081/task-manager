@@ -5,6 +5,7 @@ import Loader from "../../components/Loader/index";
 import Task from "../../components/Task/index";
 
 import { removeTask, fetchUserTasks } from "../../store/actions";
+import {getUserTasks} from "../../selectors";
 
 class Tasks extends Component {
   constructor(props) {
@@ -46,9 +47,9 @@ class Tasks extends Component {
   }
 }
 
-const mapStateToProps = ({ tasks, user }) => ({
-  tasks: tasks.get("list"),
-  isAdmin: user.get("isAdmin")
+const mapStateToProps = state => ({
+  tasks: getUserTasks(state),
+  isAdmin: state.user.get("isAdmin")
 });
 
 const mapDispatchToProps = dispatch => ({

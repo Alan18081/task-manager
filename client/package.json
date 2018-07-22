@@ -17,6 +17,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-flip-move": "^3.0.2",
     "react-icons-kit": "^1.1.5",
     "react-media": "^1.8.0",
     "react-redux": "^5.0.7",

@@ -1,8 +1,8 @@
 import {
   UPDATE_PROFILE,
   UPDATE_PROFILE_SUCCESS,
-  FETCH_USER,
-  FETCH_USER_SUCCESS,
+  FETCH_LOGGED_USER,
+  FETCH_LOGGED_USER_SUCCESS,
   LOGIN,
   LOGIN_FAILED,
   REGISTER,
@@ -11,15 +11,16 @@ import {
   REGISTER_START,
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
-  LOGOUT
+  LOGOUT,
+  CHANGE_USER_STATUS
 } from "./types";
 
-export const fetchUser = () => ({
-  type: FETCH_USER
+export const fetchLoggedUser = () => ({
+  type: FETCH_LOGGED_USER
 });
 
-export const fetchUserSuccess = user => ({
-  type: FETCH_USER_SUCCESS,
+export const fetchLoggedUserSuccess = user => ({
+  type: FETCH_LOGGED_USER_SUCCESS,
   payload: user
 });
 
@@ -78,4 +79,9 @@ export const registerFailed = error => ({
 
 export const logout = () => ({
   type: LOGOUT
+});
+
+export const changeUserStatus = (status) => ({
+  type: CHANGE_USER_STATUS,
+  payload: status
 });
