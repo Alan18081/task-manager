@@ -17,9 +17,9 @@ export {
 
 export {
   fetchUserTasks,
-  fetchUserTasksSuccess,
-  fetchTaskById,
-  fetchTaskByIdSuccess,
+  fetchAllTasks,
+  fetchTasksSuccess,
+  changeTaskStatus,
   changeTask,
   changeTaskSuccess,
   setTaskTime,
@@ -33,27 +33,19 @@ export {
 } from "./tasks";
 
 export {
-  fetchAllTasks,
-  fetchAllTasksSuccess
-} from "./board";
-
-export {
   fetchChatRoom,
   fetchChatRoomSuccess,
   attendChat,
-  attendChatSuccess,
   leaveChat,
-  leaveChatSuccess
 } from "./chat";
 
 export { serverError } from "./errors";
 
-export {setSocketConnection,setSocketConnectionSuccess} from "./socket";
+export {setSocketConnectionSuccess} from "./socket";
 
 export {
   fetchAllUsers,
   fetchAllUsersSuccess,
-  fetchUser,
   fetchUserSuccess
 } from "./users";
 

@@ -67,12 +67,13 @@ class App extends Component {
   }
 
   render() {
-    const { classes, user } = this.props;
+    const { classes, user,error } = this.props;
     if (user === null) {
       return <Loader />;
     }
     return (
       <MuiThemeProvider theme={theme}>
+        <ServerError open={error}/>
         <Header user={user} />
         <main className={classes.content}>
           <Switch>

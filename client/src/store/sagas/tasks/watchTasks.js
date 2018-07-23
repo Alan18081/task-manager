@@ -1,6 +1,6 @@
-import {take,put,select,call} from "redux-saga/effects";
+import {take,put,select} from "redux-saga/effects";
 import {eventChannel} from "redux-saga";
-import {removeTaskSuccess,createTaskSuccess,changeTaskSuccess} from "../../actions";
+import {removeTaskSuccess,createTaskSuccess,changeTaskSuccess,fetchActiveTaskSuccess} from "../../actions";
 
 const CREATED_TASK_EVENT = "CREATED_TASK_EVENT";
 const CHANGED_TASK_EVENT = "CHANGED_TASK_EVENT";
@@ -36,8 +36,12 @@ export function* watchTasksSaga() {
         break;
       case CHANGED_TASK_EVENT:
         yield put(changeTaskSuccess(payload));
+        const activeTask = yield select(({tasks}) => tasks.get("activeTask"));
+        if(activeTask) {
+          yield put(fetchActiveTaskSuccess(payload));
+        }
         break;
-      case CREATED_TASK_EVENT:
+      default:
         yield put(createTaskSuccess(payload));
     }
   }

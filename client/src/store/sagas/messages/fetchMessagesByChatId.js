@@ -5,7 +5,6 @@ import {fetchMessagesListSuccess,serverError} from "../../actions";
 export function* fetchMessagesByChatIdSaga(id) {
   try {
     const {data} = yield call(axios.get,`/chats/${id}/messages`);
-    console.log(data);
     yield put(fetchMessagesListSuccess(data));
   }
   catch (e) {

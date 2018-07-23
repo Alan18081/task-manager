@@ -12,7 +12,7 @@ export function* fetchLoggedUserSaga() {
     yield take(FETCH_LOGGED_USER);
     const { data } = yield call(axios.get, "/currentUser");
     yield put(fetchLoggedUserSuccess(data));
-    yield spawn(setSocketConnectionSaga);
+    yield call(setSocketConnectionSaga);
     yield spawn(logoutSaga);
   } catch (e) {
     if (e.response.status === 401) {

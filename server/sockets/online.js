@@ -21,16 +21,18 @@ module.exports = io => {
     });
     socket.on('disconnect', async () => {
       const removedSocketIndex = onlineUsers.findIndex(({userSocket}) => userSocket === socket);
-      const {userId} = onlineUsers[removedSocketIndex];
-      const updatedUser = await User.findOneAndUpdate({
-        _id: userId
-      }, {
-        online: false
-      },{
-        new: true
-      });
-      onlineUsers.splice(removedSocketIndex,1);
-      io.sockets.emit("newOfflineUser", updatedUser);
+      if(removedSocketIndex >= 0) {
+        const {userId} = onlineUsers[removedSocketIndex];
+        const updatedUser = await User.findOneAndUpdate({
+          _id: userId
+        }, {
+          online: false
+        },{
+          new: true
+        });
+        onlineUsers.splice(removedSocketIndex,1);
+        io.sockets.emit("newOfflineUser", updatedUser);
+      }
     });
     socket.on("onNewOfflineUser", async ({userId}) => {
       const updatedUser = await User.findOneAndUpdate({

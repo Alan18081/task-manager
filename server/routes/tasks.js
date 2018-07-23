@@ -4,9 +4,9 @@ const requireAdmin = require("../middlewares/requireAdmin");
 
 module.exports = app => {
 
-  app.get("/tasks", requireAuth, TasksController.getUserTasks);
+  app.get("/users/:id/tasks", requireAuth, TasksController.getUserTasks);
 
-  app.get("/tasks/all", requireAuth, TasksController.getAllTasks);
+  app.get("/tasks", requireAuth, TasksController.getAllTasks);
 
   app.post("/tasks", requireAuth, requireAdmin,TasksController.createTask);
 
