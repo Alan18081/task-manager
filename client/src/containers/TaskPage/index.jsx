@@ -10,7 +10,7 @@ import {getMessagesByTaskId} from "../../selectors";
 
 import TaskTime from "../TaskTime/index";
 import Loader from "../../components/Loader/index";
-import Comments from "../Comments/index";
+import Comments from "../../components/Comments/index";
 import TaskStatus from "../../components/TaskStatus";
 
 class TaskPage extends Component {

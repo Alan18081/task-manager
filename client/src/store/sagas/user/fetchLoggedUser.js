@@ -4,8 +4,8 @@ import axios from "../../../axios";
 import { FETCH_LOGGED_USER } from "../../actions/types";
 import { fetchLoggedUserSuccess, serverError } from "../../actions/index";
 
-import {setSocketConnectionSaga} from "../socket/setSocketConnection";
-import {logoutSaga} from "../user/logout";
+import { setSocketConnectionSaga } from "../socket/setSocketConnection";
+import { logoutSaga } from "../user/logout";
 
 export function* fetchLoggedUserSaga() {
   try {

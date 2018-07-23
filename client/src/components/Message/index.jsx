@@ -16,7 +16,7 @@ import MessageIcon from "@material-ui/icons/Message";
 
 class Message extends Component {
   render() {
-    const { message, edit, userId, editable, remove } = this.props;
+    const { message, edit, editable, remove } = this.props;
     return (
       <ListItem button={editable} onClick={editable ? edit : () => {}}>
         <ListItemIcon>
@@ -25,7 +25,7 @@ class Message extends Component {
         <ListItemText>
           <Typography
             variant="subheading"
-            color={userId === message.get("author").get("_id") ? "primary" : "secondary"}
+            color={editable ? "primary" : "secondary"}
           >
             {message.get("author").get("name")}
           </Typography>

@@ -14,42 +14,49 @@ const initialState = fromJS({
   activeTask: null
 });
 
-const removeTaskSuccess = (state,payload) => {
-  if(!state.get("activeTask")) {
+const removeTaskSuccess = (state, payload) => {
+  if (!state.get("activeTask")) {
     return state.update("list", tasks =>
-      tasks.filter(task => task.get("_id") !== payload));
+      tasks.filter(task => task.get("_id") !== payload)
+    );
   }
-  return state.update("list", tasks =>
-    tasks.filter(task => task.get("_id") !== payload)
-  ).update("activeTask", task => task.get("_id") === payload ? false : task);
+  return state
+    .update("list", tasks => tasks.filter(task => task.get("_id") !== payload))
+    .update("activeTask", task => (task.get("_id") === payload ? false : task));
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_TASKS_SUCCESS:
-      return state.update("list",
-        tasks => tasks.concat(fromJS(payload)).groupBy(task => task.get("_id")).map(task => task.first()).toList()
-      )
+      return state.update("list", tasks =>
+        tasks
+          .concat(fromJS(payload))
+          .groupBy(task => task.get("_id"))
+          .map(task => task.last())
+          .toList()
+      );
     case FETCH_TASK_BY_ID_SUCCESS:
-      return state.update("list",
-        tasks => tasks.push(fromJS(payload)).toSet().toList());
+      return state.update("list", tasks =>
+        tasks
+          .push(fromJS(payload))
+          .toSet()
+          .toList()
+      );
     case FETCH_ACTIVE_TASK_SUCCESS:
       return state.set("activeTask", fromJS(payload));
     case CHANGE_TASK_SUCCESS:
       return state.update("list", tasks =>
-      tasks.update(
-        tasks.findIndex(task => task.get("_id") === payload._id),
-        () => fromJS(payload)
-      )
-    );
-    case CREATE_TASK_SUCCESS:
-      return state.update("list",
-        tasks => tasks.push(fromJS(payload))
+        tasks.update(
+          tasks.findIndex(task => task.get("_id") === payload._id),
+          () => fromJS(payload)
+        )
       );
+    case CREATE_TASK_SUCCESS:
+      return state.update("list", tasks => tasks.push(fromJS(payload)));
     case REMOVE_TASK_SUCCESS:
-      return removeTaskSuccess(state,payload);
+      return removeTaskSuccess(state, payload);
     case RESET_ACTIVE_TASK:
-      return state.set("activeTask",null);
+      return state.set("activeTask", null);
     default:
       return state;
   }
