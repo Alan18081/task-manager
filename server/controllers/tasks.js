@@ -6,8 +6,9 @@ const Message = mongoose.model("Message");
 module.exports = {
   async getUserTasks(req, res) {
     try {
+      const {id} = req.params;
       const tasks = await Task.find({
-        $or: [{ performer: req.user.id }, { creator: req.user.id }]
+        $or: [{ performer: id }, { creator: id }]
       })
         .populate("performer")
         .populate("creator");

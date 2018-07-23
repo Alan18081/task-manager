@@ -10,8 +10,8 @@ import {
   serverError
 } from "../../actions";
 
-import {logoutSaga} from "./logout";
-import {setSocketConnectionSaga} from  "../socket/setSocketConnection";
+import { logoutSaga } from "./logout";
+import { setSocketConnectionSaga } from "../socket/setSocketConnection";
 
 export function* registerSaga() {
   yield takeLatest(REGISTER, function*({ payload }) {

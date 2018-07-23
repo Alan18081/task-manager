@@ -7,7 +7,7 @@ import styles from "./styles";
 const Logo = ({ classes }) => (
   <NavLink to="/">
     <IconButton variant="outlined">
-      <img src="/logo.svg" className={classes.icon}/>
+      <img src="/logo.svg" className={classes.icon} alt="Logo" />
     </IconButton>
   </NavLink>
 );

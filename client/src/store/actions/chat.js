@@ -1,11 +1,8 @@
 import {
   ATTEND_CHAT,
-  ATTEND_CHAT_SUCCESS,
   FETCH_CHAT_ROOM,
   FETCH_CHAT_ROOM_SUCCESS,
-  GET_MESSAGE_SUCCESS,
   LEAVE_CHAT,
-  LEAVE_CHAT_SUCCESS,
 } from "./types";
 
 export const fetchChatRoom = userId => ({
@@ -23,15 +20,8 @@ export const attendChat = id => ({
   payload: id
 });
 
-export const attendChatSuccess = () => ({
-  type: ATTEND_CHAT_SUCCESS
-});
-
 export const leaveChat = roomId => ({
   type: LEAVE_CHAT,
   payload: roomId
 });
 
-export const leaveChatSuccess = () => ({
-  type: LEAVE_CHAT_SUCCESS
-});

@@ -3,14 +3,14 @@ import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import { Card, CardContent, Typography, withStyles, Button } from "@material-ui/core";
 import StatusIcon from "@material-ui/icons/Cached";
-import { changeTask, removeMessage, sendTaskMessage, fetchActiveTask, resetActiveTask,getActiveMessage } from "../../store/actions";
+import {changeTaskStatus,changeTask, removeMessage, sendTaskMessage, fetchActiveTask, resetActiveTask,getActiveMessage } from "../../store/actions";
 import styles from "./styles";
 
 import {getMessagesByTaskId} from "../../selectors";
 
 import TaskTime from "../TaskTime/index";
 import Loader from "../../components/Loader/index";
-import Comments from "../Comments/index";
+import Comments from "../../components/Comments/index";
 import TaskStatus from "../../components/TaskStatus";
 
 class TaskPage extends Component {
@@ -44,8 +44,8 @@ class TaskPage extends Component {
   }
 
   handleStatus({ target: { value } }) {
-    const { task, onChangeTask } = this.props;
-    onChangeTask(task.get("_id"), {
+    const { task, onChangeTaskStatus } = this.props;
+    onChangeTaskStatus(task.get("_id"), {
       status: value
     });
   }
@@ -133,7 +133,8 @@ const mapDispatchToProps = dispatch => ({
   onResetActiveTask: () => dispatch(resetActiveTask()),
   onSendTaskMessage: (id,message) => dispatch(sendTaskMessage(id,message)),
   onGetActiveMessage: id => dispatch(getActiveMessage(id)),
-  onRemoveMessage: id => dispatch(removeMessage(id))
+  onRemoveMessage: id => dispatch(removeMessage(id)),
+  onChangeTaskStatus: (id,status) => dispatch(changeTaskStatus(id,status))
  });
 
 export default connect(

@@ -8,7 +8,6 @@ const REMOVED_MESSAGE_EVENT = "REMOVED_MESSAGE_EVENT";
 
 export function* watchMessageSaga() {
   const socket = yield select(({socket}) => socket);
-  console.log("hey");
   const channel = new eventChannel(emit => {
     socket.on("addedMessage", message => {
       emit({type: SENT_MESSAGE_EVENT, payload: message});
@@ -33,7 +32,7 @@ export function* watchMessageSaga() {
       case SENT_MESSAGE_EVENT:
         yield put(fetchMessageSuccess(payload));
         break;
-      case REMOVED_MESSAGE_EVENT:
+      default:
         yield put(removeMessageSuccess(payload));
     }
   }
